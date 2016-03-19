@@ -1,18 +1,24 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 import React, {
   AppRegistry,
-  Component,
-  Text
+  Component
 } from 'react-native';
+
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import App from './app/components/App'
+import challengeReducer from './app/reducers'
+import thunk from 'redux-thunk'
+import immutable from 'immutable'
+
+let store = createStore(challengeReducer, applyMiddleware(thunk))
 
 class challengeApp extends Component {
   render() {
     return (
-    <Text>HELLO WORLD</Text>
+      <Provider store={store}>
+        <App/>
+      </Provider>
     );
   }
 }
