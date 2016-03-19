@@ -1,0 +1,18 @@
+{
+  "name": "challengeApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "immutable": "^3.7.6",
+    "react-native": "^0.21.0",
+    "react-redux": "^4.4.1",
+    "redux": "^3.3.1",
+    "redux-thunk": "^2.0.1"
+  },
+  "devDependencies": {
+    "redux-logger": "^2.6.1"
+  }
+}
