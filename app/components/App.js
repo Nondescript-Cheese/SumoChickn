@@ -3,11 +3,11 @@ import React, {
   Text
 } from 'react-native'
 
+import CreateChallenges from './createChallengesComponent'
+
 //the view should hold each container
 const App = () => (
-  <View>
-    <Text>HELLO WORLD</Text>
-  </View>
+   <CreateChallenges /> 
 )
 
 export default App
