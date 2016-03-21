@@ -12,7 +12,7 @@ import { Actions } from 'react-native-router-flux';
 const Navigation = ({navPress}) => {
   return (
     <View style={styles.toolbar}>
-      <TouchableHighlight style={styles.button} onPress={() => navPress('testPage')}><Text>TestPage</Text></TouchableHighlight>
+      <TouchableHighlight style={styles.button} onPress={() => navPress('signUp')}><Text>SignUp</Text></TouchableHighlight>
       <TouchableHighlight style={styles.button} onPress={() => navPress('createChallenge')}><Text>Send{'\n'}Challenge</Text></TouchableHighlight>
     </View>
   )
