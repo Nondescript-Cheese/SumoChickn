@@ -5,10 +5,19 @@ import React, {
   TextInput,
   StyleSheet, 
   PropTypes,
-  PickerIOS
+  TouchableHighlight
 } from 'react-native'
 
-var points = PickerIOS.Item;
+const DropDown = require('react-native-dropdown');
+const Button = require('react-native-button');
+
+const {
+  Select,
+  Option,
+  OptionList,
+  updatePosition
+} = DropDown;
+
 
 const CreateChallenges = () => {
   return (
@@ -39,25 +48,35 @@ const CreateChallenges = () => {
 
         <View style={styles.choose}>
 
-          <View>
+          <View style={styles.inline}>
             <Text>
               Points:
             </Text>
+              <Select width={75}>
+                <Option>1</Option>
+                <Option>2</Option>
+                <Option>3</Option>
+            </Select>
           </View>
 
-          <View>
+          <View style={styles.inline}>
             <Text>
               Choose Person:
             </Text>
+              <Select width={75}>
+                <Option>Michael</Option>
+                <Option>Steffen</Option>
+                <Option>Hamzah</Option>
+            </Select>
           </View>
         </View>
 
       </View>
 
       <View style={styles.sub}>
-        <Text>
-          dsfsadf
-        </Text>
+        <Button style={styles.buttonWrap}>
+          <Text>SEND CHALLENGE</Text>
+        </Button>
       </View>
 
     </View>
@@ -117,6 +136,13 @@ var styles = StyleSheet.create({
   border: {
     borderColor: "black",
     borderWidth: 4
+  },
+  inline: {
+    flexDirection: "row",
+    flex: 1
+  },
+  buttonWrap: {
+    flex:1
   }
 })
 
