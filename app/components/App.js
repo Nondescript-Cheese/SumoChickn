@@ -4,13 +4,13 @@ import React, {
 } from 'react-native'
 
 import HandleRoutes from '../containers/HandleRoutes';
-import TestPage from './TestComponent'
+import Signup from './Signup'
 import CreateChallenges from './CreateChallengesComponent'
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
 const scenes = Actions.create(
   <Scene key="root" hideNavBar>
-    <Scene type="replace" key="testPage" initial={true} component={TestPage} />
+    <Scene type="replace" key="signUp" initial={true} component={Signup} />
     <Scene type="replace" key="createChallenge" component={CreateChallenges} />
   </Scene>
 );
