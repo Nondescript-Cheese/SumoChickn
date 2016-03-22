@@ -3,9 +3,10 @@ import React, {
  Text,
  ListView,
  StyleSheet,
- ScrollView
+ ScrollView,
 } from 'react-native'
 
+import Button from 'react-native-button';
 import Challenge from './Challenge';
 
 //dummy-data and dummy-function which will be replaced as soon as redux is completely built in:
@@ -97,6 +98,12 @@ const MyChallenges = () => {
 
       </View>
 
+      <View style={styles.sub}>
+        <Button style={styles.buttonWrap}>
+          <Text>SEND CHALLENGE</Text>
+        </Button>
+      </View>
+
    </View>
  )
 }
@@ -130,19 +137,16 @@ var styles = StyleSheet.create({
    flexDirection: 'row',
    marginBottom: 5
  },
-
  open: {
   flex: 0.5,
   alignItems: 'center',
   justifyContent: 'center'
  },
-
  closed: {
   flex: 0.5,
   alignItems: 'center',
   justifyContent: 'center'
  },
-
  openCloseChoiceText: {
   fontSize: 20,
  },
@@ -150,11 +154,13 @@ var styles = StyleSheet.create({
  challengesList: {
   flex: 0.5,
  },
-
  border: {
    borderColor: "black",
    borderWidth: 4
- }
+ },
+ buttonWrap: {
+    flex:1
+  }
 })
 
 export default MyChallenges
