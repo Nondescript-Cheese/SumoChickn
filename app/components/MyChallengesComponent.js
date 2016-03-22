@@ -3,14 +3,22 @@ import React, {
  Text,
  ListView,
  TextInput,
- StyleSheet, 
- // PropTypes,
- TouchableHighlight
+ StyleSheet,
+ TouchableHighlight,
+ ScrollView
 } from 'react-native'
 
 import Challenge from './Challenge';
 
 //dummy-data and dummy-function which will be replaced as soon as redux is completely built in:
+
+var alternativeDummyData = [
+  'first challenge',
+  'second challenge',
+  'third challenge',
+  'fourth challenge',
+  'fifth challenge'
+];
 
 var challenges = [{
         id: 1,
@@ -32,9 +40,45 @@ var challenges = [{
       }
       ];
 
-var challengeClick = (challengeID) => {
-  console.log('challenge with no. ' + challegeID +' is clicked. also this is a placeholder');
+var challengeClick = (challengeTitle) => {
+  console.log('this is the following challenge: ' + challengeTitle);
 }
+
+var createChallengeRow = (title, i) => <Challenge key={i} onClick={challengeClick} title={title} />;
+
+ // Old ul-version of list:
+
+   // <View style={styles.challengesList}>
+   //   <ul>
+   //     {challenges.map(challenge =>
+   //       <Challenge
+   //         key = {challenge.id}
+   //         {...challenge}
+   //         onClick={() => challengeClick(challenge.id)}
+   //       />
+   //     )}
+   //   </ul>
+   // </View>
+
+
+   /*<Challenge
+               key = {challenge.id}
+               {...challenge}
+               onClick={() => challengeClick(challenge.id)}
+             />
+
+
+
+
+  <ListView
+          dataSource={dummy}
+          renderRow={(rowData) => 
+            <Text>{dummy}</Text>}
+       />
+*/
+// old version wrapped up
+
+var _scrollView: ScrollView;
 
 //actual component:
 
@@ -66,17 +110,17 @@ const MyChallenges = () => {
         </View>
        </View>
 
-       <View style={styles.challengesList}>
-         <ul>
-           {challenges.map(challenge =>
-             <Challenge
-               key = {challenge.id}
-               {...challenge}
-               onClick={() => challengeClick(challenge.id)}
-             />
-           )}
-         </ul>
-       </View>
+       <ScrollView
+          ref={(scrollView) => { _scrollView = scrollView; }}
+          automaticallyAdjustContentInsets={false}
+          onScroll={() => { console.log('onScroll!'); }}
+          scrollEventThrottle={200}
+          style={styles.scrollView}>
+          {alternativeDummyData.map(createChallengeRow)}
+        </ScrollView>
+
+
+       
 
        <View style={[styles.border, styles.description]}>
          <Text style={styles.bodyTitle}>

@@ -1,16 +1,17 @@
 import React, {
   Text,
-  StyleSheet
+  StyleSheet,
+  View,
+  TouchableHighlight
 } from 'react-native'
 
-const Challenge = ({onClick, title}) => {
+const Challenge = ({key, onClick, title}) => {
   return (
-    <li
-      onClick={onClick}
-      style={styles.listItem}
-    >
-      {title}
-    </li>
+    <TouchableHighlight onPress={onClick(title)} style={styles.listItem}>
+      <Text style={styles.challengeText}>
+        {title}
+      </Text>
+    </TouchableHighlight>
   )
 }
 
@@ -21,6 +22,9 @@ var styles = StyleSheet.create({
   listItem: {
     borderColor: 'blue',
     borderWidth: 2
+  },
+  challengeText: {
+    fontSize: 45 
   }
 })
 
