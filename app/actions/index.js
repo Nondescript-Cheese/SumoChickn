@@ -14,3 +14,7 @@ export const ChallengePosted = (challenge) => {
     payload: challenge
   }
 }
+
+export const SendChallenge = (challenge) => {
+  
+}
