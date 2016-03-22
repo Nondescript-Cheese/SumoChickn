@@ -40,8 +40,8 @@ var challenges = [{
       }
       ];
 
-var challengeClick = (challengeTitle) => {
-  console.log('this is the following challenge: ' + challengeTitle);
+var challengeClick = (title) => {
+  console.log('this is the following challenge: ' + title);
 }
 
 var createChallengeRow = (title, i) => <Challenge key={i} onClick={challengeClick} title={title} />;

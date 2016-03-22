@@ -7,7 +7,7 @@ import React, {
 
 const Challenge = ({key, onClick, title}) => {
   return (
-    <TouchableHighlight onPress={onClick(title)} style={styles.listItem}>
+    <TouchableHighlight onPress={()=> {onClick(title)}} style={styles.listItem}>
       <Text style={styles.challengeText}>
         {title}
       </Text>
