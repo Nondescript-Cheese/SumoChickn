@@ -16,6 +16,7 @@ var Challenge = db.define('Challenge', {
   points: Sequelize.INTEGER,
   createdBy: Sequelize.STRING,
   completed: {type: Sequelize.BOOLEAN, defaultValue: false},
+  userChallenged: Sequelize.STRING
 }, {
   timestamps: false
 });
@@ -26,9 +27,8 @@ var Tribe = db.define('Tribe', {
   timestamps: false
 });
 
-User.hasMany(Challenge, {as: 'UserChallenges'});
-Tribe.hasMany(Challenge, {as: 'TribeChallenges'});
-
+Challenge.belongsTo(Tribe);
+Challenge.belongsTo(User);
 // Declares the join table that creates a relationship between a USER and a CHALLENGE
 Tribe.belongsToMany(User, {through: 'UserTribe', timestamps: false});
 User.belongsToMany(Tribe, {through: 'UserTribe', timestamps: false});
