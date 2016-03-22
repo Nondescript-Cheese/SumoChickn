@@ -28,10 +28,4 @@ var styles = StyleSheet.create({
   }
 })
 
-// Challenge.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-//   completed: PropTypes.bool.isRequired,
-//   text: PropTypes.string.isRequired
-// }
-
 export default Challenge

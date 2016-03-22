@@ -2,23 +2,13 @@ import React, {
  View,
  Text,
  ListView,
- TextInput,
  StyleSheet,
- TouchableHighlight,
  ScrollView
 } from 'react-native'
 
 import Challenge from './Challenge';
 
 //dummy-data and dummy-function which will be replaced as soon as redux is completely built in:
-
-var alternativeDummyData = [
-  'first challenge',
-  'second challenge',
-  'third challenge',
-  'fourth challenge',
-  'fifth challenge'
-];
 
 var challenges = [{
         id: 1,
@@ -37,6 +27,24 @@ var challenges = [{
         title: '10.000 push-ups',
         text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
         completed: false
+      },
+      {
+        id: 4,
+        title: '100.000 squats',
+        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
+        completed: false
+      },
+      {
+        id: 5,
+        title: 'train fast moonwalking',
+        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
+        completed: false
+      },
+      {
+        id: 6,
+        title: 'watch all spongebob episodes',
+        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
+        completed: false
       }
       ];
 
@@ -44,39 +52,7 @@ var challengeClick = (title) => {
   console.log('this is the following challenge: ' + title);
 }
 
-var createChallengeRow = (title, i) => <Challenge key={i} onClick={challengeClick} title={title} />;
-
- // Old ul-version of list:
-
-   // <View style={styles.challengesList}>
-   //   <ul>
-   //     {challenges.map(challenge =>
-   //       <Challenge
-   //         key = {challenge.id}
-   //         {...challenge}
-   //         onClick={() => challengeClick(challenge.id)}
-   //       />
-   //     )}
-   //   </ul>
-   // </View>
-
-
-   /*<Challenge
-               key = {challenge.id}
-               {...challenge}
-               onClick={() => challengeClick(challenge.id)}
-             />
-
-
-
-
-  <ListView
-          dataSource={dummy}
-          renderRow={(rowData) => 
-            <Text>{dummy}</Text>}
-       />
-*/
-// old version wrapped up
+var createChallengeRow = (challenge, i) => <Challenge key={i} onClick={challengeClick} title={challenge.title} />;
 
 var _scrollView: ScrollView;
 
@@ -116,35 +92,10 @@ const MyChallenges = () => {
           onScroll={() => { console.log('onScroll!'); }}
           scrollEventThrottle={200}
           style={styles.scrollView}>
-          {alternativeDummyData.map(createChallengeRow)}
+          {challenges.map(createChallengeRow)}
         </ScrollView>
 
-
-       
-
-       <View style={[styles.border, styles.description]}>
-         <Text style={styles.bodyTitle}>
-           Description
-         </Text>
-         <TextInput multiline={true} style={styles.bodyDescription} />
-       </View>
-
-       <View style={styles.choose}>
-
-         <View style={styles.inline}>
-           
-         </View>
-
-         <View style={styles.inline}>
-           
-         </View>
-       </View>
-
-     </View>
-
-     <View style={styles.sub}>
-    
-     </View>
+      </View>
 
    </View>
  )
@@ -200,41 +151,9 @@ var styles = StyleSheet.create({
   flex: 0.5,
  },
 
-// -----------
-
- bodyTitle: {
-   fontSize: 20,
- },
- bodyInput: {
-   flex: 1,
-   borderColor: "brown",
-   borderWidth: 4,
- },
- bodyDescription: {
-   flex: 1,
-   fontSize: 25,
-   borderColor: "brown",
-   borderWidth: 4
- },
- choose: {
-   borderColor: "orange",
-   borderWidth: 4,
-   flex: 0.3
- },
- 
- description: {
-   flex: 0.5
- },
  border: {
    borderColor: "black",
    borderWidth: 4
- },
- inline: {
-   flexDirection: "row",
-   flex: 1
- },
- buttonWrap: {
-   flex:1
  }
 })
 
