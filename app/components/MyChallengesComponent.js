@@ -8,16 +8,35 @@ import React, {
  TouchableHighlight
 } from 'react-native'
 
-// const DropDown = require('react-native-dropdown');
-// const Button = require('react-native-button');
+import Challenge from './Challenge';
 
-// const {
-//  Select,
-//  Option,
-//  OptionList,
-//  updatePosition
-// } = DropDown;
+//dummy-data and dummy-function which will be replaced as soon as redux is completely built in:
 
+var challenges = [{
+        id: 1,
+        title: 'No Facebook',
+        text: 'Today my friend, you should not go on Facebook at all!!!',
+        completed: false
+      },
+      {
+        id: 2,
+        title: 'Run 10 miles',
+        text: 'Run Forest, run run run!!',
+        completed: true
+      },
+      {
+        id: 3,
+        title: '10.000 push-ups',
+        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
+        completed: false
+      }
+      ];
+
+var challengeClick = (challengeID) => {
+  console.log('challenge with no. ' + challegeID +' is clicked. also this is a placeholder');
+}
+
+//actual component:
 
 const MyChallenges = () => {
  return (
@@ -45,7 +64,18 @@ const MyChallenges = () => {
             closed
           </Text>
         </View>
+       </View>
 
+       <View style={styles.challengesList}>
+         <ul>
+           {challenges.map(challenge =>
+             <Challenge
+               key = {challenge.id}
+               {...challenge}
+               onClick={() => challengeClick(challenge.id)}
+             />
+           )}
+         </ul>
        </View>
 
        <View style={[styles.border, styles.description]}>
@@ -111,13 +141,19 @@ var styles = StyleSheet.create({
   alignItems: 'center',
   justifyContent: 'center'
  },
+
  closed: {
   flex: 0.5,
   alignItems: 'center',
   justifyContent: 'center'
  },
+
  openCloseChoiceText: {
   fontSize: 20,
+ },
+
+ challengesList: {
+  flex: 0.5,
  },
 
 // -----------
