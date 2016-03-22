@@ -7,8 +7,10 @@
   },
   "dependencies": {
     "body-parser": "^1.15.0",
+    "es6-promise": "^3.1.2",
     "express": "^4.13.4",
     "immutable": "^3.7.6",
+    "isomorphic-fetch": "^2.2.1",
     "morgan": "^1.7.0",
     "mysql": "^2.10.2",
     "react": "^0.14.7",
