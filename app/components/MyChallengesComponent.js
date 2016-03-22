@@ -9,57 +9,17 @@ import React, {
 import Button from 'react-native-button';
 import Challenge from './Challenge';
 
-//dummy-data and dummy-function which will be replaced as soon as redux is completely built in:
-
-var challenges = [{
-        id: 1,
-        title: 'No Facebook',
-        text: 'Today my friend, you should not go on Facebook at all!!!',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Run 10 miles',
-        text: 'Run Forest, run run run!!',
-        completed: true
-      },
-      {
-        id: 3,
-        title: '10.000 push-ups',
-        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
-        completed: false
-      },
-      {
-        id: 4,
-        title: '100.000 squats',
-        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
-        completed: false
-      },
-      {
-        id: 5,
-        title: 'train fast moonwalking',
-        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
-        completed: false
-      },
-      {
-        id: 6,
-        title: 'watch all spongebob episodes',
-        text: 'Go hard or go home. In case you dont go hard, ur a dog with 5 ears!',
-        completed: false
-      }
-      ];
-
 var challengeClick = (title) => {
   console.log('this is the following challenge: ' + title);
 }
 
-var createChallengeRow = (challenge, i) => <Challenge key={i} onClick={challengeClick} title={challenge.title} />;
+var createChallengeRow = (challenge, i) => <Challenge key={i} onClick={challengeClick} title={challenge.challengeText} />;
 
 var _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = () => {
+const MyChallenges = ({visibleChallenges}) => {
  return (
 
    <View style={styles.container}>
@@ -90,10 +50,9 @@ const MyChallenges = () => {
        <ScrollView
           ref={(scrollView) => { _scrollView = scrollView; }}
           automaticallyAdjustContentInsets={false}
-          onScroll={() => { console.log('onScroll!'); }}
           scrollEventThrottle={200}
           style={styles.scrollView}>
-          {challenges.map(createChallengeRow)}
+          {visibleChallenges.map(createChallengeRow)}
         </ScrollView>
 
       </View>
