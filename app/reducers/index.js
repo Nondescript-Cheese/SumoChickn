@@ -1,6 +1,6 @@
 import Immutable from 'immutable'
 import { combineReducers } from 'redux'
-import { CHALLENGE_POSTING, CHALLENGE_POSTED } from '../actions'
+import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW } from '../actions'
 
 //this is a place holder to allow app to render.
 const challenge = (state, action) => {
@@ -35,7 +35,7 @@ const challenges = (state = {challengeList: [{
     createBy: 'TechnoViking',
     id_user: 1,
     id_tribe: 1,
-    completed: false
+    completed: true
   },
   {
     id: 3,
@@ -61,6 +61,14 @@ const challenges = (state = {challengeList: [{
   }
 }
 
+const challengesViewStatus = (state = false, action) => {
+  switch(action.type) {
+    case CHANGE_CHALLENGES_VIEW:
+      return action.challengesView
+    default:
+      return state
+  }
+}
 // TODO LATER
 // const allUsers = (state = [], action) => {
 //   switch(action.type){
@@ -73,6 +81,7 @@ const challenges = (state = {challengeList: [{
 
 const challengeApp = combineReducers({
   challenges,
+  challengesViewStatus
   // allUsers
 })
 

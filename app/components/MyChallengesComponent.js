@@ -21,7 +21,7 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges, onClick}) => {
+const MyChallenges = ({visibleChallenges, changeView}) => {
  return (
 
    <View style={styles.container}>
@@ -35,13 +35,13 @@ const MyChallenges = ({visibleChallenges, onClick}) => {
      <View style={styles.body}>
        <View style={[styles.openCloseChoice, styles.border]}>
          
-        <TouchableHighlight style={[styles.border, styles.open]} onPress={()=> onClick(false)}>
+        <TouchableHighlight style={[styles.border, styles.open]} onPress={() => changeView(false)}>
           <Text style={styles.openCloseChoiceText}>
             open
           </Text>
         </TouchableHighlight>
 
-        <TouchableHighlight style={[styles.border, styles.closed]} onPress={()=> onClick(true)>
+        <TouchableHighlight style={[styles.border, styles.closed]} onPress={() => changeView(true)}>
           <Text style={styles.openCloseChoiceText}>
             closed
           </Text>

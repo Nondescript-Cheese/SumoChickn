@@ -5,15 +5,14 @@ import React, {
 
 import HandleRoutes from '../containers/HandleRoutes';
 import Signup from './Signup'
-import CreateChallenges from './CreateChallengesComponent'
-import MyChallenges from './MyChallengesComponent'
+import SendChallenge from '../containers/SendChallenge'
 import ChallengeList from '../containers/ChallengeList'
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
 const scenes = Actions.create(
   <Scene key="root" hideNavBar>
     <Scene type="replace" key="signUp" initial={true} component={Signup} />
-    <Scene type="replace" key="createChallenge" component={CreateChallenges} />
+    <Scene type="replace" key="createChallenge" component={SendChallenge} />
     <Scene type="replace" key="myChallenges" component={ChallengeList} />
   </Scene>
 );

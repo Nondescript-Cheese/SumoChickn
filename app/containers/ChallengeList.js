@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import MyChallenges from '../components/MyChallengesComponent.js'
 import { setChallengesViewStatus } from '../actions'
+import { bindActionCreators } from 'redux'
 
 const filterView = (challenges, challengesViewStatus) => {
   switch (challengesViewStatus) {
@@ -11,19 +12,19 @@ const filterView = (challenges, challengesViewStatus) => {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
-    visibleChallenges: filterView(state.challenges.ChallengeList, state.challengesViewStatus),
+    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus),
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: bindActionCreators(setChallengesViewStatus, dispatch)
+    changeView: bindActionCreators(setChallengesViewStatus, dispatch)
     }
   }
-}
+  //TODO: CREATE SETCHALLENGEVIEWSTATUS ACTION IN ACTION TYPES AND IN REDUCERS!!
+
 const ChallengeList = connect(
   mapStateToProps,
   mapDispatchToProps

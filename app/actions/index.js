@@ -1,5 +1,6 @@
 export const CHALLENGE_POSTING = 'CHALLENGE_POSTING'
 export const CHALLENGE_POSTED = 'CHALLENGE_POSTED'
+export const CHANGE_CHALLENGES_VIEW = 'CHANGE_CHALLENGES_VIEW'
 
 export const ChallengePosting = (challenge) => {
   return {
@@ -43,6 +44,13 @@ export const SendChallenge = (challenge) => {
     .catch((error) => {
       console.warn(error);
     });
+  }
+}
+
+export const setChallengesViewStatus = (challengesView) => {
+  return {
+    type: CHANGE_CHALLENGES_VIEW,
+    challengesView
   }
 }
 
