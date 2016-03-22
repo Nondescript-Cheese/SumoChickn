@@ -4,33 +4,33 @@ var db = require('../db').sequelize;
 //UNCOMMENT THE DATA FOR THE FUNCTIONS TO WORK.
 
 // var challenges = [
-//   {
-//     id: 1,
-//     challengeText: 'Do 45 pushups non stop',
-//     points: 4,
-//     createBy: 'Aladdin',
-//     id_user: 3,
-//     id_tribe: 1,
-//     completed: false
-//   },
-//   {
-//     id: 2,
-//     challengeText: "Don't get in trouble",
-//     points: 5,
-//     createBy: 'TechnoViking',
-//     id_user: 1,
-//     id_tribe: 1,
-//     completed: false
-//   },
-//   {
-//     id: 3,
-//     challengeText: 'Eat a cockroach from the TL floors',
-//     points: 100,
-//     createBy: 'Mike "The Professional" 2.0',
-//     id_user: 2,
-//     id_tribe: 1,
-//     completed: false
-//   }
+  // {
+  //   id: 1,
+  //   challengeText: 'Do 45 pushups non stop',
+  //   points: 4,
+  //   createBy: 'Aladdin',
+  //   id_user: 3,
+  //   id_tribe: 1,
+  //   completed: false
+  // },
+  // {
+  //   id: 2,
+  //   challengeText: "Don't get in trouble",
+  //   points: 5,
+  //   createBy: 'TechnoViking',
+  //   id_user: 1,
+  //   id_tribe: 1,
+  //   completed: false
+  // },
+  // {
+  //   id: 3,
+  //   challengeText: 'Eat a cockroach from the TL floors',
+  //   points: 100,
+  //   createBy: 'Mike "The Professional" 2.0',
+  //   id_user: 2,
+  //   id_tribe: 1,
+  //   completed: false
+  // }
 // ];
 
 var nextId = 4;
