@@ -5,13 +5,16 @@ import React, {
 } from 'react-native';
 
 import { Provider } from 'react-redux'
+import createLogger from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 import App from './app/components/App'
 import challengeReducer from './app/reducers'
 import thunk from 'redux-thunk'
 import immutable from 'immutable'
 
-let store = createStore(challengeReducer, applyMiddleware(thunk))
+const loggerMiddleware = createLogger()
+
+let store = createStore(challengeReducer, applyMiddleware(thunk, loggerMiddleware))
 
 class challengeApp extends Component {
   render() {
