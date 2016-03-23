@@ -22,5 +22,10 @@ module.exports = {
     }).catch(function(err) {
       res.send(404, 'error getting info');
     })
+  },
+  getAllUsers: function(req, res) {
+    db.models.User.findAll().then(function(data) {
+      res.send(200, data);
+    });
   }
 };
