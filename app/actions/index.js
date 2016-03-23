@@ -30,7 +30,7 @@ export const SendChallenge = (challenge) => {
 
     console.log(newChallenge)
 
-    return fetch('/submitChallenge', {
+    return fetch('http://localhost:3000/submitChallenge', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

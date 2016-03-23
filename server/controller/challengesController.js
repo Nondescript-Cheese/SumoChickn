@@ -3,15 +3,16 @@ var db = require('../db')
 module.exports = {
   postChallenge: function(req, res) {
     var challenge = req.body;
+    console.log("THE BODY IS", req.body);
     db.models.User.find({
       where: {
         username: challenge.userChallenged
       }
     }).then(function(data) {
       return db.models.Challenge.create({
-        challengeText: challenge.text,
+        challengeText: challenge.challengeText,
         points: challenge.points,
-        createdBy: challenge.creator,
+        createdBy: challenge.createdBy,
         userChallenged: challenge.userChallenged,
         UserId: data.id
       });
