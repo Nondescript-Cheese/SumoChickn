@@ -18,8 +18,8 @@ export const challengeStatusChanged = (id) => {
 
 export const toggleChallengeStatus = (id) => {
   return dispatch => {
-  	dispatch(challengeStatusChanged(id));
-  	return fetch('/toggleChallenge/'+id, {
+  	dispatch(challengeStatusChanging(id));
+  	return fetch('http://localhost:3000/toggleChallenge/'+id, {
   	  method: 'PUT',
       headers: {
         'Accept': 'application/json',
