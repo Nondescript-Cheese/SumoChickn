@@ -7,6 +7,7 @@ import React, {
   StyleSheet, 
   PropTypes,
   PickerIOS,
+  Alert,
   TouchableHighlight
 } from 'react-native'
 
@@ -26,7 +27,7 @@ const formValue = {
 
   description: "",
   assignedTo: undefined,
-  // createdBy:
+  // createdBy
   points: 0
 }
 
@@ -79,9 +80,7 @@ class CreateChallenges extends Component {
 
           <View style={[styles.border, styles.description]}>
             <Text style={styles.bodyTitle}>
-              Description
-              {this.state.description}
-              {formValue.assignedTo}
+              Challenge Description
             </Text>
             <TextInput multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {this.setState({description: text})
               formValue.description = text}
@@ -116,9 +115,15 @@ class CreateChallenges extends Component {
 
         </View>
         <View style={styles.sub}>
-          <Button style={styles.buttonWrap} onPress ={()=>this.props.sendChallenge(formValue)}>
+          <TouchableHighlight style={styles.buttonWrap} onPress ={()=>
+            // this.props.sendChallenge(formValue)
+            Alert.alert("Challenge " + formValue.assignedTo + "!!", "Are you ready to send your " + formValue.points + " point challenge to " + formValue.assignedTo + "?",             [
+              {text: 'Send It Baby', onPress: () => this.props.sendChallenge(formValue)},
+              {text: 'Cancel', onPress: () => console.log("User cancelled")}
+            ])
+          }>
             <Text>SEND CHALLENGE</Text>
-          </Button>
+          </TouchableHighlight>
         </View>
 
 
