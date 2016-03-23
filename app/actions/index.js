@@ -28,8 +28,6 @@ export const SendChallenge = (challenge) => {
         completed: false
     }
 
-    console.log(newChallenge)
-
     return fetch('http://localhost:3000/submitChallenge', {
       method: 'POST',
       headers: {
@@ -44,8 +42,8 @@ export const SendChallenge = (challenge) => {
       
     })
     .catch((error) => {
-      console.warn(error);
-    });
+      console.warn(error)
+    })
   }
 }
 
