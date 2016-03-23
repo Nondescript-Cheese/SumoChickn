@@ -4,7 +4,6 @@ module.exports = {
   getUserInfo: function(req, res) {
     var results = [];
     var userId = parseInt(req.params.userID);
-    console.log('USERID-------------->', userId);
     db.models.User.findAll({
       where: {
         id: userId
