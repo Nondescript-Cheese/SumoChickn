@@ -9,6 +9,8 @@ var router = require('express').Router();
 
 router.get('/getInitialData/:userID', controller.users.getUserInfo);
 
+router.get('/getAllUsers', controller.users.getAllUsers);
+
 router.post('/login', controller.auth.login);
 
 router.post('/submitChallenge', controller.challenges.postChallenge);
