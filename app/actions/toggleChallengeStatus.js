@@ -11,7 +11,7 @@ export const challengeStatusChanging = (id) => {
 
 export const challengeStatusChanged = (id) => {
   return {
-    type: 'TOGGLED_CHALLENGE',
+    type: TOGGLED_CHALLENGE,
     id: id
   }
 }

@@ -15,7 +15,14 @@ const challenge = (state, action) => {
         id_user: action.challenge.id_user,
         completed: false
       }
-    case 
+    case TOGGLED_CHALLENGE:
+      if(state.id !== action.challenge.id) {
+        return state;
+      }
+      return Object.assign({}, state, {
+        completed: !state.completed
+      })
+      }
   }
 }
 
@@ -57,6 +64,10 @@ const challenges = (state = {challengeList: [{
         postingChallenge: false,
         challengeList: state.challengeList.concat([challenge(undefined, action)]) 
       })
+    case TOGGLED_CHALLENGE:
+      return
+        state.challenges.map(t => challenge(t, action)
+        )
     default:
       return state
   }
