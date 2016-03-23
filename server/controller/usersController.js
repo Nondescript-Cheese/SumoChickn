@@ -1,48 +1,30 @@
-//this will be how we require our db
-// var db = require('../db').sequelize;
-
-//THIS DATA IS FOR TESTING PURPOSES.
-//UNCOMMENT THE DATA FOR THE FUNCTIONS TO WORK.
-
-// var users = [
-//   {
-//     id: 1,
-//     username: 'Mike "The Professional" 2.0',
-//     born: 1993,
-//     died: 2522,
-//     beastPoints: 500,
-//     wussPoints: 0,
-//     availableChallenges: 1
-//   },
-//   {
-//     id: 2,
-//     username: 'Aladdin',
-//     born: 1991,
-//     died: 1992,
-//     beastPoints: 100,
-//     wussPoints: 0,
-//     availableChallenges: 1
-//   },
-//   {
-//     id: 3,
-//     username: 'TechnoViking',
-//     born: 1989,
-//     died: 1990,
-//     beastPoints: 100,
-//     wussPoints: 0,
-//     availableChallenges: 1
-//   }
-// ];
+var db = require('../db');
 
 module.exports = {
   getUserInfo: function(req, res) {
+    var results = [];
     var userId = parseInt(req.params.userID);
-    for(var i = 0; i < users.length; i++) {
-      if(users[i].id === userId) {
-        var userFound = users[i];
-        break;
+    db.models.User.findAll({
+      where: {
+        id: userId
       }
-    }
-    res.send(200,userFound);
+    }).then(function(data) {
+      results = results.concat(data);
+      return db.models.Challenge.findAll({
+        where: {
+          UserId: userId
+        }
+      });
+    }).then(function(challenges) {
+      results = results.concat(challenges);
+      res.send(200, results);
+    }).catch(function(err) {
+      res.send(404, 'error getting info');
+    })
+  },
+  getAllUsers: function(req, res) {
+    db.models.User.findAll().then(function(data) {
+      res.send(200, data);
+    });
   }
-}
+};
