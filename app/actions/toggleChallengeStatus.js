@@ -18,20 +18,22 @@ export const challengeStatusChanged = (id) => {
 
 export const toggleChallengeStatus = (id) => {
   return dispatch => {
-  	dispatch(challengeStatusChanging(id));
-  	return fetch('/toggleChallenge/'+id, {
-  	  method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-  	})
-    .then(response => {
-      dispatch(challengeStatusChanged(id));
-    })
-    .catch(error => {
-      console.warn(error);
-    })
+  	dispatch(challengeStatusChanged(id));
+  	// return fetch('/toggleChallenge/'+id, {
+  	//   method: 'PUT',
+   //    headers: {
+   //      'Accept': 'application/json',
+   //      'Content-Type': 'application/json'
+   //    },
+  	// })
+   //  .then(response => {
+   //    dispatch(challengeStatusChanged(id));
+   //  })
+    // .catch(error => {
+    //   console.warn(error);
+    // })
 
   }
 }
+
+//Some stuff commented out for testing purposes
