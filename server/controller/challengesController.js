@@ -51,7 +51,7 @@ module.exports = {
           res.send(200, addedPoints);
         });
       } else {
-        total = total = userResult.beastPoints - points;
+        total = userResult.beastPoints - points;
         return userResult.updateAttributes({
           beastPoints: total
         }).then(function(subtractedPoints) {
