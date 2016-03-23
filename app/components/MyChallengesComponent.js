@@ -11,14 +11,17 @@ import React, {
 import Button from 'react-native-button';
 import Challenge from './Challenge';
 
-let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={toggleChallengeStatus} title={challenge.challengeText} />;
+let temp = () => {console.log('hello')};
 
 let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges, changeView, toggleChallengeStatus}) => {
- return (
+const MyChallenges = ({visibleChallenges, changeView, toggleChallenge}) => {
+  
+  let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={toggleChallenge} title={challenge.challengeText} />;
+
+  return (
 
    <View style={styles.container}>
 
