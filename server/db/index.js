@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 
-var db = new Sequelize('challengr', 'root', 'password');
+var db = new Sequelize('challengr', 'root', '');
 
 var User = db.define('User', {
   username: {type:Sequelize.STRING, unique: true},
