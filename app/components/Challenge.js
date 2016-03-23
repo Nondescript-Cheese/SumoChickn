@@ -5,7 +5,7 @@ import React, {
   TouchableHighlight
 } from 'react-native'
 
-const Challenge = ({key, onClick, title}) => {
+const Challenge = ({key, onClick, title, id}) => {
   return (
     <TouchableHighlight onPress={()=> {onClick(title)}} style={styles.listItem}>
       <Text style={styles.challengeText}>

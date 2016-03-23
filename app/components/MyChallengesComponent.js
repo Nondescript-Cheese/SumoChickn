@@ -4,22 +4,24 @@ import React, {
  ListView,
  StyleSheet,
  ScrollView,
+ Switch,
+ TouchableHighlight
 } from 'react-native'
 
 import Button from 'react-native-button';
 import Challenge from './Challenge';
 
-var challengeClick = (title) => {
+let challengeClick = (title) => {
   console.log('this is the following challenge: ' + title);
 }
 
-var createChallengeRow = (challenge, i) => <Challenge key={i} onClick={challengeClick} title={challenge.challengeText} />;
+let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={challengeClick} title={challenge.challengeText} />;
 
-var _scrollView: ScrollView;
+let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges}) => {
+const MyChallenges = ({visibleChallenges, changeView}) => {
  return (
 
    <View style={styles.container}>
@@ -31,20 +33,19 @@ const MyChallenges = ({visibleChallenges}) => {
      </View>
 
      <View style={styles.body}>
-
        <View style={[styles.openCloseChoice, styles.border]}>
          
-        <View style={[styles.border, styles.open]}>
+        <TouchableHighlight style={[styles.border, styles.open]} onPress={() => changeView(false)}>
           <Text style={styles.openCloseChoiceText}>
             open
           </Text>
-        </View>
+        </TouchableHighlight>
 
-        <View style={[styles.border, styles.closed]}>
+        <TouchableHighlight style={[styles.border, styles.closed]} onPress={() => changeView(true)}>
           <Text style={styles.openCloseChoiceText}>
             closed
           </Text>
-        </View>
+        </TouchableHighlight>
        </View>
 
        <ScrollView
