@@ -5,14 +5,14 @@ export const CHANGE_CHALLENGES_VIEW = 'CHANGE_CHALLENGES_VIEW'
 export const ChallengePosting = (challenge) => {
   return {
     type: CHALLENGE_POSTING,
-    payload: challenge
+    challenge
   }
 }
 
 export const ChallengePosted = (challenge) => {
   return {
     type: CHALLENGE_POSTED,
-    payload: challenge
+    challenge
   }
 }
 
@@ -21,13 +21,14 @@ export const SendChallenge = (challenge) => {
     dispatch(ChallengePosting(challenge))
 
     let newChallenge = {
-        challengeText: challenge.challengeText,
+        challengeText: challenge.description,
         points: challenge.points,
         createdBy: challenge.createdBy,
-        id_user: challenge.id_user,
-        id_tribe: challenge.id_tribe,
+        userChallenged: challenge.assignedTo,
         completed: false
     }
+
+    console.log(newChallenge)
 
     return fetch('/submitChallenge', {
       method: 'POST',
