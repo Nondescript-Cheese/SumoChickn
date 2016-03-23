@@ -15,6 +15,7 @@ const challenge = (state, action) => {
         id_user: action.challenge.id_user,
         completed: false
       }
+    case 
   }
 }
 

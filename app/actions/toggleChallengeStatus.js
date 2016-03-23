@@ -1,10 +1,10 @@
-var ToggleChallenge_ServerEndpoint = 'localhost:3000/toggleChallenge/';
-
+export const TOGGLING_CHALLENGE = 'TOGGLING_CHALLENGE'
+export const TOGGLED_CHALLENGE = 'TOGGLED_CHALLENGE'
 
 
 export const challengeStatusChanging = (id) => {
   return {
-    type: 'TOGGLING_CHALLENGE',
+    type: TOGGLING_CHALLENGE,
     id: id
   }
 }
