@@ -5,14 +5,14 @@ export const CHANGE_CHALLENGES_VIEW = 'CHANGE_CHALLENGES_VIEW'
 export const ChallengePosting = (challenge) => {
   return {
     type: CHALLENGE_POSTING,
-    payload: challenge
+    challenge
   }
 }
 
 export const ChallengePosted = (challenge) => {
   return {
     type: CHALLENGE_POSTED,
-    payload: challenge
+    challenge
   }
 }
 
