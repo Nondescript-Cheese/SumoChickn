@@ -99,6 +99,7 @@ const allUsers = (state = {usersList: [], fetchingAllUsers: false}, action) => {
         fetchingAllUsers: true
       })
     case FETCHED_USERS:
+      console.log('in reducer fetched users + this is usersList: ', action.payload.users);
       return Object.assign({}, state, {
         usersList: action.payload.users
       })
