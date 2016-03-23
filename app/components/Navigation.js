@@ -22,8 +22,8 @@ const Navigation = ({navPress}) => {
 var styles = StyleSheet.create({
   toolbar:{
     backgroundColor:'#81c04d',
-    paddingTop:30,
-    paddingBottom:10,
+    paddingTop:4,
+    paddingBottom:4,
     justifyContent: 'space-around',
     flexDirection:'row'    
   },
@@ -37,7 +37,7 @@ var styles = StyleSheet.create({
   // }
   button: {
      borderWidth: 2,
-     height: 100,
+     height: 50,
      width: 100,
      borderRadius: 50,
      justifyContent: 'center',

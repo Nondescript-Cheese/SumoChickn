@@ -14,7 +14,7 @@ const challenge = (state, action) => {
         points: action.challenge.points,
         createdBy: action.challenge.createdBy,
         id_tribe: action.challenge.id_tribe,
-        id_user: action.challenge.id_user,
+        userChallenged: action.challenge.id_user,
         completed: false
       }
     case TOGGLED_CHALLENGE:
@@ -37,8 +37,7 @@ const challenges = (state = {challengeList: [{
     challengeText: 'Do 45 pushups non stop',
     points: 4,
     createBy: 'Aladdin',
-    id_user: 3,
-    id_tribe: 1,
+    userChallenged: 3,
     completed: false
   },
   {
@@ -46,8 +45,7 @@ const challenges = (state = {challengeList: [{
     challengeText: "Don't get in trouble",
     points: 5,
     createBy: 'TechnoViking',
-    id_user: 1,
-    id_tribe: 1,
+    userChallenged: 1,
     completed: true
   },
   {
@@ -55,8 +53,7 @@ const challenges = (state = {challengeList: [{
     challengeText: 'Eat a cockroach from the TL floors',
     points: 100,
     createBy: 'Mike "The Professional" 2.0',
-    id_user: 2,
-    id_tribe: 1,
+    userChallenged: 2,
     completed: false
   }], postingChallenge: false, challengeStatusChanging: false} , action) => {
   switch(action.type) {

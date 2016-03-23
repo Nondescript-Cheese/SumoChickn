@@ -1,16 +1,16 @@
-import React, { 
+import React, {
+  Component, 
   View,
   Text,
   ListView,
   TextInput,
   StyleSheet, 
   PropTypes,
+  PickerIOS,
   TouchableHighlight
 } from 'react-native'
 
 const DropDown = require('react-native-dropdown');
-const Button = require('react-native-button');
-
 const {
   Select,
   Option,
@@ -18,70 +18,124 @@ const {
   updatePosition
 } = DropDown;
 
+var PickerItemIOS = PickerIOS.Item;
 
-const CreateChallenges = () => {
-  return (
+const Button = require('react-native-button');
 
-    <View style={styles.container}>
+const formValue = {
 
-      <View style={styles.header}>
-        <Text style={styles.headerText}>
-          Create Challenge
-        </Text>
-      </View>
-
-      <View style={styles.body}>
-
-        <View style={[styles.title, styles.border]}>
-          <Text style={styles.bodyTitle}>
-            Title
-          </Text>
-          <TextInput style={styles.bodyInput} />
-        </View>
-
-        <View style={[styles.border, styles.description]}>
-          <Text style={styles.bodyTitle}>
-            Description
-          </Text>
-          <TextInput multiline={true} style={styles.bodyDescription} />
-        </View>
-
-        <View style={styles.choose}>
-
-          <View style={styles.inline}>
-            <Text>
-              Points:
-            </Text>
-              <Select width={75}>
-                <Option>1</Option>
-                <Option>2</Option>
-                <Option>3</Option>
-            </Select>
-          </View>
-
-          <View style={styles.inline}>
-            <Text>
-              Choose Person:
-            </Text>
-              <Select width={75}>
-                <Option>Michael</Option>
-                <Option>Steffen</Option>
-                <Option>Hamzah</Option>
-            </Select>
-          </View>
-        </View>
-
-      </View>
-
-      <View style={styles.sub}>
-        <Button style={styles.buttonWrap}>
-          <Text>SEND CHALLENGE</Text>
-        </Button>
-      </View>
-
-    </View>
-  )
+  description: "",
+  assignedTo: undefined,
+  // createdBy:
+  points: 0
 }
+
+class CreateChallenges extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+      description: "",
+      assignedTo: "",
+      points: 1,
+    }
+  }
+
+  componentDidMount() {
+      updatePosition(this.refs['SELECT1']);
+      updatePosition(this.refs['SELECT2'])
+      updatePosition(this.refs['OPTIONLIST']);
+    }
+
+    _getOptionList() {
+      return this.refs['OPTIONLIST'];
+    }
+
+    _points(selectedPoints) {
+      this.setState({
+        points: selectedPoints
+      })
+      formValue.points = selectedPoints;
+    }
+    _friend (selectedFriend) {
+      this.setState({
+        assignedTo: selectedFriend
+      })
+      formValue.assignedTo = selectedFriend;
+    }
+
+  render () {
+    return (
+      <View style={styles.container}>
+
+        <View style={styles.header}>
+          <Text style={styles.headerText}>
+            Create Challenge
+          </Text>
+        </View>
+
+        <View style={styles.body}>
+
+
+          <View style={[styles.border, styles.description]}>
+            <Text style={styles.bodyTitle}>
+              Description
+              {this.state.description}
+              {formValue.assignedTo}
+            </Text>
+            <TextInput multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {this.setState({description: text})
+              formValue.description = text}
+            } />
+          </View>
+
+          <View style={styles.choose}>
+            <Select width={100}
+            ref="SELECT1"
+            optionListRef={this._getOptionList.bind(this)}
+            defaultValue="Points"
+            onSelect={this._points.bind(this)}>
+            <Option>1</Option>
+            <Option>2</Option>
+            <Option>3</Option>
+            <Option>4</Option>
+            <Option>5</Option>
+            <Option>6</Option>
+            </Select>
+            <OptionList ref="OPTIONLIST"/>
+
+            <Select width={100}
+            ref="SELECT2"
+            optionListRef={this._getOptionList.bind(this)}
+            defaultValue="Friends"
+            onSelect={this._friend.bind(this)}>
+            {this.props.friends.map((friend)=>(
+            <Option key = {friend}>{friend}</Option>))}
+            </Select>
+            <OptionList ref="OPTIONLIST"/>
+          </View>
+
+        </View>
+        <View style={styles.sub}>
+          <Button style={styles.buttonWrap} onPress ={()=>this.props.sendChallenge(formValue)}>
+            <Text>SEND CHALLENGE</Text>
+          </Button>
+        </View>
+
+
+      </View>
+    )
+  }
+}
+
+        
+          // <View style={[styles.title, styles.border]}>
+          //   <Text style={styles.bodyTitle}>
+          //     Title
+          //   </Text>
+          //   <TextInput style={styles.bodyInput} onChangeText = {(text) => {this.setState({title: text})
+          //     formValue.title = text}
+          // } />
+          // </View>
 
 var styles = StyleSheet.create({
   container: {
@@ -124,22 +178,20 @@ var styles = StyleSheet.create({
   choose: {
     borderColor: "orange",
     borderWidth: 4,
-    flex: 0.3
+    flex: 0.3,
+    flexDirection: "row",
+    justifyContent: 'space-around'
   },
   title: {
     flex: 0.1,
     marginBottom: 5
   },
   description: {
-    flex: 0.5
+    flex: 0.3
   },
   border: {
     borderColor: "black",
     borderWidth: 4
-  },
-  inline: {
-    flexDirection: "row",
-    flex: 1
   },
   buttonWrap: {
     flex:1
