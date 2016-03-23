@@ -3,7 +3,7 @@ var Sequelize = require('sequelize');
 var db = new Sequelize('challengr', 'root', '');
 
 var User = db.define('User', {
-  username: Sequelize.STRING,
+  username: {type:Sequelize.STRING, unique: true},
   beastPoints: {type: Sequelize.INTEGER, defaultValue: 0},
   wussPoints: {type: Sequelize.INTEGER, defaultValue: 0},
   availableChallenges: {type: Sequelize.INTEGER, defaultValue: 1}
@@ -22,7 +22,7 @@ var Challenge = db.define('Challenge', {
 });
 
 var Tribe = db.define('Tribe', {
-  tribeName: Sequelize.STRING,
+  tribeName: {type: Sequelize.STRING, unique: true}
 }, {
   timestamps: false
 });
