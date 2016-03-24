@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 const SendChallenges = connect(
   mapStateToProps,
   mapDispatchToProps
-  )(CreateChallenges)
+)(CreateChallenges)
 
 
 //TODO: UPDATE IN APP.JS

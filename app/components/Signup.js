@@ -1,27 +1,33 @@
 import React, {
   View,
   Text,
+  TouchableHighlight,
   StyleSheet,
   TextInput
 } from 'react-native'
 
-const Signup = () => (
+const formObj = {
+  username: ''
+}
+
+const Signup = ({ getCurrentUser }) => (
   <View style = {styles.container} >
     <View style= {styles.header}>
       <Text>Signup/Login</Text>
     </View>
     <View style = {styles.form}>
-      <TextInput style = {styles.input} multiline={false} />
+      <TextInput style = {styles.input} multiline={false} onChangeText = {(text) => {
+        formObj.username = text}
+      }/>
     </View>
     <View style = {styles.space}>
       <Text>Welcome to Challengr, login or signup to start playing!</Text>
     </View>
-    <View style = {styles.form}>
-      <Text>CLICK TO SIGN UP ONE DAY</Text>
-    </View>
+    <TouchableHighlight style={styles.form} onPress={() => getCurrentUser(formObj.username)}>
+      <Text>CLICK HERE TO SIGN UP ONE DAY</Text>
+    </TouchableHighlight>
   </View>
   )
-
 
 var styles = StyleSheet.create({
   container: {

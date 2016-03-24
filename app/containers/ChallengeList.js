@@ -15,7 +15,7 @@ const filterView = (challenges, challengesViewStatus) => {
 
 const mapStateToProps = (state) => {
   return {
-    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus),
+    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus)
   }
 }
 

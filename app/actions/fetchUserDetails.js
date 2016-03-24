@@ -20,9 +20,9 @@ export const getUserDispatcher = (user) => {
     dispatch(gettingUser(user))
 
     let currentUser = {
-      username: user.username
+      username: user
     }
-    
+
     return fetch('http://localhost:3000/login', {
       method: 'POST',
       headers: {
@@ -32,7 +32,14 @@ export const getUserDispatcher = (user) => {
       body: JSON.stringify(currentUser)
     })
     .then((data) => {
-      dispatch(gotUser(data))
+      return data.json()
+    })
+    .then((myBlob) => {
+      let userInfo = {
+        id: myBlob.id,
+        username: myBlob.username
+      }
+      dispatch(gotUser(userInfo))
     })
     .catch((error) => {
       console.warn(error)

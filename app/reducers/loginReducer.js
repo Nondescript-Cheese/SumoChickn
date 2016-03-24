@@ -2,7 +2,7 @@ import Immutable from 'immutable'
 import { GOT_USER, GETTING_USER } from '../actions/fetchUserDetails'
 
 
-const loginCheck = (state = {currentUser: [], gettingUser: false}, action) => {
+const currentUser = (state = {userDetails: [], gettingUser: false}, action) => {
   switch(action.type) {
     case GETTING_USER:
       return Object.assign({}, state, {
@@ -11,7 +11,7 @@ const loginCheck = (state = {currentUser: [], gettingUser: false}, action) => {
     case GOT_USER:
       return Object.assign({}, state, {
         gettingUser: false,
-        currentUser: currentUser.concat(action.user)
+        userDetails: state.userDetails = [action.user]
     })
     default:
       return state
@@ -19,4 +19,4 @@ const loginCheck = (state = {currentUser: [], gettingUser: false}, action) => {
 }
 
 
-export default loginCheck
+export default currentUser

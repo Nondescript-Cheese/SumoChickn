@@ -1,5 +1,5 @@
 import Immutable from 'immutable'
-import loginCheck from './loginReducer.js'
+import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
 import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW } from '../actions'
 import { TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
@@ -97,7 +97,7 @@ const challengesViewStatus = (state = false, action) => {
 const challengeApp = combineReducers({
   challenges,
   challengesViewStatus,
-  loginCheck
+  currentUser
   // allUsers
 })
 
