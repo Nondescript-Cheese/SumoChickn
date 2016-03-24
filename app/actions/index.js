@@ -37,9 +37,10 @@ export const SendChallenge = (challenge) => {
       body: JSON.stringify(newChallenge)
     })
     .then((response) => {
+      return response.json()
       //We need to use reponse instead of newChallenge to get the unique challenge I.D which will be created by the database
-      dispatch(ChallengePosted(response))
-      
+    .then((postedChallenge) => {
+      dispatch(ChallengePosted(postedChallenge))
     })
     .catch((error) => {
       console.warn(error)
