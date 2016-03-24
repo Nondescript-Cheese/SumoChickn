@@ -1,6 +1,40 @@
 export const CHALLENGE_POSTING = 'CHALLENGE_POSTING'
 export const CHALLENGE_POSTED = 'CHALLENGE_POSTED'
 export const CHANGE_CHALLENGES_VIEW = 'CHANGE_CHALLENGES_VIEW'
+export const GETTING_CHALLENGES = 'GETTING_CHALLENGES'
+export const GOT_CHALLENGES = 'GOT_CHALLENGES'
+
+export const gettingChallenges = (userId) => {
+  return {
+    type: GETTING_CHALLENGES,
+    userId
+  }
+}
+
+export const gotChallenges = (challenges) => {
+  return {
+    type: GOT_CHALLENGES,
+    challenges
+  }
+}
+
+export const getChallenges = (userId) => {
+  return dispatch => {
+    dispatch(gettingChallenges(userId))
+    console.log("DISPATCHED THE FIRST ONE and user ID was", userId)
+
+    return fetch('http://localhost:3000/getInitialData/'+ userId)
+    .then((response)=>{
+      return response.json()
+    })
+    .then((challengeList)=>{
+      dispatch(gotChallenges(challengeList))
+    })
+    .catch((error)=>{
+      console.warn(error)
+    })
+  }
+}
 
 export const ChallengePosting = (challenge) => {
   return {

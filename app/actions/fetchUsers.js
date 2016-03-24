@@ -1,7 +1,6 @@
 export const FETCHING_USERS = 'FETCHING_USERS'
 export const FETCHED_USERS = 'FETCHED_USERS'
 
-
 export const fetchingAllUsers = () => {
   return {
     type: FETCHING_USERS
