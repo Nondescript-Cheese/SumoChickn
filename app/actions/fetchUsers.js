@@ -18,7 +18,7 @@ export const fetchedAllUsers = (users) => {
 export const fetchAllUsers = () => {
   return dispatch => {
   	dispatch(fetchingAllUsers);
-  	return fetch('http://localhost:3000/getAllUsers/')
+  	return fetch('http://159.203.239.224:3000/getAllUsers/')
     .then(response => {
       return response.json();
     })
