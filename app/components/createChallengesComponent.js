@@ -77,7 +77,6 @@ class CreateChallenges extends Component {
 
         <View style={styles.body}>
 
-
           <View style={[styles.border, styles.description]}>
             <Text style={styles.bodyTitle}>
               Challenge Description
