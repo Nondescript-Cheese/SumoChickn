@@ -2,11 +2,11 @@ import Immutable from 'immutable'
 import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
 import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW } from '../actions'
-import { TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
+import { TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
+import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
 //this is a place holder to allow app to render.
 const challenge = (state, action) => {
-  console.log('this is the action:', action)
   switch(action.type) {
     case CHALLENGE_POSTED:
       return {
@@ -19,11 +19,9 @@ const challenge = (state, action) => {
         completed: false
       }
     case TOGGLED_CHALLENGE:
-      console.log('in solo challenge')
       if(state.id !== action.id) {
         return state
       }
-      console.log('in the found case')
       return Object.assign({}, state, {
         completed: !state.completed
       })
@@ -67,8 +65,14 @@ const challenges = (state = {challengeList: [{
         postingChallenge: false,
         challengeList: state.challengeList.concat([challenge(undefined, action)]) 
       })
+    case TOGGLING_CHALLENGE:
+      return Object.assign({}, state, {
+        challengeStatusChanging: true
+      })
+
     case TOGGLED_CHALLENGE:
       return Object.assign({}, state, {
+        challengeStatusChanging: false,
         challengeList: state.challengeList.map((t) => challenge(t, action))
       })
     default:
@@ -84,20 +88,28 @@ const challengesViewStatus = (state = false, action) => {
       return state
   }
 }
-// TODO LATER
-// const allUsers = (state = [], action) => {
-//   switch(action.type){
-//     case ADDING_USERS: 
-//       return state.concat(action.userList)
-//     default: 
-//       return state
-//   }
-// }
+
+const allUsers = (state = {usersList: [], fetchingAllUsers: false}, action) => {
+  switch(action.type){
+    case FETCHING_USERS: 
+      return Object.assign({}, state, {
+        fetchingAllUsers: true
+      })
+    case FETCHED_USERS:
+      return Object.assign({}, state, {
+        fetchingAllUsers: false,
+        usersList: action.payload
+      })
+    default: 
+      return state
+  }
+}
 
 const challengeApp = combineReducers({
   challenges,
   challengesViewStatus,
-  currentUser
+  currentUser,
+  allUsers
   // allUsers
 })
 

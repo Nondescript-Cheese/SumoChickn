@@ -11,8 +11,6 @@ import React, {
 import Button from 'react-native-button';
 import Challenge from './Challenge';
 
-let temp = () => {console.log('hello')};
-
 let _scrollView: ScrollView;
 
 //actual component:

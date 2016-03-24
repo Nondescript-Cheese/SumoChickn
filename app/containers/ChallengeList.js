@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import MyChallenges from '../components/MyChallengesComponent.js'
 import { setChallengesViewStatus } from '../actions'
 import { toggleChallengeStatus } from '../actions/toggleChallengeStatus'
+import { fetchAllUsers } from '../actions/fetchUsers'
 import { bindActionCreators } from 'redux'
 
 const filterView = (challenges, challengesViewStatus) => {
@@ -15,14 +16,16 @@ const filterView = (challenges, challengesViewStatus) => {
 
 const mapStateToProps = (state) => {
   return {
-    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus)
+    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus),
+    allUserData: state.allUsers.usersList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeView: bindActionCreators(setChallengesViewStatus, dispatch),
-    toggleChallenge: bindActionCreators(toggleChallengeStatus, dispatch)
+    toggleChallenge: bindActionCreators(toggleChallengeStatus, dispatch),
+    fetchAllUserData: bindActionCreators(fetchAllUsers, dispatch)
     }
   }
   //TODO: CREATE SETCHALLENGEVIEWSTATUS ACTION IN ACTION TYPES AND IN REDUCERS!!
