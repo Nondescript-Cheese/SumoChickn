@@ -108,7 +108,7 @@ const allUsers = (state = {usersList: [], fetchingAllUsers: false}, action) => {
 const challengeApp = combineReducers({
   challenges,
   challengesViewStatus,
-  currentUser
+  currentUser,
   allUsers
   // allUsers
 })
