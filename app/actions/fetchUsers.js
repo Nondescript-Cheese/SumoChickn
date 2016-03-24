@@ -9,6 +9,7 @@ export const fetchingAllUsers = () => {
 }
 
 export const fetchedAllUsers = (users) => {
+  console.log('action fetchedAllUsers is fired with data: ', users);
   return {
     type: FETCHED_USERS,
     payload: users
@@ -18,13 +19,10 @@ export const fetchedAllUsers = (users) => {
 export const fetchAllUsers = () => {
   return dispatch => {
   	dispatch(fetchingAllUsers);
-  	return fetch('http://localhost:3000/getAllUsers/', {
-  	  method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-  	})
+  	return fetch('http://localhost:3000/getAllUsers/')
+    .then(response => {
+      return response.json();
+    })
     .then(response => {
       dispatch(fetchedAllUsers(response));
     })

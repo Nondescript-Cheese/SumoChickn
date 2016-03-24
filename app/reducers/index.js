@@ -7,7 +7,6 @@ import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
 //this is a place holder to allow app to render.
 const challenge = (state, action) => {
-  console.log('this is the action:', action)
   switch(action.type) {
     case CHALLENGE_POSTED:
       return {
@@ -20,11 +19,9 @@ const challenge = (state, action) => {
         completed: false
       }
     case TOGGLED_CHALLENGE:
-      console.log('in solo challenge')
       if(state.id !== action.id) {
         return state
       }
-      console.log('in the found case')
       return Object.assign({}, state, {
         completed: !state.completed
       })
@@ -99,9 +96,9 @@ const allUsers = (state = {usersList: [], fetchingAllUsers: false}, action) => {
         fetchingAllUsers: true
       })
     case FETCHED_USERS:
-      console.log('in reducer fetched users + this is usersList: ', action.payload.users);
       return Object.assign({}, state, {
-        usersList: action.payload.users
+        fetchingAllUsers: false,
+        usersList: action.payload
       })
     default: 
       return state

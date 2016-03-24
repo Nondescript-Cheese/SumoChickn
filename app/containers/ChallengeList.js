@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import MyChallenges from '../components/MyChallengesComponent.js'
 import { setChallengesViewStatus } from '../actions'
 import { toggleChallengeStatus } from '../actions/toggleChallengeStatus'
+import { fetchAllUsers } from '../actions/fetchUsers'
 import { bindActionCreators } from 'redux'
 
 const filterView = (challenges, challengesViewStatus) => {
