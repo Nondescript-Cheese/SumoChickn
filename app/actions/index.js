@@ -39,6 +39,7 @@ export const SendChallenge = (challenge) => {
     .then((response) => {
       return response.json()
       //We need to use reponse instead of newChallenge to get the unique challenge I.D which will be created by the database
+    })
     .then((postedChallenge) => {
       dispatch(ChallengePosted(postedChallenge))
     })
