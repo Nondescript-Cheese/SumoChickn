@@ -13,7 +13,8 @@ const nameFilter = (array) => {
 
 const mapStateToProps = (state) => {
   return {
-    friends: nameFilter(state.allUsers.usersList)
+    friends: nameFilter(state.allUsers.usersList),
+    currentUser: state.currentUser.userDetails[0].username
   }
 }
 

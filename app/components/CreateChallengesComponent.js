@@ -27,7 +27,7 @@ const formValue = {
 
   description: "",
   assignedTo: undefined,
-  // createdBy
+  createdBy: "",
   points: 0
 }
 
@@ -82,7 +82,9 @@ class CreateChallenges extends Component {
               Challenge Description
             </Text>
             <TextInput multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {this.setState({description: text})
-              formValue.description = text}
+              formValue.description = text
+              formValue.createdBy = this.props.currentUser 
+            }
             } />
           </View>
 

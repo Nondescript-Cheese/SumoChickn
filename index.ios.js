@@ -11,10 +11,13 @@ import App from './app/components/App'
 import challengeReducer from './app/reducers'
 import thunk from 'redux-thunk'
 import immutable from 'immutable'
+import { fetchAllUsers } from './app/actions/fetchUsers'
 
 const loggerMiddleware = createLogger()
 
 let store = createStore(challengeReducer, applyMiddleware(thunk, loggerMiddleware))
+
+store.dispatch(fetchAllUsers())
 
 class challengeApp extends Component {
   render() {
