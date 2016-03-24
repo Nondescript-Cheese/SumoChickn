@@ -1,7 +1,7 @@
 import Immutable from 'immutable'
 import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
-import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW } from '../actions'
+import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
 import { TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
 import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
@@ -31,30 +31,7 @@ const challenge = (state, action) => {
 }
 
 //FAKE DATA TO TEST REDUX-STORE
-const challenges = (state = {challengeList: [{
-    id: 1,
-    challengeText: 'Do 45 pushups non stop',
-    points: 4,
-    createBy: 'Aladdin',
-    userChallenged: 3,
-    completed: false
-  },
-  {
-    id: 2,
-    challengeText: "Don't get in trouble",
-    points: 5,
-    createBy: 'TechnoViking',
-    userChallenged: 1,
-    completed: true
-  },
-  {
-    id: 3,
-    challengeText: 'Eat a cockroach from the TL floors',
-    points: 100,
-    createBy: 'Mike "The Professional" 2.0',
-    userChallenged: 2,
-    completed: false
-  }], postingChallenge: false, challengeStatusChanging: false} , action) => {
+const challenges = (state = {challengeList: [], postingChallenge: false, challengeStatusChanging: false, gettingUsersChallenges: false} , action) => {
   switch(action.type) {
     case CHALLENGE_POSTING:
       return Object.assign({}, state, {
@@ -63,7 +40,7 @@ const challenges = (state = {challengeList: [{
     case CHALLENGE_POSTED:
       return Object.assign({}, state, {
         postingChallenge: false,
-        challengeList: state.challengeList.concat([challenge(undefined, action)]) 
+        // challengeList: state.challengeList.concat([challenge(undefined, action)]) 
       })
     case TOGGLING_CHALLENGE:
       return Object.assign({}, state, {
@@ -74,6 +51,15 @@ const challenges = (state = {challengeList: [{
       return Object.assign({}, state, {
         challengeStatusChanging: false,
         challengeList: state.challengeList.map((t) => challenge(t, action))
+      })
+    case GETTING_CHALLENGES:
+      return Object.assign({}, state, {
+        gettingUsersChallenges: true
+      })
+    case GOT_CHALLENGES:
+      return Object.assign({}, state, {
+        gettingUsersChallenges: false,
+        challengeList: action.challenges
       })
     default:
       return state

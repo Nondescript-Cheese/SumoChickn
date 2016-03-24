@@ -3,17 +3,20 @@ import CreateChallenges from '../components/CreateChallengesComponent'
 import { bindActionCreators } from 'redux'
 import { SendChallenge } from '../actions'
 
-const nameFilter = (array) => {
+const nameFilter = (array, user) => {
   var result = [];
   for(var i=0; i<array.length; i++) {
-    result.push(array[i].username)
+    if (array[i].username !== user) {
+      result.push(array[i].username)
+    }
   }
   return result;
 }
 
 const mapStateToProps = (state) => {
   return {
-    friends: nameFilter(state.allUsers.usersList)
+    friends: nameFilter(state.allUsers.usersList, state.currentUser.userDetails[0].username ),
+    currentUser: state.currentUser.userDetails[0].username
   }
 }
 

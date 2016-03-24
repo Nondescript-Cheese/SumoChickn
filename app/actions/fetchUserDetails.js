@@ -1,5 +1,7 @@
 export const GETTING_USER = 'GETTING_USER'
 export const GOT_USER = 'GOT_USER'
+import { getChallenges } from './index'
+import { fetchAllUsers } from './fetchUsers'
 
 export const gettingUser = (user) => {
   return {
@@ -40,6 +42,11 @@ export const getUserDispatcher = (user) => {
         username: myBlob.username
       }
       dispatch(gotUser(userInfo))
+      return userInfo
+    })
+    .then((userInfo) => {
+      dispatch(getChallenges(userInfo.id))
+      dispatch(fetchAllUsers())
     })
     .catch((error) => {
       console.warn(error)

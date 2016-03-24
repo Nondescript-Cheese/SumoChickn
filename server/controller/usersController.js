@@ -2,22 +2,19 @@ var db = require('../db');
 
 module.exports = {
   getUserInfo: function(req, res) {
-    var results = [];
     var userId = parseInt(req.params.userID);
     db.models.User.findAll({
       where: {
         id: userId
       }
     }).then(function(data) {
-      results = results.concat(data);
       return db.models.Challenge.findAll({
         where: {
           UserId: userId
         }
       });
     }).then(function(challenges) {
-      results = results.concat(challenges);
-      res.send(200, results);
+      res.send(200, challenges);
     }).catch(function(err) {
       res.send(404, 'error getting info');
     })
