@@ -8,7 +8,8 @@ module.exports = {
         username: loginUser
       }
     }).then(function(data) {
-      res.send(200, data);
+      data = data[0].dataValues
+      res.json(200, data);
     }).catch(function(err) {
       res.send(404, 'error logging in');
     });

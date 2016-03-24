@@ -1,11 +1,12 @@
 import Immutable from 'immutable'
+import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
 import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW } from '../actions'
 import { TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
 
 //this is a place holder to allow app to render.
 const challenge = (state, action) => {
-  console.log('this is the action:', action);
+  console.log('this is the action:', action)
   switch(action.type) {
     case CHALLENGE_POSTED:
       return {
@@ -18,11 +19,11 @@ const challenge = (state, action) => {
         completed: false
       }
     case TOGGLED_CHALLENGE:
-      console.log('in solo challenge');
+      console.log('in solo challenge')
       if(state.id !== action.id) {
-        return state;
+        return state
       }
-      console.log('in the found case');
+      console.log('in the found case')
       return Object.assign({}, state, {
         completed: !state.completed
       })
@@ -95,7 +96,8 @@ const challengesViewStatus = (state = false, action) => {
 
 const challengeApp = combineReducers({
   challenges,
-  challengesViewStatus
+  challengesViewStatus,
+  currentUser
   // allUsers
 })
 
