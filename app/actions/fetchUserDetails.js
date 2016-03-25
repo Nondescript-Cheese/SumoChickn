@@ -3,10 +3,9 @@ export const GOT_USER = 'GOT_USER'
 import { getChallenges } from './index'
 import { fetchAllUsers } from './fetchUsers'
 
-export const gettingUser = (user) => {
+export const gettingUser = () => {
   return {
     type: GETTING_USER,
-    user
   }
 }
 
@@ -17,39 +16,47 @@ export const gotUser = (user) => {
   }
 }
 
-export const getUserDispatcher = (user) => {
+export const getUserDispatcher = (userToken, userId) => {
+  console.log('THIS IS THE USERTOKEN', userToken)
+  console.log('this is userid', userId)
   return dispatch => {
-    dispatch(gettingUser(user))
+    dispatch(gettingUser())
 
-    let currentUser = {
-      username: user
-    }
-
-    return fetch('http://159.203.239.224:3000/login', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(currentUser)
-    })
+    return fetch('https://graph.facebook.com/v2.3/'+userId+'?fields=name,email&access_token='+userToken)
     .then((data) => {
       return data.json()
     })
-    .then((myBlob) => {
-      let userInfo = {
-        id: myBlob.id,
-        username: myBlob.username
+    .then((response) => {
+      console.log('this is the response from facebook', response)
+      let currentUser = {
+        username: response.name
       }
-      dispatch(gotUser(userInfo))
-      return userInfo
-    })
-    .then((userInfo) => {
-      dispatch(getChallenges(userInfo.id))
-      dispatch(fetchAllUsers())
-    })
-    .catch((error) => {
-      console.warn(error)
+      return fetch('http://159.203.239.224:3000/login', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(currentUser)
+      })
+      .then((data) => {
+        return data.json()
+      })
+      .then((response) => {
+        let userInfo = {
+          id: response.id,
+          username: response.username
+        }
+        dispatch(gotUser(userInfo))
+        return userInfo
+      })
+      .then((userInfo) => {
+        dispatch(getChallenges(userInfo.id))
+        dispatch(fetchAllUsers())
+      })
+      .catch((error) => {
+        console.warn(error)
+      })
     })
   } 
 }
