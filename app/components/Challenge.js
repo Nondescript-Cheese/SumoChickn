@@ -17,14 +17,15 @@ const Challenge = ({key, onClick, title, id}) => {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   listItem: {
     borderColor: 'blue',
-    borderWidth: 2
+    borderWidth: 2,
+    padding: 7.5
   },
   challengeText: {
-    fontSize: 45 
+    fontSize: 30 
   }
 })
 

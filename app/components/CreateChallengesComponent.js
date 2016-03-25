@@ -4,7 +4,8 @@ import React, {
   Text,
   ListView,
   TextInput,
-  StyleSheet, 
+  StyleSheet,
+  ScrollView, 
   PropTypes,
   PickerIOS,
   Alert,
@@ -34,12 +35,11 @@ const formValue = {
 class CreateChallenges extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-      description: "",
-      assignedTo: "",
-      points: 1,
-    }
+    // this.state = {
+    //   description: "",
+    //   assignedTo: "",
+    //   points: 1,
+    // }
   }
 
   componentDidMount() {
@@ -53,15 +53,15 @@ class CreateChallenges extends Component {
     }
 
     _points(selectedPoints) {
-      this.setState({
-        points: selectedPoints
-      })
+      // this.setState({
+      //   points: selectedPoints
+      // })
       formValue.points = selectedPoints;
     }
     _friend (selectedFriend) {
-      this.setState({
-        assignedTo: selectedFriend
-      })
+      // this.setState({
+      //   assignedTo: selectedFriend
+      // })
       formValue.assignedTo = selectedFriend;
     }
 
@@ -81,7 +81,8 @@ class CreateChallenges extends Component {
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
-            <TextInput multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {this.setState({description: text})
+            <TextInput multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
+              // this.setState({description: text})
               formValue.description = text
               formValue.createdBy = this.props.currentUser 
             }
@@ -103,7 +104,7 @@ class CreateChallenges extends Component {
             </Select>
             <OptionList ref="OPTIONLIST"/>
 
-            <Select width={100}
+            <Select width={130}
             ref="SELECT2"
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Friends"
@@ -117,13 +118,12 @@ class CreateChallenges extends Component {
         </View>
         <View style={styles.sub}>
           <TouchableHighlight style={styles.buttonWrap} onPress ={()=>
-            // this.props.sendChallenge(formValue)
             Alert.alert("Challenge " + formValue.assignedTo + "!!", "Are you ready to send your " + formValue.points + " point challenge to " + formValue.assignedTo + "?",             [
               {text: 'Send It Baby', onPress: () => this.props.sendChallenge(formValue)},
               {text: 'Cancel', onPress: () => console.log("User cancelled")}
             ])
           }>
-            <Text>SEND CHALLENGE</Text>
+            <Text style={styles.textBox}>SEND CHALLENGE</Text>
           </TouchableHighlight>
         </View>
 
@@ -200,7 +200,15 @@ var styles = StyleSheet.create({
     borderWidth: 4
   },
   buttonWrap: {
-    flex:1
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  textBox: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
