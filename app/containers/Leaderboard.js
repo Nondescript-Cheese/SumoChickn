@@ -4,7 +4,8 @@ import LeaderboardComponent from '../components/LeaderboardComponent.js'
 
 const mapStateToProps = (state) => {
   return {
-    allUserData: state.allUsers.usersList
+    allUserData: state.allUsers.usersList,
+    currentUser: state.currentUser.userDetails[0].username
   }
 }
 

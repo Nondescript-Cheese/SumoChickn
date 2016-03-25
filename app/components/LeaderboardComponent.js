@@ -10,28 +10,28 @@ import Challenge from './Challenge';
 
 let _scrollView: ScrollView;
 
-let userHiglighter = (username, text) => {
-  if(username === 'M6') {
-    if(text) {
-      return styles.userRowHighlighted;
-    }
-    else {
-      return [styles.userRowHighlighted, styles.borderHighlighted];
-    }
-  }
-  else {
-    if(text) {
-      return styles.userRow;
-    }
-    else {
-      return [styles.userRow, styles.border];
-    }
-  }
-}
-
 //actual component:
 
-const Leaderboard = ({allUserData}) => {
+const Leaderboard = ({allUserData, currentUser}) => {
+
+  let userHiglighter = (username, text) => {
+    if(username === currentUser) {
+      if(text) {
+        return styles.userRowTextHighlighted;
+      }
+      else {
+        return styles.userRowHighlighted;
+      }
+    }
+    else {
+      if(text) {
+        return styles.userRowText;
+      }
+      else {
+        return styles.userRow;
+      }
+    }
+  }
   
   return (
 
@@ -91,25 +91,23 @@ var styles = StyleSheet.create({
  userRow: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  fontSize: 50
+  borderColor: "purple",
+  borderWidth: 2,
+  margin: 3,
  },
  userRowHighlighted: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  fontSize: 50,
-  fontWeight: 'bold'
- },
-
-
- border: {
-   borderColor: "purple",
-   borderWidth: 2,
-   margin: 3,
- },
- borderHighlighted: {
   borderColor: "purple",
   borderWidth: 6,
   margin: 3
+ },
+ userRowText: {
+  fontSize: 50,
+ },
+ userRowTextHighlighted: {
+  fontSize: 50,
+  fontWeight: 'bold'
  }
 
 })
