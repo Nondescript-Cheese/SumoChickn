@@ -16,7 +16,7 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshingChallenges, getNewChallenges, currentUserId}) => {
+const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshingChallenges, getNewChallenges, currentUser}) => {
   
   let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={toggleChallenge} title={challenge.challengeText} />;
 
@@ -54,9 +54,9 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshin
           refreshControl={
                     <RefreshControl
                       refreshing={refreshingChallenges}
-                      onRefresh={()=>{getNewChallenges(currentUserId)}}
+                      onRefresh={()=>{getNewChallenges(currentUser.id)}}
                       tintColor="#ff0000"
-                      title="Loading..."
+                      title={"Loading your challenges "+ currentUser.username.split(" ")[0]}
                       colors={['#ff0000', '#00ff00', '#0000ff']}
                       progressBackgroundColor="#ffff00"
                     />

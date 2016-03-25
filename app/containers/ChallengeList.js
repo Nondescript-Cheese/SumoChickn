@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
     visibleChallenges: checkChallenges(filterView(state.challenges.challengeList, state.challengesViewStatus)),
     allUserData: state.allUsers.usersList,
     refreshingChallenges: state.challenges.gettingUsersChallenges,
-    currentUserId: state.currentUser.userDetails[0].id
+    currentUser: state.currentUser.userDetails[0]
   }
 }
 
