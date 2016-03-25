@@ -5,9 +5,6 @@ import React, {
  ScrollView,
 } from 'react-native'
 
-import Button from 'react-native-button';
-import Challenge from './Challenge';
-
 let _scrollView: ScrollView;
 
 //actual component:
