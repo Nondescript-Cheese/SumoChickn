@@ -48,7 +48,7 @@ const Leaderboard = ({allUserData, currentUser}) => {
           scrollEventThrottle={200}
           style={styles.scrollView}>
           {allUserData.map((user) =>
-            <View style={userHiglighter(user.username, false)}>
+            <View key={user.id} style={userHiglighter(user.username, false)}>
               <Text style={userHiglighter(user.username, true)}>{user.username}</Text>
               <Text style={userHiglighter(user.username, true)}>{user.beastPoints}</Text>
             </View>
