@@ -10,18 +10,22 @@ import Challenge from './Challenge';
 
 let _scrollView: ScrollView;
 
-let userHiglighter = (username) => {
+let userHiglighter = (username, text) => {
   if(username === 'M6') {
-    return [styles.userRowHighlighted, styles.borderHighlighted];
+    if(text) {
+      return styles.userRowHighlighted;
+    }
+    else {
+      return [styles.userRowHighlighted, styles.borderHighlighted];
+    }
   }
   else {
-    return [styles.userRow, styles.border];
-  }
-}
-
-let userTextHiglighter = (username) => {
-  if(username === 'M6') {
-    return 
+    if(text) {
+      return styles.userRow;
+    }
+    else {
+      return [styles.userRow, styles.border];
+    }
   }
 }
 
@@ -47,9 +51,9 @@ const Leaderboard = ({allUserData}) => {
           scrollEventThrottle={200}
           style={styles.scrollView}>
           {allUserData.map((user) =>
-            <View style={userHiglighter(user.username)}>
-              <Text style={userTextHiglighter(user.username)}>{user.username}</Text>
-              <Text style={userTextHiglighter(user.username)}>{user.beastPoints}</Text>
+            <View style={userHiglighter(user.username, false)}>
+              <Text style={userHiglighter(user.username, true)}>{user.username}</Text>
+              <Text style={userHiglighter(user.username, true)}>{user.beastPoints}</Text>
             </View>
           )}
         </ScrollView>
@@ -89,16 +93,11 @@ var styles = StyleSheet.create({
   justifyContent: 'space-between',
   fontSize: 50
  },
- userRowText: {
-  fontSize: 50,
- },
  userRowHighlighted: {
   flexDirection: 'row',
   justifyContent: 'space-between',
- },
- userRowTextHighlighted: {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
+  fontSize: 50,
+  fontWeight: 'bold'
  },
 
 
