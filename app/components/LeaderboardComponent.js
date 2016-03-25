@@ -1,6 +1,7 @@
 import React, { 
  View,
  Text,
+ RefreshControl,
  StyleSheet,
  ScrollView,
 } from 'react-native'
@@ -9,10 +10,10 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const Leaderboard = ({allUserData, currentUser}) => {
+const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeaderboard}) => {
 
   let userHiglighter = (username, text) => {
-    if(username === currentUser) {
+    if(username === currentUser.username) {
       if(text) {
         return styles.userRowTextHighlighted;
       }
@@ -43,16 +44,26 @@ const Leaderboard = ({allUserData, currentUser}) => {
      <View style={styles.body}>
 
        <ScrollView
-          ref={(scrollView) => { _scrollView = scrollView; }}
-          automaticallyAdjustContentInsets={false}
-          scrollEventThrottle={200}
-          style={styles.scrollView}>
-          {allUserData.map((user) =>
-            <View key={user.id} style={userHiglighter(user.username, false)}>
-              <Text style={userHiglighter(user.username, true)}>{user.username}</Text>
-              <Text style={userHiglighter(user.username, true)}>{user.beastPoints}</Text>
-            </View>
-          )}
+        ref={(scrollView) => { _scrollView = scrollView; }}
+        automaticallyAdjustContentInsets={false}
+        scrollEventThrottle={200}
+        style={styles.scrollView}
+        refreshControl={
+          <RefreshControl
+            refreshing={updatingLeaderboard}
+            onRefresh={()=>{updateLeaderboard()}}
+            tintColor="#ff0000"
+            title={"Updating your leaderboard "+ currentUser.username.split(" ")[0]}
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor="#ffff00"
+          />
+    }>
+        {allUserData.map((user) =>
+          <View key={user.id} style={userHiglighter(user.username, false)}>
+            <Text style={userHiglighter(user.username, true)}>{user.username}</Text>
+            <Text style={userHiglighter(user.username, true)}>{user.beastPoints}</Text>
+          </View>
+        )}
         </ScrollView>
 
       </View>

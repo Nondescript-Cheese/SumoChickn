@@ -17,15 +17,16 @@ export const fetchedAllUsers = (users) => {
 
 export const fetchAllUsers = () => {
   return dispatch => {
-  	dispatch(fetchingAllUsers);
+  	dispatch(fetchingAllUsers());
   	return fetch('http://159.203.239.224:3000/getAllUsers/')
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(response => {
-      dispatch(fetchedAllUsers(response));
+    .then((newUsersData) => {
+      newUsersData = newUsersData.sort((a,b)=>{return b.beastPoints - a.beastPoints})
+      dispatch(fetchedAllUsers(newUsersData));
     })
-    .catch(error => {
+    .catch((error) => {
       console.warn(error);
     })
 

@@ -47,21 +47,21 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshin
        </View>
 
        <ScrollView
-          ref={(scrollView) => { _scrollView = scrollView; }}
-          automaticallyAdjustContentInsets={false}
-          scrollEventThrottle={200}
-          style={styles.scrollView}
-          refreshControl={
-                    <RefreshControl
-                      refreshing={refreshingChallenges}
-                      onRefresh={()=>{getNewChallenges(currentUser.id)}}
-                      tintColor="#ff0000"
-                      title={"Loading your challenges "+ currentUser.username.split(" ")[0]}
-                      colors={['#ff0000', '#00ff00', '#0000ff']}
-                      progressBackgroundColor="#ffff00"
-                    />
-        }>
-          {visibleChallenges.map(createChallengeRow)}
+        ref={(scrollView) => { _scrollView = scrollView; }}
+        automaticallyAdjustContentInsets={false}
+        scrollEventThrottle={200}
+        style={styles.scrollView}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshingChallenges}
+            onRefresh={()=>{getNewChallenges(currentUser.id)}}
+            tintColor="#ff0000"
+            title={"Loading your challenges "+ currentUser.username.split(" ")[0]}
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor="#ffff00"
+          />
+      }>
+        {visibleChallenges.map(createChallengeRow)}
         </ScrollView>
 
       </View>
