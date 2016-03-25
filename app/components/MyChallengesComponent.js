@@ -5,6 +5,7 @@ import React, {
  StyleSheet,
  ScrollView,
  Switch,
+ RefreshControl,
  TouchableHighlight
 } from 'react-native'
 
@@ -15,7 +16,7 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges, changeView, toggleChallenge}) => {
+const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshingChallenges, getNewChallenges, currentUserId}) => {
   
   let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={toggleChallenge} title={challenge.challengeText} />;
 
@@ -49,7 +50,17 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge}) => {
           ref={(scrollView) => { _scrollView = scrollView; }}
           automaticallyAdjustContentInsets={false}
           scrollEventThrottle={200}
-          style={styles.scrollView}>
+          style={styles.scrollView}
+          refreshControl={
+                    <RefreshControl
+                      refreshing={refreshingChallenges}
+                      onRefresh={()=>{getNewChallenges(currentUserId)}}
+                      tintColor="#ff0000"
+                      title="Loading..."
+                      colors={['#ff0000', '#00ff00', '#0000ff']}
+                      progressBackgroundColor="#ffff00"
+                    />
+        }>
           {visibleChallenges.map(createChallengeRow)}
         </ScrollView>
 
