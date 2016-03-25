@@ -10,6 +10,21 @@ import Challenge from './Challenge';
 
 let _scrollView: ScrollView;
 
+let userHiglighter = (username) => {
+  if(username === 'M6') {
+    return [styles.userRowHighlighted, styles.borderHighlighted];
+  }
+  else {
+    return [styles.userRow, styles.border];
+  }
+}
+
+let userTextHiglighter = (username) => {
+  if(username === 'M6') {
+    return 
+  }
+}
+
 //actual component:
 
 const Leaderboard = ({allUserData}) => {
@@ -32,9 +47,9 @@ const Leaderboard = ({allUserData}) => {
           scrollEventThrottle={200}
           style={styles.scrollView}>
           {allUserData.map((user) =>
-            <View>
-              <Text>{user.username}</Text>
-              <Text>{user.beastPoints}</Text>
+            <View style={userHiglighter(user.username)}>
+              <Text style={userTextHiglighter(user.username)}>{user.username}</Text>
+              <Text style={userTextHiglighter(user.username)}>{user.beastPoints}</Text>
             </View>
           )}
         </ScrollView>
@@ -69,11 +84,33 @@ var styles = StyleSheet.create({
  headerText: {
    fontSize: 30
  },
+ userRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  fontSize: 50
+ },
+ userRowText: {
+  fontSize: 50,
+ },
+ userRowHighlighted: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+ },
+ userRowTextHighlighted: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+ },
 
 
  border: {
-   borderColor: "black",
-   borderWidth: 4
+   borderColor: "purple",
+   borderWidth: 2,
+   margin: 3,
+ },
+ borderHighlighted: {
+  borderColor: "purple",
+  borderWidth: 6,
+  margin: 3
  }
 
 })
