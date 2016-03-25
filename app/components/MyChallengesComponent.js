@@ -25,7 +25,7 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge}) => {
 
      <View style={styles.header}>
        <Text style={styles.headerText}>
-         Create Challenge
+         My Challenges
        </Text>
      </View>
 
@@ -57,7 +57,7 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge}) => {
 
       <View style={styles.sub}>
         <Button style={styles.buttonWrap}>
-          <Text>SEND CHALLENGE</Text>
+          <Text style={styles.textBox}>Click a challenge to toggle it once you've completed it!</Text>
         </Button>
       </View>
 
@@ -116,7 +116,13 @@ var styles = StyleSheet.create({
    borderWidth: 4
  },
  buttonWrap: {
-    flex:1
+    flex:1,
+    justifyContent: 'center'
+  },
+  textBox: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 25
   }
 })
 

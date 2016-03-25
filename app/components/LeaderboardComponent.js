@@ -100,10 +100,10 @@ var styles = StyleSheet.create({
   margin: 3
  },
  userRowText: {
-  fontSize: 50,
+  fontSize: 25,
  },
  userRowTextHighlighted: {
-  fontSize: 50,
+  fontSize: 25,
   fontWeight: 'bold'
  }
 
