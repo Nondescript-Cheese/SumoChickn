@@ -12,7 +12,7 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const Leaderboard = ({userList}) => {
+const Leaderboard = ({allUserData}) => {
   
   return (
 
@@ -31,7 +31,12 @@ const Leaderboard = ({userList}) => {
           automaticallyAdjustContentInsets={false}
           scrollEventThrottle={200}
           style={styles.scrollView}>
-          {userList.map((user) => <Text>{user.username}</Text>)}
+          {allUserData.map((user) =>
+            <View>
+              <Text>{user.username}</Text>
+              <Text>{user.beastPoints}</Text>
+            </View>
+          )}
         </ScrollView>
 
       </View>
@@ -60,38 +65,17 @@ var styles = StyleSheet.create({
  //   flex: 0.1,
  //   borderColor: "green",
  //   borderWidth: 4
- },
+ // },
  headerText: {
    fontSize: 30
  },
 
 
- //------------------------------
- 
- open: {
-  flex: 0.5,
-  alignItems: 'center',
-  justifyContent: 'center'
- },
- closed: {
-  flex: 0.5,
-  alignItems: 'center',
-  justifyContent: 'center'
- },
- openCloseChoiceText: {
-  fontSize: 20,
- },
-
- challengesList: {
-  flex: 0.5,
- },
  border: {
    borderColor: "black",
    borderWidth: 4
- },
- buttonWrap: {
-    flex:1
-  }
+ }
+
 })
 
-export default MyChallenges
+export default Leaderboard

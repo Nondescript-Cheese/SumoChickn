@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Leaderboard from '../components/Leaderboard.js'
+import LeaderboardComponent from '../components/LeaderboardComponent.js'
 
 
 const mapStateToProps = (state) => {
@@ -9,12 +9,13 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-
+  return {
+  }
 }
 
 const Leaderboard = connect(
   mapStateToProps,
   mapDispatchToProps
-  )(Leaderboard)
+  )(LeaderboardComponent)
 
 export default Leaderboard
