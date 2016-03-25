@@ -8,6 +8,8 @@ import React, {
 
 import FBLogin from 'react-native-facebook-login'
 
+let FBLoginManager = require('NativeModules').FBLoginManager;
+
 const Signup = ({ getCurrentUser }) => (
   <View style = {styles.container} >
     <View style= {styles.header}>
@@ -16,7 +18,9 @@ const Signup = ({ getCurrentUser }) => (
     <View style = {styles.facebook}>
       <FBLogin
       permissions={['email','user_friends','public_profile']}
+      loginBehavior={FBLoginManager.LoginBehaviors.Native}
       onLogin={(data) => getCurrentUser(data.credentials.token, data.credentials.userId)}
+      onLoginFound={(data) => getCurrentUser(data.credentials.token, data.credentials.userId)}
       style={styles.space}/>
 
     </View>
