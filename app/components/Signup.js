@@ -6,26 +6,22 @@ import React, {
   TextInput
 } from 'react-native'
 
-const formObj = {
-  username: ''
-}
+import FBLogin from 'react-native-facebook-login'
 
 const Signup = ({ getCurrentUser }) => (
   <View style = {styles.container} >
     <View style= {styles.header}>
       <Text>Signup/Login</Text>
     </View>
-    <View style = {styles.form}>
-      <TextInput style = {styles.input} multiline={false} onChangeText = {(text) => {
-        formObj.username = text}
-      }/>
+    <View style = {styles.facebook}>
+      <FBLogin
+      permissions={['email','user_friends','public_profile']}
+      onLogin={(data) => getCurrentUser(data.credentials.token, data.credentials.userId)}
+      style={styles.space}/>
+
     </View>
     <View style = {styles.space}>
-      <Text>Welcome to Challengr, login or signup to start playing!</Text>
     </View>
-    <TouchableHighlight style={styles.form} onPress={() => getCurrentUser(formObj.username)}>
-      <Text>CLICK HERE TO SIGN UP ONE DAY</Text>
-    </TouchableHighlight>
   </View>
   )
 
@@ -62,7 +58,13 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: 'black',
     borderWidth: 3
+  },
+  facebook: {
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })
+
+//https://graph.facebook.com/v2.3/${user.userId}?fields=name,email&access_token=${user.token}
 
 export default Signup
