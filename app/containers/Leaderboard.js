@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 const mapStateToProps = (state) => {
   return {
     allUserData: state.allUsers.usersList,
-    currentUser: state.currentUser.userDetails[0],
+    currentUser: state.currentUser.userDetails[0] || {username: "Peter", id: 23},
     updatingLeaderboard: state.allUsers.fetchingAllUsers
   }
 }

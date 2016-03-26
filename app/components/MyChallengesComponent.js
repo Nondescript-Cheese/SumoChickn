@@ -11,6 +11,8 @@ import React, {
 
 import Button from 'react-native-button';
 import Challenge from './Challenge';
+import { Actions } from 'react-native-router-flux'
+
 
 let _scrollView: ScrollView;
 
@@ -56,7 +58,7 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshin
             refreshing={refreshingChallenges}
             onRefresh={()=>{getNewChallenges(currentUser.id)}}
             tintColor="#ff0000"
-            title={"Loading your challenges "+ currentUser.username.split(" ")[0]}
+            title={"Loading your challenges "+ (currentUser.username.split(" ")[0]|| "")}
             colors={['#ff0000', '#00ff00', '#0000ff']}
             progressBackgroundColor="#ffff00"
           />
@@ -67,9 +69,9 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshin
       </View>
 
       <View style={styles.sub}>
-        <Button style={styles.buttonWrap}>
-          <Text style={styles.textBox}>Click a challenge to toggle it once you've completed it!</Text>
-        </Button>
+        <TouchableHighlight style={styles.buttonWrap} onPress={() => Actions.createChallenge()}>
+          <Text style={styles.textBox}>Create Challenge</Text>
+        </TouchableHighlight>
       </View>
 
    </View>
@@ -128,7 +130,8 @@ var styles = StyleSheet.create({
  },
  buttonWrap: {
     flex:1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   textBox: {
     justifyContent: 'center',

@@ -4,6 +4,9 @@ export const CHANGE_CHALLENGES_VIEW = 'CHANGE_CHALLENGES_VIEW'
 export const GETTING_CHALLENGES = 'GETTING_CHALLENGES'
 export const GOT_CHALLENGES = 'GOT_CHALLENGES'
 
+import { Actions } from 'react-native-router-flux';
+
+
 export const gettingChallenges = (userId) => {
   return {
     type: GETTING_CHALLENGES,
@@ -75,6 +78,7 @@ export const SendChallenge = (challenge) => {
       //We need to use reponse instead of newChallenge to get the unique challenge I.D which will be created by the database
     })
     .then((postedChallenge) => {
+      Actions.myChallenges();
       dispatch(ChallengePosted(postedChallenge))
     })
     .catch((error) => {

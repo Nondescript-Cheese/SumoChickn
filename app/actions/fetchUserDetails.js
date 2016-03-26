@@ -3,6 +3,8 @@ export const GOT_USER = 'GOT_USER'
 import { getChallenges } from './index'
 import { fetchAllUsers } from './fetchUsers'
 
+import { Actions } from 'react-native-router-flux'
+
 export const gettingUser = () => {
   return {
     type: GETTING_USER,
@@ -47,7 +49,9 @@ export const getUserDispatcher = (userToken, userId) => {
           id: response.id,
           username: response.username
         }
-        dispatch(gotUser(userInfo))
+        dispatch(gotUser(userInfo));
+        //Re-directing the user
+        Actions.myChallenges();
         return userInfo
       })
       .then((userInfo) => {
