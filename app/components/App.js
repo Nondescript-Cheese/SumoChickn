@@ -10,6 +10,8 @@ import ChallengeList from '../containers/ChallengeList'
 import Leaderboard from '../containers/Leaderboard'
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
+const ScrollableTabView = require('react-native-scrollable-tab-view');
+
 const scenes = Actions.create(
   <Scene key="root" hideNavBar>
     <Scene type="replace" key="signUp" initial={true} component={LoginAuth} />
@@ -21,11 +23,15 @@ const scenes = Actions.create(
 //the view should hold each container
 const App = () => (
  <View style={{ flex: 1 }}>
-     <Router scenes={scenes} />
-     <View>
+  <ScrollableTabView>
+     <Router scenes={scenes} tabLabel="MyChallenges"/>
+     <View tabLabel="Nav">
        <HandleRoutes />
      </View>
-   </View>
+  </ScrollableTabView>
+ </View>
 )
 
 export default App
+
+
