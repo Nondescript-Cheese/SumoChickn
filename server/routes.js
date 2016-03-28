@@ -17,4 +17,6 @@ router.post('/submitChallenge', controller.challenges.postChallenge);
 
 router.put('/toggleChallenge/:id', controller.challenges.updateChallengeStatus);
 
+router.put('/addPhoto/:id/:url', controller.challenges.updatePhoto)
+
 module.exports = router;

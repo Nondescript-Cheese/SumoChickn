@@ -6,6 +6,7 @@ import React, {
 import HandleRoutes from '../containers/HandleRoutes';
 import LoginAuth from '../containers/Login'
 import SendChallenges from '../containers/SendChallenge'
+import CameraConnect from '../containers/CameraContainer'
 import ChallengeList from '../containers/ChallengeList'
 import Leaderboard from '../containers/Leaderboard'
 import { Scene, Router, Actions } from 'react-native-router-flux';
@@ -30,6 +31,7 @@ const scenes = Actions.create(
     <Scene type="replace" key="signUp" initial={true} component={LoginAuth} />
     <Scene type="replace" key="myChallenges" component={myChallenges} />
     <Scene type="replace" key="createChallenge" component={SendChallenges}/>
+    <Scene type="replace" key="camera" component={CameraConnect} />
   </Scene>
 );
 //the view should hold each container

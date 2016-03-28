@@ -12,6 +12,7 @@ const Navigation = ({navPress}) => {
     <View style={styles.toolbar}>
       <TouchableHighlight style={styles.button} onPress={() => navPress('signUp')}><Text>SignUp</Text></TouchableHighlight>
       <TouchableHighlight style={styles.button} onPress={() => navPress('myChallenges')}><Text>myChallenges</Text></TouchableHighlight>
+      <TouchableHighlight style={styles.button} onPress={() => navPress('camera')}><Text>Camera</Text></TouchableHighlight>
     </View>
   )
 }

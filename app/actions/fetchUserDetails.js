@@ -33,7 +33,7 @@ export const getUserDispatcher = (userToken, userId) => {
       let currentUser = {
         username: response.name
       }
-      return fetch('http://159.203.239.224:3000/login', {
+      return fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
