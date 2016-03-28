@@ -9,6 +9,7 @@ const currentUser = (state = {userDetails: [], gettingUser: false}, action) => {
         gettingUser: true
     })
     case GOT_USER:
+      
       return Object.assign({}, state, {
         gettingUser: false,
         userDetails: state.userDetails = [action.user]

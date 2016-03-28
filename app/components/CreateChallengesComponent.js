@@ -12,6 +12,8 @@ import React, {
   TouchableHighlight
 } from 'react-native'
 
+import { Actions } from 'react-native-router-flux';
+
 const DropDown = require('react-native-dropdown');
 const {
   Select,
@@ -70,6 +72,9 @@ class CreateChallenges extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
+          <TouchableHighlight onPress={Actions.myChallenges} style={styles.backButton}>
+            <Text>back</Text>
+          </TouchableHighlight>
           <Text style={styles.headerText}>
             Create Challenge
           </Text>
@@ -148,6 +153,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   header: {
+    flexDirection: 'row',
     flex: 0.1,
     borderColor: "red",
     borderWidth: 4,
@@ -166,6 +172,11 @@ var styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30
+  },
+  backButton: {
+    borderColor: "purple",
+    borderWidth: 2,
+    marginRight: 15
   },
   bodyTitle: {
     fontSize: 20,
