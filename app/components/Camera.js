@@ -8,11 +8,11 @@ import React, {
   TouchableHighlight,
   View,
   ListView,
-  Modal
 } from 'react-native';
 
 import Camera from 'react-native-camera';
 import Challenge from './Challenge'
+import { Actions } from 'react-native-router-flux'
 
 class CameraApp extends Component {
 
@@ -27,18 +27,18 @@ class CameraApp extends Component {
 
   render() {
 
-    var modalBackgroundStyle = {
-      backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
-    };
-    var innerContainerTransparentStyle = this.state.transparent
-      ? {backgroundColor: '#fff', padding: 20}
-      : null;
+    // var modalBackgroundStyle = {
+    //   backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
+    // };
+    // var innerContainerTransparentStyle = this.state.transparent
+    //   ? {backgroundColor: '#fff', padding: 20}
+    //   : null;
 
-    let dataSource = new ListView.DataSource({
-      rowHasChanged: (row1, row2) => row1 !== row2,
-    });
+    // let dataSource = new ListView.DataSource({
+    //   rowHasChanged: (row1, row2) => row1 !== row2,
+    // });
 
-    dataSource = dataSource.cloneWithRows(this.props.allChallenges);
+    // dataSource = dataSource.cloneWithRows(this.props.allChallenges);
 
     return (
       <View style={styles.container}>
@@ -49,28 +49,31 @@ class CameraApp extends Component {
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
           <Text style={styles.capture} onPress={()=> {
-            this.setModalVisible(true)
+            // this.setModalVisible(true)
             this.takePicture()
           }}>[CAPTURE]</Text>
+          <Text onPress={()=>{Actions.myChallenges()}}>
+            Back
+          </Text>
         </Camera>
-        <Modal
-          animated={this.state.animated}
-          transparent={this.state.transparent}
-          visible={this.state.visible}>
-          <View style={[styles.container, modalBackgroundStyle]}>
-            <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-              <Text onPress={this.setModalVisible.bind(this, false)}>
-                Back
-              </Text>
-              <ListView
-                dataSource={dataSource}
-                renderRow={(rowData) => <TouchableHighlight onPress={()=> {this.props.sendPhotoToAWS(this.state.photoData, rowData.id)}}><Text>{rowData.challengeText}</Text></TouchableHighlight>}
-                style={styles.listView} />
-            </View>
-          </View>
-        </Modal>
       </View>
 
+        // <Modal
+        //   animated={this.state.animated}
+        //   transparent={this.state.transparent}
+        //   visible={this.state.visible}>
+        //   <View style={[styles.container, modalBackgroundStyle]}>
+        //     <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
+        //       <Text onPress={this.setModalVisible.bind(this, false)}>
+        //         Back
+        //       </Text>
+        //       <ListView
+        //         dataSource={dataSource}
+        //         renderRow={(rowData) => <TouchableHighlight onPress={()=> {this.props.sendPhotoToAWS(this.state.photoData, rowData.id)}}><Text>{rowData.challengeText}</Text></TouchableHighlight>}
+        //         style={styles.listView} />
+        //     </View>
+        //   </View>
+        // </Modal>
     );
   }
 
@@ -79,7 +82,18 @@ class CameraApp extends Component {
     .then((data) => {
       console.log(data)
       console.log('THIS IS WORKED!!!!!', data)
-      this.setState({photoData: data})
+      return this.setState({photoData: data})
+    })
+    .then(()=>{
+      console.log("THE PROPS", this.props)
+      return this.props.sendPhotoToAWS(this.state.photoData, this.props.currentId)
+    })
+    .then(()=>{
+      console.log("INSIDE THE TOGGLIGN")
+      return this.props.toggleChallenge(this.props.currentId)
+    })
+    .then(()=>{
+      return Actions.myChallenges()
     })
     .catch(err => console.error(err));
   }

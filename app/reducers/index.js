@@ -2,6 +2,7 @@ import Immutable from 'immutable'
 import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
 import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
+import { CAMERA_CHALLENGE_ID } from '../actions/cameraActions'
 import { TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
 import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
@@ -51,7 +52,6 @@ const challenges = (state = {challengeList: [], postingChallenge: false, challen
       return Object.assign({}, state, {
         challengeStatusChanging: false,
         challengeList: state.challengeList.map((t) => challenge(t, action)),
-        currentChallengeID: action.id
       })
     case GETTING_CHALLENGES:
       return Object.assign({}, state, {
@@ -61,6 +61,10 @@ const challenges = (state = {challengeList: [], postingChallenge: false, challen
       return Object.assign({}, state, {
         gettingUsersChallenges: false,
         challengeList: action.challenges
+      })
+    case CAMERA_CHALLENGE_ID:
+      return Object.assign({}, state, {
+        currentChallengeID: action.id
       })
     default:
       return state

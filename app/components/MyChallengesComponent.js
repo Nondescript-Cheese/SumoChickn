@@ -18,9 +18,9 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshingChallenges, getNewChallenges, currentUser}) => {
+const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refreshingChallenges, getNewChallenges, currentUser, challengesViewStatus}) => {
   
-  let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={toggleChallenge} title={challenge.challengeText} />;
+  let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={cameraChallengeId} challengesViewStatus={challengesViewStatus} title={challenge.challengeText} />;
 
   return (
 

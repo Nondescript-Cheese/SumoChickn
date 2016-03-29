@@ -5,6 +5,7 @@ import { toggleChallengeStatus } from '../actions/toggleChallengeStatus'
 import { fetchAllUsers } from '../actions/fetchUsers'
 import { bindActionCreators } from 'redux'
 import { Actions } from 'react-native-router-flux'
+import { cameraChallengeId } from '../actions/cameraActions'
 
 const filterView = (challenges, challengesViewStatus) => {
   switch (challengesViewStatus) {
@@ -27,14 +28,15 @@ const mapStateToProps = (state) => {
     visibleChallenges: checkChallenges(filterView(state.challenges.challengeList, state.challengesViewStatus)),
     allUserData: state.allUsers.usersList,
     refreshingChallenges: state.challenges.gettingUsersChallenges,
-    currentUser: state.currentUser.userDetails[0]
+    currentUser: state.currentUser.userDetails[0],
+    challengesViewStatus: state.challengesViewStatus
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeView: bindActionCreators(setChallengesViewStatus, dispatch),
-    toggleChallenge: bindActionCreators(toggleChallengeStatus, dispatch),
+    cameraChallengeId: bindActionCreators(cameraChallengeId, dispatch),
     fetchAllUserData: bindActionCreators(fetchAllUsers, dispatch),
     getNewChallenges: bindActionCreators(getChallenges, dispatch),
   }

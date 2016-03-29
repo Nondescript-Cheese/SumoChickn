@@ -1,5 +1,6 @@
 export const UPLOADING_PICTURE = 'UPLOADING_PICTURE'
 export const UPLOADED_PICTURE = 'UPLOADED_PICTURE'
+export const CAMERA_CHALLENGE_ID = 'CAMERA_CHALLENGE_ID'
 // import { polyfill } from 'es6-promise'; polyfill();
 
 let RNUploader = require('NativeModules').RNUploader
@@ -44,8 +45,7 @@ export const postPicture = (challengeId, awsUrl) => {
       })
     })
     .then((response) => {
-      console.log('RESPONSE', response)
-      response.json()
+      return response.json()
     })
     .then((data) => {
       console.log('THIS IS THE DATA', data)
@@ -53,4 +53,11 @@ export const postPicture = (challengeId, awsUrl) => {
   }
 }
 
+export const cameraChallengeId = (challengeId) => {
+  console.log("IN THE CHAMERA CHALLENGE")
+  return {
+    type: CAMERA_CHALLENGE_ID,
+    id: challengeId
+  }
+}
 
