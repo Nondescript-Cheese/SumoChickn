@@ -5,9 +5,14 @@ import React, {
   TouchableHighlight
 } from 'react-native'
 
+import { Actions } from 'react-native-router-flux'
+
 const Challenge = ({key, onClick, title, id}) => {
   return (
-    <TouchableHighlight onPress={()=> {onClick(id)}} style={styles.listItem}>
+    <TouchableHighlight onPress={()=> {
+      onClick(id)
+      Actions.camera()
+    }} style={styles.listItem}>
       <Text style={styles.challengeText}>
         {title}
       </Text>

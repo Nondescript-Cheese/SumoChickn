@@ -4,6 +4,7 @@ import { setChallengesViewStatus, getChallenges } from '../actions'
 import { toggleChallengeStatus } from '../actions/toggleChallengeStatus'
 import { fetchAllUsers } from '../actions/fetchUsers'
 import { bindActionCreators } from 'redux'
+import { Actions } from 'react-native-router-flux'
 
 const filterView = (challenges, challengesViewStatus) => {
   switch (challengesViewStatus) {
@@ -35,9 +36,9 @@ const mapDispatchToProps = (dispatch) => {
     changeView: bindActionCreators(setChallengesViewStatus, dispatch),
     toggleChallenge: bindActionCreators(toggleChallengeStatus, dispatch),
     fetchAllUserData: bindActionCreators(fetchAllUsers, dispatch),
-    getNewChallenges: bindActionCreators(getChallenges, dispatch)
-    }
+    getNewChallenges: bindActionCreators(getChallenges, dispatch),
   }
+}
 
 const ChallengeList = connect(
   mapStateToProps,

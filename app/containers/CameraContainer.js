@@ -9,7 +9,7 @@ const s3Policy = require('../utils/s3Policies')
 const mapStateToProps = (state) => {
   // console.log("THIS IS STATTE",state.challenges.challengeList);
   return {
-    currentId: state.challenges.challengeList[0].id,
+    currentId: state.challenges.currentChallengeID
     allChallenges: state.challenges.challengeList
   }
 }
