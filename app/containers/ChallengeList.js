@@ -8,24 +8,28 @@ import { Actions } from 'react-native-router-flux'
 import { cameraChallengeId, getChallengePhoto } from '../actions/cameraActions'
 
 const filterView = (challenges, challengesViewStatus) => {
-  switch (challengesViewStatus) {
-    case true :
-      return challenges.filter(c => c.completed)
-    case false:
-      return challenges.filter(c=> !c.completed)
+  if(challenges.length > 0){
+    switch (challengesViewStatus) {
+      case true :
+        return challenges.filter(c => c.completed)
+      case false:
+        return challenges.filter(c=> !c.completed)
+    }
+  } else {
+    return undefined;
   }
 }
 
-const checkChallenges = (array) => {
-  if(array.length === 0) {
-    return [{id:-1}]
-  } else {
-    return array
-  }
-}
+// const checkChallenges = (array) => {
+//   if(array.length === 0) {
+//     return [{id:-1}]
+//   } else {
+//     return array
+//   }
+// }
 const mapStateToProps = (state) => {
   return {
-    visibleChallenges: checkChallenges(filterView(state.challenges.challengeList, state.challengesViewStatus)),
+    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus),
     allUserData: state.allUsers.usersList,
     refreshingChallenges: state.challenges.gettingUsersChallenges,
     currentUser: state.currentUser.userDetails[0],
