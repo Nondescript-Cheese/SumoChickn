@@ -33,7 +33,7 @@ export const postingPicture = (challengeId, picture) => {
 export const postPicture = (challengeId, awsUrl) => {
   console.log('I WORKD', awsUrl)
   return (dispatch) => {
-    return fetch('http://localhost:3000/addPhoto/1', {
+    return fetch('http://159.203.239.224:3000/addPhoto/'+challengeId, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
