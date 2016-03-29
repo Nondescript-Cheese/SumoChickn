@@ -59,7 +59,46 @@ module.exports = {
           res.send(200, subtractedPoints);
         });
       }
+    }).catch(function(err) {
+      res.send(404, 'error');
+    });
+  },
+  updatePhoto: function(req, res) {
+    var challengeId = parseInt(req.params.id);
+    var photoUrl = req.body.url;
+    db.models.Challenge.find({
+      where: {
+        id: challengeId
+      }
+    }).then(function(data) {
+      return data.updateAttributes({
+        proofUrl: photoUrl
+      });
+    }).then(function(updated) {
+      res.send(200, updated);
+    }).catch(function(err) {
+      res.send(404, 'error');
+    });
+  },
+  getPhoto: function(req, res) {
+    var challengeId = parseInt(req.params.id);
+    db.models.Challenge.find({
+      where: {
+        id: challengeId
+      }
+    }).then(function(data) {
+      res.send(200, data.proofUrl);
+    }).catch(function(err) {
+      res.send(404, 'error');
     });
   }
 };
+
+
+
+
+
+
+
+
 

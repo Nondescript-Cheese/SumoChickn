@@ -1,0 +1,109 @@
+'use strict';
+import React, {
+  AppRegistry,
+  Component,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  ListView,
+  Modal
+} from 'react-native';
+
+import Camera from 'react-native-camera';
+import Challenge from './Challenge'
+
+class CameraApp extends Component {
+
+  constructor(props) {
+      super(props);
+      this.state = { visible: false, transparent: true, animated: true, photoData: '' };
+    }
+
+    setModalVisible(visible) {
+    this.setState({visible: visible});
+  }
+
+  render() {
+
+    var modalBackgroundStyle = {
+      backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
+    };
+    var innerContainerTransparentStyle = this.state.transparent
+      ? {backgroundColor: '#fff', padding: 20}
+      : null;
+
+    let dataSource = new ListView.DataSource({
+      rowHasChanged: (row1, row2) => row1 !== row2,
+    });
+
+    dataSource = dataSource.cloneWithRows(this.props.allChallenges);
+
+    return (
+      <View style={styles.container}>
+        <Camera
+          ref={(cam) => {
+            this.camera = cam;
+          }}
+          style={styles.preview}
+          aspect={Camera.constants.Aspect.fill}>
+          <Text style={styles.capture} onPress={()=> {
+            this.setModalVisible(true)
+            this.takePicture()
+          }}>[CAPTURE]</Text>
+        </Camera>
+        <Modal
+          animated={this.state.animated}
+          transparent={this.state.transparent}
+          visible={this.state.visible}>
+          <View style={[styles.container, modalBackgroundStyle]}>
+            <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
+              <Text onPress={this.setModalVisible.bind(this, false)}>
+                Back
+              </Text>
+              <ListView
+                dataSource={dataSource}
+                renderRow={(rowData) => <TouchableHighlight onPress={()=> {this.props.sendPhotoToAWS(this.state.photoData, rowData.id)}}><Text>{rowData.challengeText}</Text></TouchableHighlight>}
+                style={styles.listView} />
+            </View>
+          </View>
+        </Modal>
+      </View>
+
+    );
+  }
+
+  takePicture() {
+    this.camera.capture()
+    .then((data) => {
+      console.log(data)
+      console.log('THIS IS WORKED!!!!!', data)
+      this.setState({photoData: data})
+    })
+    .catch(err => console.error(err));
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: Dimensions.get('window').height,
+    width: Dimensions.get('window').width
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40
+  }
+});
+
+export default CameraApp

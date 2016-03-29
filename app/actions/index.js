@@ -26,7 +26,7 @@ export const getChallenges = (userId) => {
     dispatch(gettingChallenges(userId))
     console.log("DISPATCHED THE FIRST ONE and user ID was", userId)
 
-    return fetch('http://159.203.239.224:3000/getInitialData/'+ userId)
+    return fetch('http://127.0.0.1:3000/getInitialData/'+ userId)
     .then((response)=>{
       return response.json()
     })
@@ -65,7 +65,7 @@ export const SendChallenge = (challenge) => {
         completed: false
     }
 
-    return fetch('http://159.203.239.224:3000/submitChallenge', {
+    return fetch('http://127.0.0.1:3000/submitChallenge', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
