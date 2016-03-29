@@ -61,3 +61,19 @@ export const cameraChallengeId = (challengeId) => {
   }
 }
 
+export const getChallengePhoto = (challengeId) => {
+  return (dispatch)=>{
+    return fetch('http://159.203.239.224:3000/getPhoto/'+challengeId)
+    .then((response)=>{
+      console.log("THIS IS THE REPONSE FROM GET PHOTO", response)
+      return response.text()
+    })
+    .then((photoURL)=>{
+      console.log("GOT SOMETHING FROM DATABSE", photoURL)
+      return photoURL
+    })
+    .catch((error)=>{
+      console.log("ERROR FROM ACTION", error)
+    })
+  }
+}

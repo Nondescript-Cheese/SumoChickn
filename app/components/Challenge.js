@@ -4,7 +4,8 @@ import React, {
   View,
   TouchableHighlight,
   Modal,
-  Component
+  Component,
+  Image
 } from 'react-native'
 
 import { Actions } from 'react-native-router-flux'
@@ -12,7 +13,7 @@ import { Actions } from 'react-native-router-flux'
 class Challenge extends Component {
   constructor(props) {
     super(props);
-    this.state = { visible: false, transparent: true, animated: true};
+    this.state = { visible: false, transparent: true, animated: true, photoUrl: ""};
   }
     setModalVisible(visible) {
     this.setState({visible: visible});
@@ -38,24 +39,36 @@ class Challenge extends Component {
     </TouchableHighlight> 
   } else {
     clickChallenge = <View><TouchableHighlight onPress={()=> {
-      this.setModalVisible(true)
+      var getPhoto = new Promise((resolve, reject) => {
+        resolve(this.props.getChallengePhoto(this.props.id))
+      })
+      getPhoto.then((photoUrl)=>{
+        return this.setState({photoUrl: photoUrl})
+      })
+      .then((data)=>{
+        return this.setModalVisible(true)
+      })
+      .catch((error)=>{
+        console.log("Error in the promises", error)
+      })
     }} style={styles.listItem}>
       <Text style={styles.challengeText}>
         {this.props.title}
       </Text>
     </TouchableHighlight> 
-    <Modal
-      animate={this.state.animated}
-      transparent={this.state.transparent}
-      visible={this.state.visible}>
-        <View style={[styles.container, modalBackgroundStyle]}>
-          <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-              <Text onPress={this.setModalVisible.bind(this, false)}>
-                  Back
-              </Text>
+      <Modal
+        animate={this.state.animated}
+        transparent={this.state.transparent}
+        visible={this.state.visible}>
+          <View style={[styles.container, modalBackgroundStyle]}>
+            <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
+                <Text onPress={this.setModalVisible.bind(this, false)}>
+                    Back
+                </Text>
+                <Image source={{uri: this.state.photoUrl}} style = {{width: 100, height: 100}} />
+            </View>
           </View>
-        </View>
-    </Modal>
+      </Modal>
     </View>
     }
 
@@ -84,20 +97,3 @@ var styles = StyleSheet.create({
 })
 
 export default Challenge
-
-// <Modal
-//   animated={this.state.animated}
-//   transparent={this.state.transparent}
-//   visible={this.state.visible}>
-//   <View style={[styles.container, modalBackgroundStyle]}>
-//     <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-//       <Text onPress={this.setModalVisible.bind(this, false)}>
-//         Back
-//       </Text>
-//       <ListView
-//         dataSource={dataSource}
-//         renderRow={(rowData) => <TouchableHighlight onPress={()=> {this.props.sendPhotoToAWS(this.state.photoData, rowData.id)}}><Text>{rowData.challengeText}</Text></TouchableHighlight>}
-//         style={styles.listView} />
-//     </View>
-//   </View>
-// </Modal>

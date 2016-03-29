@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import CameraApp from '../components/Camera'
 import { Actions } from 'react-native-router-flux'
-import { postPicture} from '../actions/cameraActions'
+import { postPicture } from '../actions/cameraActions'
 import { toggleChallengeStatus } from '../actions/toggleChallengeStatus'
 import { postingPicture } from '../actions/cameraActions'
 import keys from '../utils/env'
@@ -9,7 +9,6 @@ import { bindActionCreators } from 'redux'
 const s3Policy = require('../utils/s3Policies')
 
 const mapStateToProps = (state) => {
-  // console.log("THIS IS STATTE",state.challenges.challengeList);
   return {
     currentId: state.challenges.currentChallengeID,
     allChallenges: state.challenges.challengeList
@@ -59,14 +58,9 @@ const mapDispatchToProps = (dispatch) => {
       }
 
        dispatch(postingPicture(challengeId, pictureAndS3Auth))
-       // const fileObj = {
-       //   data: {
-       //     path: picture
-       //   }
-       // }
-       // dispatch(postPicture(challengeId, fileObj));
+
     },
-    toggleChallenge: bindActionCreators(toggleChallengeStatus, dispatch) 
+    toggleChallenge: bindActionCreators(toggleChallengeStatus, dispatch),
   }
 }
 
