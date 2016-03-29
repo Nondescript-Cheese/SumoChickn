@@ -17,6 +17,20 @@ router.post('/submitChallenge', controller.challenges.postChallenge);
 
 router.put('/toggleChallenge/:id', controller.challenges.updateChallengeStatus);
 
-router.put('/addPhoto/:id/:url', controller.challenges.updatePhoto)
+router.put('/addPhoto/:id', controller.challenges.updatePhoto);
+
+router.get('/getPhoto/:id', controller.challenges.getPhoto)
 
 module.exports = router;
+
+
+
+
+
+ // {
+ //  "challengeText": "chal1",
+ //  "points": 3,
+ //  "createdBy": "Apple",
+ //  "userChallenged": "Michael Cheung",
+ //  "UserId": 1
+ // }
