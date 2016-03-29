@@ -11,6 +11,7 @@ import CameraConnect from '../containers/CameraContainer'
 import ChallengeList from '../containers/ChallengeList'
 import Leaderboard from '../containers/Leaderboard'
 import { Scene, Router, Actions } from 'react-native-router-flux';
+import ProofFeed from './ProofFeedComponent'
 
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
@@ -22,6 +23,7 @@ let myChallenges = () => {
       <ScrollableTabView>
         <ChallengeList tabLabel="MyChallenges"/>
         <Leaderboard tabLabel="Leaderboard"/>
+        <ProofFeed tabLabel="Proof"/>
       </ScrollableTabView>
     </View>
   )
