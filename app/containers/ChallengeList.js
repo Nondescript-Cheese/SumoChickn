@@ -20,16 +20,16 @@ const filterView = (challenges, challengesViewStatus) => {
   }
 }
 
-// const checkChallenges = (array) => {
-//   if(array.length === 0) {
-//     return [{id:-1}]
-//   } else {
-//     return array
-//   }
-// }
+const checkChallenges = (array) => {
+  if(array.length > 0) {
+    return array
+  } else {
+    return undefined
+  }
+}
 const mapStateToProps = (state) => {
   return {
-    visibleChallenges: filterView(state.challenges.challengeList, state.challengesViewStatus),
+    visibleChallenges: checkChallenges(filterView(state.challenges.challengeList, state.challengesViewStatus)),
     allUserData: state.allUsers.usersList,
     refreshingChallenges: state.challenges.gettingUsersChallenges,
     currentUser: state.currentUser.userDetails[0],
