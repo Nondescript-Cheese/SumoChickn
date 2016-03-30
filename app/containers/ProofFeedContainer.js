@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
     getClosedChallenges: bindActionCreators(getClosedChallenges, dispatch),
-
+    voteOnChallenge: bindActionCreators(voteOnChallenge, dispatch),
 	}
 }
 
