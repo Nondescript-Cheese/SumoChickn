@@ -6,7 +6,8 @@ import React, {
  ScrollView,
  Switch,
  RefreshControl,
- TouchableHighlight
+ TouchableHighlight,
+ TouchableOpacity
 } from 'react-native'
 
 import Button from 'react-native-button';
@@ -35,19 +36,19 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
      </View>
 
      <View style={styles.body}>
-       <View style={[styles.openCloseChoice, styles.border]}>
+       <View style={styles.openCloseChoice}>
          
-        <TouchableHighlight style={[styles.border, styles.open]} onPress={() => changeView(false)}>
+        <TouchableOpacity activeOpacity={0.1} style={styles.open} onPress={() => changeView(false)}>
           <Text style={styles.openCloseChoiceText}>
             open
           </Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
-        <TouchableHighlight style={[styles.border, styles.closed]} onPress={() => changeView(true)}>
+        <TouchableOpacity style={styles.closed} onPress={() => changeView(true)}>
           <Text style={styles.openCloseChoiceText}>
             closed
           </Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
        </View>
 
        <ScrollView
@@ -112,12 +113,18 @@ var styles = StyleSheet.create({
  open: {
   flex: 0.5,
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  backgroundColor: '#d3d3d3',
+  borderWidth: 3,
+  borderColor: '#ff1493'
  },
  closed: {
   flex: 0.5,
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  backgroundColor: '#d3d3d3',
+  borderWidth: 3,
+  borderColor: '#ff1493'
  },
  openCloseChoiceText: {
   fontSize: 20,
