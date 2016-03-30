@@ -36,6 +36,13 @@ const formValue = {
   points: 0
 }
 
+const validate () => {
+  if(formValue.description === "" || formValue.assignedTo === undefined || formValue.points === 0) {
+    return false;
+  }
+  return true;
+}
+
 class CreateChallenges extends Component {
   constructor(props) {
     super(props);
