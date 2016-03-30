@@ -3,6 +3,7 @@ import React, {
   StyleSheet,
   View,
   TouchableHighlight,
+  TouchableOpacity,
   Modal,
   Component,
   Image
@@ -29,16 +30,16 @@ class Challenge extends Component {
       : null;
     var clickChallenge;
     if(!this.props.challengesViewStatus){
-      clickChallenge = <TouchableHighlight onPress={()=> {
+      clickChallenge = <TouchableOpacity onPress={()=> {
         this.props.onClick(this.props.id)
         Actions.camera()
     }} style={styles.listItem}>
       <Text style={styles.challengeText}>
         {this.props.title}
       </Text>
-    </TouchableHighlight> 
+    </TouchableOpacity> 
   } else {
-    clickChallenge = <View><TouchableHighlight onPress={()=> {
+    clickChallenge = <View><TouchableOpacity onPress={()=> {
       var getPhoto = new Promise((resolve, reject) => {
         resolve(this.props.getChallengePhoto(this.props.id))
       })
@@ -55,7 +56,7 @@ class Challenge extends Component {
       <Text style={styles.challengeText}>
         {this.props.title}
       </Text>
-    </TouchableHighlight> 
+    </TouchableOpacity> 
       <Modal
         animate={this.state.animated}
         transparent={this.state.transparent}
@@ -63,9 +64,10 @@ class Challenge extends Component {
           <View style={[styles.container, modalBackgroundStyle]}>
             <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
                 <Text onPress={this.setModalVisible.bind(this, false)}>
-                    Back
+                    Back{'\n'}
                 </Text>
-                <Image source={{uri: this.state.photoUrl}} style = {{width: 100, height: 100}} />
+                <Text>You completed this challenge sent by {this.props.createdBy.split(" ")[0]} and earned {this.props.points} points!</Text>
+                <Image source={{uri: this.state.photoUrl}} style = {{width: 350, height: 350}}  resizeMode={Image.resizeMode.contain} />
             </View>
           </View>
       </Modal>
