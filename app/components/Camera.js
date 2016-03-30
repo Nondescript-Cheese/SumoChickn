@@ -9,7 +9,8 @@ import React, {
   TouchableHighlight,
   View,
   ListView,
-  StatusBar
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 
 import Camera from 'react-native-camera';
@@ -44,12 +45,14 @@ class CameraApp extends Component {
 
     return (
       <View style={styles.container}>
-      <StatusBar
-        hidden={false}
-        barStyle="light-content"
-        showHideTransition="slide"
-        animated={true}
-      />
+        <View style={styles.header}>
+          <TouchableOpacity onPress={Actions.myChallenges} style={styles.backButton}>
+            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+          </TouchableOpacity>
+          <Text style={styles.headerText}>
+            Create Challenge
+          </Text>
+        </View>
         <Camera
           ref={(cam) => {
             this.camera = cam;
@@ -85,6 +88,12 @@ class CameraApp extends Component {
         //     </View>
         //   </View>
         // </Modal>
+      // <StatusBar
+      //   hidden={true}
+      //   barStyle="light-content"
+      //   showHideTransition="slide"
+      //   animated={true}
+      // />
     );
   }
 
@@ -113,6 +122,16 @@ class CameraApp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  header: {
+    flexDirection: 'row',
+    flex: 0.1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  backButton: {
+    marginRight: 40
   },
   preview: {
     flex: 1,
