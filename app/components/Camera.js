@@ -65,9 +65,6 @@ class CameraApp extends Component {
           }}>
           <Image source={{uri: "https://s3-us-west-1.amazonaws.com/challengrproof/circle-outline-512.png"}} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
           </TouchableHighlight>
-          <Text onPress={()=>{Actions.myChallenges()}} style={styles.capture}>
-          Back
-          </Text>
         </Camera>
       </View>
           // [CAPTURE]</Text>
