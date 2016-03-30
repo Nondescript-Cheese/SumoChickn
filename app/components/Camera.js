@@ -49,7 +49,7 @@ class CameraApp extends Component {
           }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
-          <TouchableHighlight onPress={()=> {
+          <TouchableHighlight activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
             // this.setModalVisible(true)
             this.takePicture()
           }}>
@@ -124,11 +124,14 @@ const styles = StyleSheet.create({
   },
   clicker: {
     flex: 0,
-    padding: 5,
-    margin: 10,
     height: 50,
     width: 50,
   },
+  clickerFrame: {
+    borderWidth: 3,
+    borderColor: "white",
+    borderRadius: 50
+  }
 });
 
 export default CameraApp
