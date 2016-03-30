@@ -9,6 +9,7 @@ import React, {
   TouchableHighlight,
   View,
   ListView,
+  StatusBar
 } from 'react-native';
 
 import Camera from 'react-native-camera';
@@ -43,6 +44,12 @@ class CameraApp extends Component {
 
     return (
       <View style={styles.container}>
+      <StatusBar
+        hidden={false}
+        barStyle="light-content"
+        showHideTransition="slide"
+        animated={true}
+      />
         <Camera
           ref={(cam) => {
             this.camera = cam;

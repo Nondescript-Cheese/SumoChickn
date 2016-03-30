@@ -40,7 +40,8 @@ const App = () => (
  <View style={{ flex: 1 }}>
   <StatusBar
     hidden={true}
-    // barStyle="light-content"
+    showHideTransition="slide"
+    animated={true}
   />
   <Router scenes={scenes} />
   <View>
