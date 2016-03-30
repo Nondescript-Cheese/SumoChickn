@@ -17,11 +17,9 @@ import { Actions } from 'react-native-router-flux'
 
 let _scrollView: ScrollView;
 
-//actual component:
 
 const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refreshingChallenges, getNewChallenges, currentUser, challengesViewStatus, getChallengePhoto}) => {
 
-  // getChallengePhoto(1)
   
   let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={cameraChallengeId} challengesViewStatus={challengesViewStatus} getChallengePhoto = {getChallengePhoto} title={challenge.challengeText} />;
 
@@ -38,14 +36,14 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
      <View style={styles.body}>
        <View style={styles.openCloseChoice}>
          
-        <TouchableOpacity activeOpacity={0.1} style={styles.open} onPress={() => changeView(false)}>
-          <Text style={styles.openCloseChoiceText}>
+        <TouchableOpacity activeOpacity={0.1} style={challengesViewStatus ? styles.open : styles.selected} onPress={() => changeView(false)}>
+          <Text style={challengesViewStatus ? styles.openCloseChoiceText : styles.selectedText}>
             open
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.closed} onPress={() => changeView(true)}>
-          <Text style={styles.openCloseChoiceText}>
+        <TouchableOpacity style={challengesViewStatus ? styles.selected : styles.closed} onPress={() => changeView(true)}>
+          <Text style={challengesViewStatus ? styles.selectedText : styles.openCloseChoiceText}>
             closed
           </Text>
         </TouchableOpacity>
@@ -90,12 +88,14 @@ var styles = StyleSheet.create({
    borderColor: "red",
    borderWidth: 4,
    alignItems: 'center',
-   justifyContent: 'center'
+   justifyContent: 'center',
+   backgroundColor: 'white'
  },
  body: {
    flex: 0.6,
    borderColor: "yellow",
-   borderWidth: 4
+   borderWidth: 4,
+   backgroundColor: 'white'
  },
  sub: {
    flex: 0.1,
@@ -114,22 +114,32 @@ var styles = StyleSheet.create({
   flex: 0.5,
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '#d3d3d3',
+  backgroundColor: '#fffaf0',
   borderWidth: 3,
-  borderColor: '#ff1493'
+  borderColor: '#fffaf0'
  },
  closed: {
   flex: 0.5,
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '#d3d3d3',
+  backgroundColor: '#fffaf0',
   borderWidth: 3,
-  borderColor: '#ff1493'
+  borderColor: '#fffaf0'
  },
+ selected:{
+  flex: 0.5,
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: '#ff005f'
+},
  openCloseChoiceText: {
   fontSize: 20,
  },
-
+ selectedText: {
+  fontSize: 20,
+  color: 'white',
+  fontWeight: '600'
+ },
  challengesList: {
   flex: 0.5,
  },
