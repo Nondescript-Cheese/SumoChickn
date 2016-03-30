@@ -3,8 +3,46 @@ export const CHALLENGE_POSTED = 'CHALLENGE_POSTED'
 export const CHANGE_CHALLENGES_VIEW = 'CHANGE_CHALLENGES_VIEW'
 export const GETTING_CHALLENGES = 'GETTING_CHALLENGES'
 export const GOT_CHALLENGES = 'GOT_CHALLENGES'
+export const GETTING_CLOSED_CHALLENGES = 'GETTING_CLOSED_CHALLENGES'
+export const GOT_CLOSED_CHALLENGES = 'GOT_CLOSED_CHALLENGES'
 
 import { Actions } from 'react-native-router-flux';
+
+//--------------------------------------
+
+export const gettingClosedChallenges = (fromNo, toNo) => {
+  return {
+    type: GETTING_CLOSED_CHALLENGES,
+    payload: [fromNo, to],
+  }
+}
+
+export const gotClosedChallenges = (challenges) => {
+  return {
+    type: GOT_CLOSED_CHALLENGES,
+    payload: challenges,
+  }
+}
+
+export const getClosedChallenges = (fromNo, toNo) => {
+  return dispatch => {
+    dispatch(gettingClosedChallenges(fromNo, toNo))
+
+    return fetch('http://159.203.239.224:3000/getClosedChallenges/' +fromNo+ '/' +toNo)
+    .then((response)=>{
+      return response.json()
+    })
+    .then((closedChallengeList)=>{
+      dispatch(gotClosedChallenges(closedChallengeList))
+    })
+    .catch((error)=>{
+      console.warn(error)
+    })
+  }
+}
+
+//--------------------------------------
+
 
 
 export const gettingChallenges = (userId) => {
@@ -24,7 +62,6 @@ export const gotChallenges = (challenges) => {
 export const getChallenges = (userId) => {
   return dispatch => {
     dispatch(gettingChallenges(userId))
-    console.log("DISPATCHED THE FIRST ONE and user ID was", userId)
 
     return fetch('http://159.203.239.224:3000/getInitialData/'+ userId)
     .then((response)=>{
