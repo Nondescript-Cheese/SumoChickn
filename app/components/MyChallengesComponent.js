@@ -4,6 +4,7 @@ import React, {
  ListView,
  StyleSheet,
  ScrollView,
+ Image,
  Switch,
  RefreshControl,
  TouchableHighlight,
@@ -28,9 +29,9 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
    <View style={styles.container}>
 
      <View style={styles.header}>
-       <Text style={styles.headerText}>
-         My Challenges
-       </Text>
+     <TouchableOpacity>
+       <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+     </TouchableOpacity>
      </View>
 
      <View style={styles.body}>
@@ -85,8 +86,6 @@ var styles = StyleSheet.create({
  },
  header: {
    flex: 0.1,
-   borderColor: "red",
-   borderWidth: 4,
    alignItems: 'center',
    justifyContent: 'center',
    backgroundColor: 'white'
@@ -100,7 +99,8 @@ var styles = StyleSheet.create({
  sub: {
    flex: 0.1,
    borderColor: "green",
-   borderWidth: 4
+   borderWidth: 4,
+   backgroundColor: 'white'
  },
  headerText: {
    fontSize: 30

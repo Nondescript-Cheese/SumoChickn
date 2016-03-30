@@ -4,6 +4,8 @@ import React, {
  RefreshControl,
  StyleSheet,
  ScrollView,
+ TouchableOpacity,
+ Image
 } from 'react-native'
 
 let _scrollView: ScrollView;
@@ -36,9 +38,9 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
    <View style={styles.container}>
 
      <View style={styles.header}>
-       <Text style={styles.headerText}>
-         Leaderboard
-       </Text>
+     <TouchableOpacity>
+       <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(2).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+     </TouchableOpacity>
      </View>
 
      <View style={styles.body}>
@@ -75,11 +77,10 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
 var styles = StyleSheet.create({
  container: {
    flex: 1,
+   backgroundColor: 'white'
  },
  header: {
    flex: 0.1,
-   borderColor: "red",
-   borderWidth: 4,
    alignItems: 'center',
    justifyContent: 'center'
  },
