@@ -1,8 +1,8 @@
 import Immutable from 'immutable'
 import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
-import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
 import { CAMERA_CHALLENGE_ID } from '../actions/cameraActions'
+import { GETTING_CLOSED_CHALLENGES, GOT_CLOSED_CHALLENGES, CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
 import { TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
 import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
@@ -31,8 +31,7 @@ const challenge = (state, action) => {
   }
 }
 
-//FAKE DATA TO TEST REDUX-STORE
-const challenges = (state = {challengeList: [], postingChallenge: false, challengeStatusChanging: false, gettingUsersChallenges: false, currentChallengeID: 0} , action) => {
+const challenges = (state = {challengeList: [], postingChallenge: false, challengeStatusChanging: false, gettingUsersChallenges: false, gettingClosedChallenges: false, closedChallengesList: []} , action) => {
   switch(action.type) {
     case CHALLENGE_POSTING:
       return Object.assign({}, state, {
@@ -47,7 +46,6 @@ const challenges = (state = {challengeList: [], postingChallenge: false, challen
       return Object.assign({}, state, {
         challengeStatusChanging: true
       })
-
     case TOGGLED_CHALLENGE:
       return Object.assign({}, state, {
         challengeStatusChanging: false,
@@ -65,6 +63,15 @@ const challenges = (state = {challengeList: [], postingChallenge: false, challen
     case CAMERA_CHALLENGE_ID:
       return Object.assign({}, state, {
         currentChallengeID: action.id
+      })
+    case GETTING_CLOSED_CHALLENGES:
+      return Object.assign({}, state, {
+        gettingClosedChallenges: true
+      })
+    case GOT_CLOSED_CHALLENGES:
+      return Object.assign({}, state, {
+        gettingClosedChallenges: false,
+        closedChallengesList: action.challenges
       })
     default:
       return state

@@ -4,13 +4,14 @@ import React, {
   StatusBar
 } from 'react-native'
 
-import HandleRoutes from '../containers/HandleRoutes';
+import HandleRoutes from '../containers/HandleRoutes'
 import LoginAuth from '../containers/Login'
 import SendChallenges from '../containers/SendChallenge'
 import CameraConnect from '../containers/CameraContainer'
 import ChallengeList from '../containers/ChallengeList'
 import Leaderboard from '../containers/Leaderboard'
-import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Scene, Router, Actions } from 'react-native-router-flux'
+import ProofFeed from '../containers/ProofFeedContainer'
 
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
@@ -21,6 +22,7 @@ let myChallenges = () => {
     <View style={{flex: 1 }}>
       <ScrollableTabView>
         <ChallengeList tabLabel="MyChallenges"/>
+        <ProofFeed tabLabel="Proof"/>
         <Leaderboard tabLabel="Leaderboard"/>
       </ScrollableTabView>
     </View>
