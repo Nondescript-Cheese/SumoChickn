@@ -55,7 +55,7 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
         ref={(scrollView) => { _scrollView = scrollView; }}
         automaticallyAdjustContentInsets={false}
         scrollEventThrottle={200}
-        style={styles.scrollView}
+        // style={styles.scrollView}
         refreshControl={
           <RefreshControl
             refreshing={refreshingChallenges}
@@ -72,9 +72,9 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
       </View>
 
       <View style={styles.sub}>
-        <TouchableHighlight style={styles.buttonWrap} onPress={() => Actions.createChallenge()}>
+        <TouchableOpacity style={styles.buttonWrap} onPress={() => Actions.createChallenge()}>
           <Text style={styles.textBox}>Create Challenge</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
 
    </View>
@@ -99,9 +99,9 @@ var styles = StyleSheet.create({
  },
  sub: {
    flex: 0.1,
-   borderColor: "green",
-   borderWidth: 4,
-   backgroundColor: 'white'
+   // borderColor: "#ff005f",
+   // borderWidth: 4,
+   backgroundColor: '#ff005f'
  },
  headerText: {
    fontSize: 30
@@ -151,12 +151,16 @@ var styles = StyleSheet.create({
  buttonWrap: {
     flex:1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#ff005f'
   },
   textBox: {
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 25
+    fontSize: 25,
+    color: 'white',
+    fontWeight: '600',
+
   }
 })
 
