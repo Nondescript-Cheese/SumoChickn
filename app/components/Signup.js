@@ -3,7 +3,8 @@ import React, {
   Text,
   TouchableHighlight,
   StyleSheet,
-  TextInput
+  TextInput,
+  Image
 } from 'react-native'
 
 import FBLogin from 'react-native-facebook-login'
@@ -11,9 +12,18 @@ import FBLogin from 'react-native-facebook-login'
 let FBLoginManager = require('NativeModules').FBLoginManager;
 
 const Signup = ({ getCurrentUser }) => (
-  <View style = {styles.container} >
-    <View style= {styles.header}>
-      <Text>Signup/Login</Text>
+  <View style={styles.container}>
+    <View style={styles.header}>
+      <Text style={{fontSize: 40}}>Login</Text>
+    </View>
+    <View style={styles.logoHolder}>
+      <Image
+        style={{
+          width: 275,
+          height: 275,
+          resizeMode: 'contain'
+        }}
+        source={{uri:'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing+(3).png'}} />
     </View>
     <View style = {styles.facebook}>
       <FBLogin
@@ -32,40 +42,21 @@ const Signup = ({ getCurrentUser }) => (
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderColor: 'grey',
-    borderWidth: 3
   },
   header: {
-    flex: 0.2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'blue',
-    borderWidth: 3
+    marginTop: 20,
+    alignItems: 'center'
   },
-  form: {
-    flex: 0.1,
+  logoHolder: {
+    flex: 0.9,
     alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'red',
-    borderWidth: 3
-  },
-  input: {
-    flex: 0.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'green',
-    borderWidth: 3
-  },
-  space: {
-    flex: 0.3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: 'black',
-    borderWidth: 3
+    justifyContent: 'center'
   },
   facebook: {
+    flex: 0.1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    paddingBottom: 10
   }
 })
 
