@@ -6,7 +6,7 @@ import React, {
   Image
 } from 'react-native'
 
-const Proof = ({createdBy, userChallenged, challengeText, proofUrl, points}) => {
+const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, listLength, voteOnChallenge}) => {
   return (
     <View style={styles.listItem}>
       <View style={styles.itemHeadline}>
@@ -18,10 +18,10 @@ const Proof = ({createdBy, userChallenged, challengeText, proofUrl, points}) => 
             <Text>{challengeText}</Text>
           </View>
           <View style={styles.buttons}>
-            <TouchableHighlight>
+            <TouchableHighlight onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
               <Text>YES</Text>
             </TouchableHighlight>
-            <TouchableHighlight>
+            <TouchableHighlight onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
               <Text>NO</Text>
             </TouchableHighlight>
           </View>

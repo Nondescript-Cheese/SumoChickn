@@ -128,7 +128,7 @@ export const SendChallenge = (challenge) => {
 
 export const voteOnChallenge = (challengeId, voteId, fromNo, toNo) => {
   return dispatch => {
-    return fetch('http://159.203.239.224:3000/voteOnProof/'+challengeid+'/'+voteId, {
+    return fetch('http://159.203.239.224:3000/voteOnProof/'+challengeId+'/'+voteId, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
