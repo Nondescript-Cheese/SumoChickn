@@ -6,6 +6,7 @@ import React, {
  ScrollView,
  Image,
  Switch,
+ Alert,
  RefreshControl,
  TouchableHighlight,
  TouchableOpacity
@@ -19,7 +20,7 @@ import { Actions } from 'react-native-router-flux'
 let _scrollView: ScrollView;
 
 
-const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refreshingChallenges, getNewChallenges, currentUser, challengesViewStatus, getChallengePhoto}) => {
+const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refreshingChallenges, getNewChallenges, currentUser, challengesViewStatus, getChallengePhoto, quoteMaker}) => {
 
   
   let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={cameraChallengeId} challengesViewStatus={challengesViewStatus} getChallengePhoto = {getChallengePhoto} title={challenge.challengeText} />;
@@ -29,7 +30,7 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
    <View style={styles.container}>
 
      <View style={styles.header}>
-     <TouchableOpacity>
+     <TouchableOpacity onPress={()=>{Alert.alert('SumoChicken says: '+ '"'+ quoteMaker()+'"')}}>
        <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
      </TouchableOpacity>
      </View>

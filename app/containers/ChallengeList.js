@@ -20,6 +20,11 @@ const filterView = (challenges, challengesViewStatus) => {
   }
 }
 
+const quoteMaker = ()=>{
+  let quotes = ["The knowledge you seek is located on Bookstrap", "How much deeper would the ocean be without sponges?", "Do your toy problems", "The road to riches is paved with React Native", "Cover stones in foil to make decorative balloon weights for parties", "Rebase often, but commit even more often", "Only eat free-range/gluten free/organic/vegan/non-dairy", "Ball is life", "Punjab lunch-time offers are available to Hack Reactor students all day"]
+  return quotes[Math.floor(Math.random()*quotes.length)]
+}
+
 const checkChallenges = (array) => {
   if(array.length > 0) {
     return array
@@ -33,7 +38,8 @@ const mapStateToProps = (state) => {
     allUserData: state.allUsers.usersList,
     refreshingChallenges: state.challenges.gettingUsersChallenges,
     currentUser: state.currentUser.userDetails[0],
-    challengesViewStatus: state.challengesViewStatus
+    challengesViewStatus: state.challengesViewStatus,
+    quoteMaker: quoteMaker
   }
 }
 
