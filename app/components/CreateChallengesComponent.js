@@ -88,7 +88,7 @@ class CreateChallenges extends Component {
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
-            <TextInput keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
+            <TextInput placeholder="Enter your challenge here!" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
               // this.setState({description: text})
               formValue.description = text
               formValue.createdBy = this.props.currentUser 

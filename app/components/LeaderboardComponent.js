@@ -84,7 +84,7 @@ var styles = StyleSheet.create({
    justifyContent: 'center'
  },
  body: {
-   flex: 0.6,
+   flex: 0.7,
    borderColor: "yellow",
    borderWidth: 4
  },
