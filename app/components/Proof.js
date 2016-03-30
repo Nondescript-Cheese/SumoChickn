@@ -9,7 +9,7 @@ import React, {
 //possible Error: bc voting is not updated in realtime, it could be that both yes and no are above 2.
 //depending on what hit 2 first, this will decide, BUT: here the function assumes that only hit 2.
 
-const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, voteCountNo, voteCountYes, listLength, voteOnChallenge}) => {
+const Proof = ({currentUserId, id, createdBy, userChallenged, challengeText, proofUrl, points, voteCountNo, voteCountYes, listLength, voteOnChallenge}) => {
   
   const voteSection = () => {
     if(voteCountYes < 2 && voteCountNo < 2) {
@@ -48,7 +48,7 @@ const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, 
     } else if (voteCountYes >= 2) {
       return (
         <View>
-          <Text>Challenge accepted! {userChallenged} got {points} points!</Text>
+          <Text>this is the id {currentUserId} Challenge accepted! {userChallenged} got {points} points!</Text>
         </View>
       )
     } else {

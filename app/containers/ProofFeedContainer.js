@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux'
 const mapStateToProps = (state) => {
   return {
     allClosedChallenges: state.challenges.closedChallengesList,
+    currentUserId: state.currentUser.userDetails[0].id,
   }
 }
 
