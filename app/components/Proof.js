@@ -6,7 +6,61 @@ import React, {
   Image
 } from 'react-native'
 
-const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, listLength, voteOnChallenge}) => {
+//possible Error: bc voting is not updated in realtime, it could be that both yes and no are above 2.
+//depending on what hit 2 first, this will decide, BUT: here the function assumes that only hit 2.
+
+const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, voteCountNo, voteCountYes, listLength, voteOnChallenge}) => {
+  
+  const voteSection = () => {
+    if(voteCountYes < 2 && voteCountNo < 2) {
+      return (
+        <View style={styles.buttons}>
+          <TouchableHighlight onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
+            <Text>YES</Text>
+          </TouchableHighlight>
+          <TouchableHighlight onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
+            <Text>NO</Text>
+          </TouchableHighlight>
+        </View>
+      )
+    } else if (voteCountYes >= 2) {
+      return (
+        <View>
+          <Text>This Challenge was accepted!</Text>
+        </View>
+      )
+    } else {
+      return (
+        <View>
+          <Text>This Challenge was denied!</Text>
+        </View>
+      )
+    }
+  }
+
+  const pointsInfoSection = () => {
+    if(voteCountYes < 2 && voteCountNo < 2) {
+      return (
+        <View>
+          <Text></Text>
+        </View>
+      )
+    } else if (voteCountYes >= 2) {
+      return (
+        <View>
+          <Text></Text>
+        </View>
+      )
+    } else {
+      return (
+        <View>
+          <Text></Text>
+        </View>
+      )
+    }
+  }
+
+
   return (
     <View style={styles.listItem}>
       <View style={styles.itemHeadline}>
@@ -17,14 +71,7 @@ const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, 
           <View>
             <Text>{challengeText}</Text>
           </View>
-          <View style={styles.buttons}>
-            <TouchableHighlight onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
-              <Text>YES</Text>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
-              <Text>NO</Text>
-            </TouchableHighlight>
-          </View>
+          {voteSection()}
         </View>
         <TouchableHighlight style={styles.thumbnail}>
           <Image source={{uri: proofUrl}} style = {{width: 350, height: 350}}  resizeMode={Image.resizeMode.contain} />
