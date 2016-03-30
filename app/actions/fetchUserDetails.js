@@ -19,8 +19,6 @@ export const gotUser = (user) => {
 }
 
 export const getUserDispatcher = (userToken, userId) => {
-  console.log('THIS IS THE USERTOKEN', userToken)
-  console.log('this is userid', userId)
   return dispatch => {
     dispatch(gettingUser())
 
