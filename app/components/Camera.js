@@ -157,7 +157,8 @@ const styles = StyleSheet.create({
   clickerFrame: {
     borderWidth: 3,
     borderColor: "white",
-    borderRadius: 50
+    borderRadius: 50,
+    marginBottom: 10
   }
 });
 
