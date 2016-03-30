@@ -35,7 +35,7 @@ class Challenge extends Component {
         Actions.camera()
     }} style={styles.listItem}>
       <Text style={styles.challengeText}>
-        {this.props.title}
+        {this.props.title}{'\n'} <Text style={styles.minChallengeText}>sent from {this.props.createdBy.split(" ")[0]} worth {this.props.points} points</Text>
       </Text>
     </TouchableOpacity> 
   } else {
@@ -89,12 +89,20 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   listItem: {
-    borderColor: 'blue',
-    borderWidth: 2,
-    padding: 7.5
+    borderColor: 'grey',
+    borderWidth: 0,
+    borderRadius: 12.5,
+    padding: 7.5,
+    margin: 1,
+    backgroundColor: "#a9a9a9"
   },
   challengeText: {
-    fontSize: 30 
+    fontSize: 25,
+    color: 'white' 
+  },
+  minChallengeText: {
+    fontSize: 15,
+    color: 'white' 
   }
 })
 

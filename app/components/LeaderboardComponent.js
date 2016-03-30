@@ -39,12 +39,18 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
    <View style={styles.container}>
 
      <View style={styles.header}>
-     <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull to get the latest standings')}>
+     <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull down to get the latest standings')}>
        <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(2).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
      </TouchableOpacity>
      </View>
 
+
      <View style={styles.body}>
+       <View style={styles.titleBar}>
+          <Text style ={styles.titleText}>
+            Global Challenge Rankings
+          </Text>
+      </View>
 
        <ScrollView
         ref={(scrollView) => { _scrollView = scrollView; }}
@@ -87,8 +93,8 @@ var styles = StyleSheet.create({
  },
  body: {
    flex: 0.7,
-   borderColor: "yellow",
-   borderWidth: 4
+   // borderColor: "yellow",
+   // borderWidth: 4
  },
  // sub: {
  //   flex: 0.1,
@@ -97,6 +103,18 @@ var styles = StyleSheet.create({
  // },
  headerText: {
    fontSize: 30
+ },
+ titleText:{
+  fontSize: 20,
+  fontWeight: "600",
+  color: 'white'
+ },
+ titleBar: {
+   flex: 0.1,
+   justifyContent: 'center',
+   alignItems: 'center',
+   marginBottom: 5,
+   backgroundColor: '#ff005f'
  },
  userRow: {
   flexDirection: 'row',
