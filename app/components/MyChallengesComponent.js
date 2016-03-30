@@ -93,8 +93,8 @@ var styles = StyleSheet.create({
  },
  body: {
    flex: 0.6,
-   borderColor: "yellow",
-   borderWidth: 4,
+   // borderColor: "yellow",
+   // borderWidth: 4,
    backgroundColor: 'white'
  },
  sub: {
