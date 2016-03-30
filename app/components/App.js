@@ -4,7 +4,6 @@ import React, {
   StatusBar
 } from 'react-native'
 
-import HandleRoutes from '../containers/HandleRoutes'
 import LoginAuth from '../containers/Login'
 import SendChallenges from '../containers/SendChallenge'
 import CameraConnect from '../containers/CameraContainer'
@@ -16,7 +15,6 @@ import ProofFeed from '../containers/ProofFeedContainer'
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
 
-//The Proofpage would be added here
 let myChallenges = () => {
   return(
     <View style={{flex: 1 }}>
@@ -46,31 +44,8 @@ const App = () => (
     animated={true}
   />
   <Router scenes={scenes} />
-  <View>
-    <HandleRoutes />
-  </View>
  </View>
 )
-
-
-// <ScrollableTabView>
-//      <Leaderboard tabLabel="Leaderboard"/>
-//      <Router scenes={scenes} tabLabel="MyChallenges"/>
-//   </ScrollableTabView>
-
-
-
-
-// const App = () => (
-//  <View style={{ flex: 1 }}>
-//   <ScrollableTabView>
-//      <Router scenes={scenes} tabLabel="MyChallenges"/>
-//      <View tabLabel="Nav">
-//        <HandleRoutes />
-//      </View>
-//   </ScrollableTabView>
-//  </View>
-// )
 
 export default App
 
