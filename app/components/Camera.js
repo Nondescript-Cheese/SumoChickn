@@ -133,6 +133,10 @@ const styles = StyleSheet.create({
   backButton: {
     marginRight: 40
   },
+  headerText: {
+    fontSize: 30,
+    color: '#ff005f'
+  },
   preview: {
     flex: 1,
     justifyContent: 'flex-end',
