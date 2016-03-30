@@ -77,8 +77,8 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
 
       </View>
       <View style={styles.sub}>
-        <TouchableOpacity style={styles.buttonWrap} onPress={() => Actions.createChallenge()}>
-          <Text style={styles.textBox}>Create Challenge</Text>
+        <TouchableOpacity style={styles.buttonWrap}>
+          <Text style={styles.textBox}>User Stats</Text>
         </TouchableOpacity>
       </View>
 
@@ -119,7 +119,9 @@ var styles = StyleSheet.create({
  textBox: {
    justifyContent: 'center',
    alignItems: 'center',
-   fontSize: 25
+   fontSize: 25,
+   fontWeight: '600',
+   color: 'white'
  },
  buttonWrap: {
     flex:1,
