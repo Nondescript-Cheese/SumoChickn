@@ -35,7 +35,7 @@ class Challenge extends Component {
         Actions.camera()
     }} style={styles.listItem}>
       <Text style={styles.challengeText}>
-        {this.props.title}{'\n'} <Text style={styles.minChallengeText}>sent by {this.props.createdBy} worth {this.props.points} points</Text>
+        {this.props.title}{'\n'} <Text style={styles.minChallengeText}>sent from {this.props.createdBy.split(" ")[0]} worth {this.props.points} points</Text>
       </Text>
     </TouchableOpacity> 
   } else {
