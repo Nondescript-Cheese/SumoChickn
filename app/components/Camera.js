@@ -9,6 +9,7 @@ import React, {
   TouchableHighlight,
   View,
   ListView,
+  StatusBar
 } from 'react-native';
 
 import Camera from 'react-native-camera';
@@ -43,13 +44,19 @@ class CameraApp extends Component {
 
     return (
       <View style={styles.container}>
+      <StatusBar
+        hidden={false}
+        barStyle="light-content"
+        showHideTransition="slide"
+        animated={true}
+      />
         <Camera
           ref={(cam) => {
             this.camera = cam;
           }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
-          <TouchableHighlight onPress={()=> {
+          <TouchableHighlight activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
             // this.setModalVisible(true)
             this.takePicture()
           }}>
@@ -124,11 +131,14 @@ const styles = StyleSheet.create({
   },
   clicker: {
     flex: 0,
-    padding: 5,
-    margin: 10,
     height: 50,
     width: 50,
   },
+  clickerFrame: {
+    borderWidth: 3,
+    borderColor: "white",
+    borderRadius: 50
+  }
 });
 
 export default CameraApp

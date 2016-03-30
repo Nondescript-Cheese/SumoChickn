@@ -1,6 +1,7 @@
 import React, {
   View,
-  Text
+  Text,
+  StatusBar
 } from 'react-native'
 
 import HandleRoutes from '../containers/HandleRoutes';
@@ -37,6 +38,11 @@ const scenes = Actions.create(
 //the view should hold each container
 const App = () => (
  <View style={{ flex: 1 }}>
+  <StatusBar
+    hidden={true}
+    showHideTransition="slide"
+    animated={true}
+  />
   <Router scenes={scenes} />
   <View>
     <HandleRoutes />
