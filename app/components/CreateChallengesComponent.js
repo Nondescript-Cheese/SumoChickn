@@ -180,20 +180,22 @@ var styles = StyleSheet.create({
   bodyTitle: {
     fontSize: 20,
     backgroundColor: '#ff005f',
-    padding: 5
+    padding: 5,
+    color: 'white'
   },
   bodyInput: {
     flex: 1,
   },
   numberSize: {
-    fontSize: 25
+    fontSize: 15
   },
   bodyDescription: {
     flex: 1,
     fontSize: 25,
     borderColor: "black",
     borderTopWidth: 2,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    marginBottom: 10
   },
   choose: {
     flex: 0.3,
