@@ -21,7 +21,7 @@ const filterView = (challenges, challengesViewStatus) => {
 }
 
 const quoteMaker = ()=>{
-  let quotes = ["The knowledge you seek is located on Bookstrap", "How much deeper would the ocean be without sponges?", "Do your toy problems", "The road to riches is paved with React Native", "Cover stones in foil to make decorative balloon weights for parties", "Rebase often, but commit even more often", "Only eat free-range/gluten free/organic/vegan/non-dairy", "Ball is life", "Punjab lunch-time offers are available to Hack Reactor students all day"]
+  let quotes = ["The knowledge you seek is located on Bookstrap", "How much deeper would the ocean be without sponges?", "Do your toy problems", "The road to riches is paved with React Native", "Cover stones in foil to make decorative balloon weights for parties", "Rebase often, but commit even more often", "Only eat free-range/gluten free/organic/vegan/non-dairy", "Ball is life", "Punjab lunch-time offers are available to Hack Reactor students all non-dairy", "Chicken and waffles is strictly a brunch food", "Don't skip leg day, unless you are Sumo-Chicken", "Chicken Run should have won the Oscar"]
   return quotes[Math.floor(Math.random()*quotes.length)]
 }
 

@@ -30,7 +30,7 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
    <View style={styles.container}>
 
      <View style={styles.header}>
-     <TouchableOpacity onPress={()=>{Alert.alert('SumoChicken says: '+ '"'+ quoteMaker()+'"')}}>
+     <TouchableOpacity onPress={()=>{Alert.alert('Sumo-Chicken says: '+ '"'+ quoteMaker()+'"')}}>
        <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
      </TouchableOpacity>
      </View>
