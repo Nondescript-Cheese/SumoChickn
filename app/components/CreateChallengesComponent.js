@@ -170,7 +170,7 @@ var styles = StyleSheet.create({
   sub: {
     flex: 0.1,
     borderColor: "green",
-    borderWidth: 4
+    borderWidth: 2
   },
   headerText: {
     fontSize: 30,
@@ -181,7 +181,7 @@ var styles = StyleSheet.create({
   },
   bodyTitle: {
     fontSize: 20,
-    backgroundColor: '#fffaf0',
+    backgroundColor: '#ff005f',
     padding: 5
   },
   bodyInput: {
@@ -191,7 +191,8 @@ var styles = StyleSheet.create({
     flex: 1,
     fontSize: 25,
     borderColor: "black",
-    borderWidth: 4
+    borderTopWidth: 2,
+    borderBottomWidth: 2
   },
   choose: {
     flex: 0.3,
@@ -208,13 +209,15 @@ var styles = StyleSheet.create({
   buttonWrap: {
     flex:1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#fffaf0',
+    borderRadius: 3
   },
   textBox: {
     fontSize: 30,
     fontWeight: 'bold',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 })
 
