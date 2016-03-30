@@ -102,19 +102,14 @@ var styles = StyleSheet.create({
    // borderColor: "yellow",
    // borderWidth: 4
  },
- // sub: {
- //   flex: 0.1,
- //   borderColor: "green",
- //   borderWidth: 4
- // },
  headerText: {
    fontSize: 30
  },
  sub: {
-   flex: 0.1,
-   borderColor: "green",
-   borderWidth: 4,
-   backgroundColor: 'white'
+  flex: 0.1,
+  // borderColor: "#ff005f",
+  // borderWidth: 4,
+  backgroundColor: '#ff005f'
  },
  titleText:{
   fontSize: 20,
