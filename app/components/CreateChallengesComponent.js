@@ -91,7 +91,7 @@ class CreateChallenges extends Component {
 
         <View style={styles.body}>
 
-          <View style={[styles.border, styles.description]}>
+          <View style={styles.description}>
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
@@ -104,21 +104,21 @@ class CreateChallenges extends Component {
           </View>
 
           <View style={styles.choose}>
-            <Select width={100}
+            <Select width={75}
             ref="SELECT1"
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Points"
             onSelect={this._points.bind(this)}>
-            <Option>1</Option>
-            <Option>2</Option>
-            <Option>3</Option>
-            <Option>4</Option>
-            <Option>5</Option>
-            <Option>6</Option>
+            <Option style={styles.numberSize}>1</Option>
+            <Option style={styles.numberSize}>2</Option>
+            <Option style={styles.numberSize}>3</Option>
+            <Option style={styles.numberSize}>4</Option>
+            <Option style={styles.numberSize}>5</Option>
+            <Option style={styles.numberSize}>6</Option>
             </Select>
             <OptionList ref="OPTIONLIST"/>
 
-            <Select width={130}
+            <Select width={160}
             ref="SELECT2"
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Friends"
@@ -166,13 +166,9 @@ var styles = StyleSheet.create({
   },
   body: {
     flex: 0.6,
-    borderColor: "yellow",
-    borderWidth: 4
   },
   sub: {
     flex: 0.1,
-    borderColor: "green",
-    borderWidth: 4
   },
   headerText: {
     fontSize: 30,
@@ -183,19 +179,23 @@ var styles = StyleSheet.create({
   },
   bodyTitle: {
     fontSize: 20,
-    backgroundColor: '#fffaf0',
+    backgroundColor: '#ff005f',
     padding: 5
   },
   bodyInput: {
     flex: 1,
   },
+  numberSize: {
+    fontSize: 25
+  },
   bodyDescription: {
     flex: 1,
     fontSize: 25,
+    borderColor: "black",
+    borderTopWidth: 2,
+    borderBottomWidth: 2
   },
   choose: {
-    borderColor: "orange",
-    borderWidth: 4,
     flex: 0.3,
     flexDirection: "row",
     justifyContent: 'space-around'
@@ -207,20 +207,19 @@ var styles = StyleSheet.create({
   description: {
     flex: 0.3
   },
-  border: {
-    borderColor: "black",
-    borderWidth: 4
-  },
   buttonWrap: {
     flex:1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#ff005f',
+    borderRadius: 3
   },
   textBox: {
     fontSize: 30,
+    color: 'white',
     fontWeight: 'bold',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 })
 
