@@ -9,7 +9,8 @@ import React, {
   PropTypes,
   PickerIOS,
   Alert,
-  TouchableHighlight
+  TouchableHighlight,
+  Vibration
 } from 'react-native'
 
 import { Actions } from 'react-native-router-flux';
@@ -124,7 +125,8 @@ class CreateChallenges extends Component {
         <View style={styles.sub}>
           <TouchableHighlight style={styles.buttonWrap} onPress ={()=>
             Alert.alert("Challenge " + formValue.assignedTo + "!!", "Are you ready to send your " + formValue.points + " point challenge to " + formValue.assignedTo + "?",             [
-              {text: 'Send It Baby', onPress: () => this.props.sendChallenge(formValue)},
+              {text: 'Send It Baby', onPress: () => {this.props.sendChallenge(formValue)
+                Vibration.vibrate()}},
               {text: 'Cancel', onPress: () => console.log("User cancelled")}
             ])
           }>
