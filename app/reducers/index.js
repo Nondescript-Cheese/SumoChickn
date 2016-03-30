@@ -1,9 +1,9 @@
 import Immutable from 'immutable'
 import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
-import { CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
 import { CAMERA_CHALLENGE_ID } from '../actions/cameraActions'
-import { GETTING_CLOSED_CHALLENGES, GOT_CLOSED_CHALLENGES, TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
+import { GETTING_CLOSED_CHALLENGES, GOT_CLOSED_CHALLENGES, CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
+import { TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
 import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
 //this is a place holder to allow app to render.
