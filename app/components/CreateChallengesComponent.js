@@ -36,7 +36,7 @@ const formValue = {
   points: 0
 }
 
-const validate () => {
+const validate = () => {
   if(formValue.description === "" || formValue.assignedTo === undefined || formValue.points === 0) {
     return false;
   }
@@ -131,13 +131,17 @@ class CreateChallenges extends Component {
 
         </View>
         <View style={styles.sub}>
-          <TouchableOpacity style={styles.buttonWrap} onPress ={()=>
-            Alert.alert("Challenge " + formValue.assignedTo + "!!", "Are you ready to send your " + formValue.points + " point challenge to " + formValue.assignedTo + "?",             [
-              {text: 'Send It Baby', onPress: () => {this.props.sendChallenge(formValue)
-                Vibration.vibrate()}},
-              {text: 'Cancel', onPress: () => console.log("User cancelled")}
-            ])
-          }>
+          <TouchableOpacity style={styles.buttonWrap} onPress ={()=> {
+            if(validate()) {
+              Alert.alert("Challenge " + formValue.assignedTo + "!!", "Are you ready to send your " + formValue.points + " point challenge to " + formValue.assignedTo + "?",             [
+                {text: 'Send It Baby', onPress: () => {this.props.sendChallenge(formValue)
+                  Vibration.vibrate()}},
+                {text: 'Cancel', onPress: () => console.log("User cancelled")}
+              ])
+            } else {
+              Alert.alert('form incomplete')
+            }
+          }}>
             <Text style={styles.textBox}>SEND CHALLENGE</Text>
           </TouchableOpacity>
         </View>
