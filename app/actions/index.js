@@ -20,7 +20,7 @@ export const gettingClosedChallenges = (fromNo, toNo) => {
 export const gotClosedChallenges = (challenges) => {
   return {
     type: GOT_CLOSED_CHALLENGES,
-    payload: challenges,
+    challenges,
   }
 }
 
