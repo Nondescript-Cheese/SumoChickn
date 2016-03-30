@@ -139,7 +139,7 @@ class CreateChallenges extends Component {
                 {text: 'Cancel', onPress: () => console.log("User cancelled")}
               ])
             } else {
-              Alert.alert('form incomplete')
+              Alert.alert('Make sure all fields are completed before sending a challenge.')
             }
           }}>
             <Text style={styles.textBox}>SEND CHALLENGE</Text>
