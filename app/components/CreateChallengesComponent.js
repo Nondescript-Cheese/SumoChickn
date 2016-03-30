@@ -9,8 +9,9 @@ import React, {
   PropTypes,
   PickerIOS,
   Alert,
-  TouchableHighlight,
-  Vibration
+  TouchableOpacity,
+  Vibration,
+  Image
 } from 'react-native'
 
 import { Actions } from 'react-native-router-flux';
@@ -73,9 +74,9 @@ class CreateChallenges extends Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
-          <TouchableHighlight onPress={Actions.myChallenges} style={styles.backButton}>
-            <Text>back</Text>
-          </TouchableHighlight>
+          <TouchableOpacity onPress={Actions.myChallenges} style={styles.backButton}>
+            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+          </TouchableOpacity>
           <Text style={styles.headerText}>
             Create Challenge
           </Text>
@@ -123,7 +124,7 @@ class CreateChallenges extends Component {
 
         </View>
         <View style={styles.sub}>
-          <TouchableHighlight style={styles.buttonWrap} onPress ={()=>
+          <TouchableOpacity style={styles.buttonWrap} onPress ={()=>
             Alert.alert("Challenge " + formValue.assignedTo + "!!", "Are you ready to send your " + formValue.points + " point challenge to " + formValue.assignedTo + "?",             [
               {text: 'Send It Baby', onPress: () => {this.props.sendChallenge(formValue)
                 Vibration.vibrate()}},
@@ -131,7 +132,7 @@ class CreateChallenges extends Component {
             ])
           }>
             <Text style={styles.textBox}>SEND CHALLENGE</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
 
 
@@ -148,10 +149,9 @@ var styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     flex: 0.1,
-    borderColor: "red",
-    borderWidth: 4,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: 'white'
   },
   body: {
     flex: 0.6,
@@ -164,12 +164,11 @@ var styles = StyleSheet.create({
     borderWidth: 4
   },
   headerText: {
-    fontSize: 30
+    fontSize: 30,
+    color: '#ff005f'
   },
   backButton: {
-    borderColor: "purple",
-    borderWidth: 2,
-    marginRight: 15
+    marginRight: 40
   },
   bodyTitle: {
     fontSize: 20,
