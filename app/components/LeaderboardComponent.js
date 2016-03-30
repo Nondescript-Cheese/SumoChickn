@@ -56,7 +56,7 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
         ref={(scrollView) => { _scrollView = scrollView; }}
         automaticallyAdjustContentInsets={false}
         scrollEventThrottle={200}
-        style={styles.scrollView}
+        // style={styles.scrollView}
         refreshControl={
           <RefreshControl
             refreshing={updatingLeaderboard}
@@ -76,6 +76,11 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
         </ScrollView>
 
       </View>
+      <View style={styles.sub}>
+        <TouchableOpacity style={styles.buttonWrap} onPress={() => Actions.createChallenge()}>
+          <Text style={styles.textBox}>Create Challenge</Text>
+        </TouchableOpacity>
+      </View>
 
    </View>
  )
@@ -92,7 +97,8 @@ var styles = StyleSheet.create({
    justifyContent: 'center'
  },
  body: {
-   flex: 0.7,
+   flex: 0.6,
+   backgroundColor: '#f5f5f5'
    // borderColor: "yellow",
    // borderWidth: 4
  },
@@ -104,11 +110,27 @@ var styles = StyleSheet.create({
  headerText: {
    fontSize: 30
  },
+ sub: {
+   flex: 0.1,
+   borderColor: "green",
+   borderWidth: 4,
+   backgroundColor: 'white'
+ },
  titleText:{
   fontSize: 20,
   fontWeight: "600",
   color: 'white'
  },
+ textBox: {
+   justifyContent: 'center',
+   alignItems: 'center',
+   fontSize: 25
+ },
+ buttonWrap: {
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
  titleBar: {
    flex: 0.1,
    justifyContent: 'center',
