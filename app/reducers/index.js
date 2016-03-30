@@ -31,8 +31,8 @@ const challenge = (state, action) => {
   }
 }
 
-//FAKE DATA TO TEST REDUX-STORE
 const challenges = (state = {challengeList: [], postingChallenge: false, challengeStatusChanging: false, gettingUsersChallenges: false, currentChallengeID: 0} , action) => {
+
   switch(action.type) {
     case CHALLENGE_POSTING:
       return Object.assign({}, state, {
