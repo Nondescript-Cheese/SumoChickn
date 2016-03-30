@@ -88,7 +88,7 @@ class CreateChallenges extends Component {
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
-            <TextInput placeholder="Enter your challenge here!" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
+            <TextInput placeholder="enter your challenge here" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
               // this.setState({description: text})
               formValue.description = text
               formValue.createdBy = this.props.currentUser 
@@ -145,13 +145,13 @@ class CreateChallenges extends Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
   header: {
     flexDirection: 'row',
     flex: 0.1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white'
   },
   body: {
     flex: 0.6,
@@ -172,17 +172,15 @@ var styles = StyleSheet.create({
   },
   bodyTitle: {
     fontSize: 20,
+    backgroundColor: '#fffaf0',
+    padding: 5
   },
   bodyInput: {
     flex: 1,
-    borderColor: "brown",
-    borderWidth: 4,
   },
   bodyDescription: {
     flex: 1,
     fontSize: 25,
-    borderColor: "brown",
-    borderWidth: 4
   },
   choose: {
     borderColor: "orange",
