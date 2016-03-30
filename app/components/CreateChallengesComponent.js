@@ -103,18 +103,22 @@ class CreateChallenges extends Component {
             } />
           </View>
 
+          <View style={styles.chooseHeader}>
+            <Text>Choose Points</Text>
+            <Text>Choose Person</Text>
+          </View>
           <View style={styles.choose}>
             <Select width={75}
             ref="SELECT1"
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Points"
             onSelect={this._points.bind(this)}>
-            <Option style={styles.numberSize}>1</Option>
-            <Option style={styles.numberSize}>2</Option>
-            <Option style={styles.numberSize}>3</Option>
-            <Option style={styles.numberSize}>4</Option>
-            <Option style={styles.numberSize}>5</Option>
-            <Option style={styles.numberSize}>6</Option>
+            <Option>1</Option>
+            <Option>2</Option>
+            <Option>3</Option>
+            <Option>4</Option>
+            <Option>5</Option>
+            <Option>6</Option>
             </Select>
             <OptionList ref="OPTIONLIST"/>
 
@@ -187,7 +191,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   numberSize: {
-    fontSize: 15
+    fontSize: 20
   },
   bodyDescription: {
     flex: 1,
@@ -199,6 +203,10 @@ var styles = StyleSheet.create({
   },
   choose: {
     flex: 0.3,
+    flexDirection: "row",
+    justifyContent: 'space-around'
+  },
+  chooseHeader: {
     flexDirection: "row",
     justifyContent: 'space-around'
   },
