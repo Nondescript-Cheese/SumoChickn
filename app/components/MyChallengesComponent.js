@@ -95,7 +95,7 @@ var styles = StyleSheet.create({
    flex: 0.6,
    // borderColor: "yellow",
    // borderWidth: 4,
-   backgroundColor: 'white'
+   backgroundColor: '#f5f5f5'
  },
  sub: {
    flex: 0.1,
