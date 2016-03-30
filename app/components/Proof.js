@@ -42,19 +42,19 @@ const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, 
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
         <View>
-          <Text></Text>
+          <Text>{userChallenged} will get {points} points if challenge accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
       return (
         <View>
-          <Text></Text>
+          <Text>Challenge accepted! {userChallenged} got {points} points!</Text>
         </View>
       )
     } else {
       return (
         <View>
-          <Text></Text>
+          <Text>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} minuspoints!</Text>
         </View>
       )
     }
@@ -76,9 +76,7 @@ const Proof = ({id, createdBy, userChallenged, challengeText, proofUrl, points, 
         <TouchableHighlight style={styles.thumbnail}>
           <Image source={{uri: proofUrl}} style = {{width: 350, height: 350}}  resizeMode={Image.resizeMode.contain} />
         </TouchableHighlight>
-        <View style={styles.explanation}>
-          <Text>{userChallenged} gets {points} Points unless more than X people vote NO in the next XX:XX</Text>
-        </View>
+        {pointsInfoSection()}
       </View>
     </View>
   )
