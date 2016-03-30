@@ -9,20 +9,31 @@ import React, {
 //possible Error: bc voting is not updated in realtime, it could be that both yes and no are above 2.
 //depending on what hit 2 first, this will decide, BUT: here the function assumes that only hit 2.
 
-const Proof = ({currentUserId, id, createdBy, userChallenged, challengeText, proofUrl, points, voteCountNo, voteCountYes, listLength, voteOnChallenge}) => {
+const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeText, proofUrl, points, voteCountNo, voteCountYes, listLength, voteOnChallenge}) => {
   
   const voteSection = () => {
+    if(currentUserId === UserId) {
+      userChallenged = 'you'
+    }
     if(voteCountYes < 2 && voteCountNo < 2) {
-      return (
-        <View style={styles.buttons}>
-          <TouchableHighlight onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
-            <Text>YES</Text>
-          </TouchableHighlight>
-          <TouchableHighlight onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
-            <Text>NO</Text>
-          </TouchableHighlight>
-        </View>
-      )
+      if(currentUserId === UserId) {
+        return (
+          <View>
+            <Text>You can't vote on your own challenges!</Text>
+          </View>
+        )
+      } else {
+        return (
+          <View style={styles.buttons}>
+            <TouchableHighlight disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
+              <Text>YES</Text>
+            </TouchableHighlight>
+            <TouchableHighlight disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
+              <Text>NO</Text>
+            </TouchableHighlight>
+          </View>
+        )
+      }
     } else if (voteCountYes >= 2) {
       return (
         <View>
@@ -39,22 +50,26 @@ const Proof = ({currentUserId, id, createdBy, userChallenged, challengeText, pro
   }
 
   const pointsInfoSection = () => {
+    if(currentUserId === UserId) {
+      userChallenged = 'you'
+    }
+    let approach = (points === 1)? 'point' : 'points'
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
         <View>
-          <Text>{userChallenged} will get {points} points if challenge accepted!</Text>
+          <Text>{userChallenged} will get {points} {approach} if challenge accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
       return (
         <View>
-          <Text>this is the id {currentUserId} Challenge accepted! {userChallenged} got {points} points!</Text>
+          <Text>Challenge accepted! {userChallenged} got {points} {approach}!</Text>
         </View>
       )
     } else {
       return (
         <View>
-          <Text>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} minuspoints!</Text>
+          <Text>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} minuspoint!</Text>
         </View>
       )
     }
