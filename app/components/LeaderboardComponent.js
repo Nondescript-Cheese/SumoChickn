@@ -39,7 +39,7 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
    <View style={styles.container}>
 
      <View style={styles.header}>
-     <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull to get the latest standings')}>
+     <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull down to get the latest standings')}>
        <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(2).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
      </TouchableOpacity>
      </View>
