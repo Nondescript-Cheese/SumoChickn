@@ -43,14 +43,16 @@ class CameraApp extends Component {
 
     // dataSource = dataSource.cloneWithRows(this.props.allChallenges);
 
+
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={Actions.myChallenges} style={styles.backButton}>
+          <TouchableOpacity onPress={ Actions.myChallenges } style={styles.backButton}>
             <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
           </TouchableOpacity>
           <Text style={styles.headerText}>
-            Create Challenge
+            Take a Proof Photo
           </Text>
         </View>
         <Camera
