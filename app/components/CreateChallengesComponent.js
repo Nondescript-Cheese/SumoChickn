@@ -138,15 +138,6 @@ class CreateChallenges extends Component {
   }
 }
 
-        
-          // <View style={[styles.title, styles.border]}>
-          //   <Text style={styles.bodyTitle}>
-          //     Title
-          //   </Text>
-          //   <TextInput style={styles.bodyInput} onChangeText = {(text) => {this.setState({title: text})
-          //     formValue.title = text}
-          // } />
-          // </View>
 
 var styles = StyleSheet.create({
   container: {

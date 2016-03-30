@@ -18,9 +18,11 @@ let _scrollView: ScrollView;
 
 //actual component:
 
-const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshingChallenges, getNewChallenges, currentUser}) => {
+const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refreshingChallenges, getNewChallenges, currentUser, challengesViewStatus, getChallengePhoto}) => {
+
+  // getChallengePhoto(1)
   
-  let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={toggleChallenge} title={challenge.challengeText} />;
+  let createChallengeRow = (challenge) => <Challenge key={challenge.id} {...challenge} onClick={cameraChallengeId} challengesViewStatus={challengesViewStatus} getChallengePhoto = {getChallengePhoto} title={challenge.challengeText} />;
 
   return (
 
@@ -63,7 +65,7 @@ const MyChallenges = ({visibleChallenges, changeView, toggleChallenge, refreshin
             progressBackgroundColor="#ffff00"
           />
       }>
-        {visibleChallenges.map(createChallengeRow)}
+        {visibleChallenges ? visibleChallenges.map(createChallengeRow) : <Text>No challenges at the moment!</Text>}
         </ScrollView>
 
       </View>
