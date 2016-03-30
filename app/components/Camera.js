@@ -5,6 +5,7 @@ import React, {
   Dimensions,
   StyleSheet,
   Text,
+  Image,
   TouchableHighlight,
   View,
   ListView,
@@ -48,15 +49,18 @@ class CameraApp extends Component {
           }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
-          <Text style={styles.capture} onPress={()=> {
+          <TouchableHighlight onPress={()=> {
             // this.setModalVisible(true)
             this.takePicture()
-          }}>[CAPTURE]</Text>
-          <Text onPress={()=>{Actions.myChallenges()}}>
-            Back
+          }}>
+          <Image source={{uri: "https://s3-us-west-1.amazonaws.com/challengrproof/circle-outline-512.png"}} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
+          </TouchableHighlight>
+          <Text onPress={()=>{Actions.myChallenges()}} style={styles.capture}>
+          Back
           </Text>
         </Camera>
       </View>
+          // [CAPTURE]</Text>
 
         // <Modal
         //   animated={this.state.animated}
@@ -115,9 +119,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 5,
     color: '#000',
-    padding: 10,
-    margin: 40
-  }
+    padding: 5,
+    margin: 5
+  },
+  clicker: {
+    flex: 0,
+    padding: 5,
+    margin: 10,
+    height: 50,
+    width: 50,
+  },
 });
 
 export default CameraApp
