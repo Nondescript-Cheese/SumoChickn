@@ -89,12 +89,16 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   listItem: {
-    borderColor: 'blue',
-    borderWidth: 2,
-    padding: 7.5
+    borderColor: 'grey',
+    borderWidth: 0,
+    borderRadius: 12.5,
+    padding: 7.5,
+    margin: 1,
+    backgroundColor: "#a9a9a9"
   },
   challengeText: {
-    fontSize: 30 
+    fontSize: 25,
+    color: 'white' 
   }
 })
 
