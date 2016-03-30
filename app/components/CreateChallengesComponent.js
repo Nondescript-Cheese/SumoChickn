@@ -91,7 +91,7 @@ class CreateChallenges extends Component {
 
         <View style={styles.body}>
 
-          <View style={[styles.border, styles.description]}>
+          <View style={[styles.description]}>
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
@@ -166,8 +166,6 @@ var styles = StyleSheet.create({
   },
   body: {
     flex: 0.6,
-    borderColor: "yellow",
-    borderWidth: 4
   },
   sub: {
     flex: 0.1,
@@ -192,10 +190,10 @@ var styles = StyleSheet.create({
   bodyDescription: {
     flex: 1,
     fontSize: 25,
+    borderColor: "black",
+    borderWidth: 4
   },
   choose: {
-    borderColor: "orange",
-    borderWidth: 4,
     flex: 0.3,
     flexDirection: "row",
     justifyContent: 'space-around'
@@ -206,10 +204,6 @@ var styles = StyleSheet.create({
   },
   description: {
     flex: 0.3
-  },
-  border: {
-    borderColor: "black",
-    borderWidth: 4
   },
   buttonWrap: {
     flex:1,
