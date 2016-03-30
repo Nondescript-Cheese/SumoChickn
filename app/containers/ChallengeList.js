@@ -16,7 +16,7 @@ const filterView = (challenges, challengesViewStatus) => {
         return challenges.filter(c=> !c.completed)
     }
   } else {
-    return undefined;
+    return false
   }
 }
 
@@ -24,7 +24,7 @@ const checkChallenges = (array) => {
   if(array.length > 0) {
     return array
   } else {
-    return undefined
+    return false
   }
 }
 const mapStateToProps = (state) => {
