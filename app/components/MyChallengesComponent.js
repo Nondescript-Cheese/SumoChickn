@@ -99,7 +99,8 @@ var styles = StyleSheet.create({
  sub: {
    flex: 0.1,
    borderColor: "green",
-   borderWidth: 4
+   borderWidth: 4,
+   backgroundColor: 'white'
  },
  headerText: {
    fontSize: 30
