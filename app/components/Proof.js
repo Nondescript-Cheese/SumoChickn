@@ -19,17 +19,17 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       if(currentUserId === UserId) {
         return (
           <View>
-            <Text>You can't vote on your own challenges!</Text>
+            <Text style={styles.smallText}>You can't vote on your own challenges!</Text>
           </View>
         )
       } else {
         return (
           <View style={styles.buttons}>
             <TouchableHighlight disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
-              <Text>YES</Text>
+              <Text style={styles.smallText}>YES</Text>
             </TouchableHighlight>
             <TouchableHighlight disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
-              <Text>NO</Text>
+              <Text style={styles.smallText}>NO</Text>
             </TouchableHighlight>
           </View>
         )
@@ -37,13 +37,13 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
     } else if (voteCountYes >= 2) {
       return (
         <View>
-          <Text>This Challenge was accepted!</Text>
+          <Text style={styles.smallText}>This Challenge was accepted!</Text>
         </View>
       )
     } else {
       return (
         <View>
-          <Text>This Challenge was denied!</Text>
+          <Text style={styles.smallText}>This Challenge was denied!</Text>
         </View>
       )
     }
@@ -53,23 +53,23 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
     if(currentUserId === UserId) {
       userChallenged = 'you'
     }
-    let approach = (points === 1)? 'point' : 'points'
+    let approach = (points === 1)? 'Sumo point' : 'Sumo points'
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
         <View>
-          <Text>{userChallenged} will get {points} {approach} if challenge accepted!</Text>
+          <Text style={styles.smallText}>{userChallenged} will get {points} {approach} if challenge accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
       return (
         <View>
-          <Text>Challenge accepted! {userChallenged} got {points} {approach}!</Text>
+          <Text style={styles.smallText}>Challenge accepted! {userChallenged} got {points} {approach}!</Text>
         </View>
       )
     } else {
       return (
         <View>
-          <Text>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} minuspoint!</Text>
+          <Text style={styles.smallText}>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} Chickn Point!</Text>
         </View>
       )
     }
@@ -84,7 +84,7 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       <View style={styles.itemBody}>
         <View style={styles.itemHeadBody}>
           <View>
-            <Text>{challengeText}</Text>
+            <Text style={styles.smallText}>{challengeText}</Text>
           </View>
           {voteSection()}
         </View>
@@ -102,24 +102,33 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   listItem: {
-    borderColor: 'blue',
-    borderWidth: 2,
-    margin: 7.5
+
+    margin: 4,
+    backgroundColor:"#a9a9a9"
   },
   itemHeadline: {
-    borderColor: 'green',
-    borderWidth: 2,
+    // borderColor: 'green',
+    // borderWidth: 2,
+    backgroundColor: '#696969'
   },
   itemHeadBody: {
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   itemBody: {
-    borderColor: 'pink',
-    borderWidth: 1
+    // borderColor: 'pink',
+    // borderWidth: 1
   },
   challengeText: {
-    fontSize: 20 
+    fontSize: 20,
+    color: 'white',
+    fontWeight: '500',
+    padding: 5 
+  },
+  smallText: {
+    color: 'white',
+    fontWeight: '500',
+    padding: 10
   },
   buttons: {
     flexDirection: 'row',

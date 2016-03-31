@@ -36,6 +36,9 @@ const ProofFeedComponent = ({currentUserId, allClosedChallenges, getClosedChalle
          </Text>
      </View>
     <ScrollView 
+    ref={(scrollView) => { _scrollView = scrollView; }}
+    automaticallyAdjustContentInsets={false}
+    scrollEventThrottle={200}
     refreshControl={
           <RefreshControl
             refreshing={refreshingClosedChallenges}
