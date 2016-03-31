@@ -42,7 +42,7 @@ const ProofFeedComponent = ({currentUserId, allClosedChallenges, getClosedChalle
     refreshControl={
           <RefreshControl
             refreshing={refreshingClosedChallenges}
-            onRefresh={()=>{getClosedChallenges(1, allClosedChallenges.length+10)}}
+            onRefresh={()=>{getClosedChallenges(1, 10)}}
             tintColor="#ff0000"
             title={"Loading newly completed challenges"}
             colors={['#ff0000', '#00ff00', '#0000ff']}
@@ -53,6 +53,7 @@ const ProofFeedComponent = ({currentUserId, allClosedChallenges, getClosedChalle
         dataSource={dataSource}
         renderRow={(row) => <Proof {...row} currentUserId={currentUserId} listLength={allClosedChallenges.length} voteOnChallenge={voteOnChallenge}/>}
       />
+      <TouchableOpacity style={styles.loadButton} onPress={()=>{getClosedChallenges(1,allClosedChallenges.length+10)}}><Text style={styles.loadText}>Load More Challenges</Text></TouchableOpacity>
     </ScrollView>
     </View>
     </View>
@@ -63,6 +64,13 @@ var styles = StyleSheet.create({
  container: {
    flex: 1,
    backgroundColor: 'white'
+ },
+ loadText:{
+  fontSize: 20,
+  fontWeight: "600",
+  color: '#ff005f',
+  justifyContent: 'center',
+  alignItems: 'center'
  },
  header: {
    flex: 0.1,
@@ -77,6 +85,10 @@ var styles = StyleSheet.create({
   fontSize: 20,
   fontWeight: "600",
   color: 'white'
+ },
+ loadButton:{
+  alignItems: 'center',
+  justifyContent: 'center'
  },
   titleBar: {
    flex: 0.1,
