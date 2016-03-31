@@ -6,17 +6,26 @@ import React, {
  StyleSheet,
  ScrollView,
  TouchableOpacity,
- Image
+ Image,
+ Component,
+ Modal
 } from 'react-native'
 
 let _scrollView: ScrollView;
 
 //actual component:
 
-const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeaderboard}) => {
+class Leaderboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { visible: false, transparent: true, animated: true, photoUrl: ""};
+  }
+  setModalVisible(visible) {
+    this.setState({visible: visible});
+  }
 
-  let userHiglighter = (username, text) => {
-    if(username === currentUser.username) {
+  userHiglighter(username, text) {
+    if(username === this.props.currentUser.username) {
       if(text) {
         return styles.userRowTextHighlighted;
       }
@@ -34,56 +43,99 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
     }
   }
   
-  return (
+  render(){
 
-   <View style={styles.container}>
+    var modalBackgroundStyle = {
+      backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
+    };
+    var innerContainerTransparentStyle = this.state.transparent
+      ? {backgroundColor: '#fff', padding: 20}
+      : null;
 
-     <View style={styles.header}>
-     <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull down to get the latest standings')}>
-       <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(2).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
-     </TouchableOpacity>
-     </View>
+    return(
+
+       <View style={styles.container}>
+
+         <View style={styles.header}>
+         <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull down to get the latest standings')}>
+           <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(2).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+         </TouchableOpacity>
+         </View>
 
 
-     <View style={styles.body}>
-       <View style={styles.titleBar}>
-          <Text style ={styles.titleText}>
-            Global Challenge Rankings
-          </Text>
-      </View>
-
-       <ScrollView
-        ref={(scrollView) => { _scrollView = scrollView; }}
-        automaticallyAdjustContentInsets={false}
-        scrollEventThrottle={200}
-        // style={styles.scrollView}
-        refreshControl={
-          <RefreshControl
-            refreshing={updatingLeaderboard}
-            onRefresh={()=>{updateLeaderboard()}}
-            tintColor="#ff0000"
-            title={"Updating your leaderboard "+ currentUser.username.split(" ")[0]}
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor="#ffff00"
-          />
-    }>
-        {allUserData.map((user) =>
-          <View key={user.id} style={userHiglighter(user.username, false)}>
-            <Text style={userHiglighter(user.username, true)}>{user.username}</Text>
-            <Text style={userHiglighter(user.username, true)}>{user.beastPoints - user.wussPoints}</Text>
+         <View style={styles.body}>
+           <View style={styles.titleBar}>
+              <Text style ={styles.titleText}>
+                Global Challenge Rankings
+              </Text>
           </View>
-        )}
-        </ScrollView>
 
-      </View>
-      <View style={styles.sub}>
-        <TouchableOpacity style={styles.buttonWrap}>
-          <Text style={styles.textBox}>User Stats</Text>
-        </TouchableOpacity>
-      </View>
+           <ScrollView
+            ref={(scrollView) => { _scrollView = scrollView; }}
+            automaticallyAdjustContentInsets={false}
+            scrollEventThrottle={200}
+            // style={styles.scrollView}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.props.updatingLeaderboard}
+                onRefresh={()=>{this.props.updateLeaderboard()}}
+                tintColor="#ff0000"
+                title={"Updating your leaderboard "+ this.props.currentUser.username.split(" ")[0]}
+                colors={['#ff0000', '#00ff00', '#0000ff']}
+                progressBackgroundColor="#ffff00"
+              />
+            }>
+            {this.props.allUserData.map((user) =>
+              <View key={user.id} style={this.userHiglighter(user.username, false)}>
+                <Text style={this.userHiglighter(user.username, true)}>{user.username}</Text>
+                <Text style={this.userHiglighter(user.username, true)}>{user.beastPoints}</Text>
+              </View>
+            )}
+            </ScrollView>
 
-   </View>
- )
+          </View>
+          <View style={styles.sub}>
+            <TouchableOpacity style={styles.buttonWrap} onPress={() => {this.setModalVisible(true)}}>
+              <Text style={styles.textBox}>Your User Stats</Text>
+            </TouchableOpacity>
+            <Modal
+              animated={this.state.animated}
+              transparent={this.state.transparent}
+              visible={this.state.visible}>
+                <View style={[styles.container, modalBackgroundStyle]}>
+                  <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
+                    <View style={styles.modalHeadline}>
+                      <Text style={styles.modalHeadlineText}>Your Statistics</Text>
+                    </View>
+                    <View style={styles.modalClosedChallengeNumbers}>
+                      <Text>Closed Challenges:</Text>
+                      <Text>7</Text>
+                    </View>
+                    <View style={styles.modalOpenChallengeNumbers}>
+                      <Text>Open Challenges:</Text>
+                      <Text>3</Text>
+                    </View>
+                    <View style={styles.modalPoints}>
+                      <View style={styles.modalChickenpoints}>
+                        <Text>Chickenpoints</Text>
+                        <Text>12</Text>
+                      </View>
+                      <View style={styles.modalSumopoints}>
+                        <Text>Sumopoints</Text>
+                        <Text>17</Text>
+                      </View>
+                    </View>
+                    <View style={styles.modalScore}>
+                      <Text>YOUR SCORE: 5</Text>
+                    </View>
+                  </View>
+                </View>
+            </Modal>
+          </View>
+
+       </View>
+    )
+ }
 }
 
 var styles = StyleSheet.create({
@@ -152,6 +204,15 @@ var styles = StyleSheet.create({
  userRowTextHighlighted: {
   fontSize: 25,
   fontWeight: 'bold'
+ },
+ innerContainer: {
+  alignItems: 'center'
+ },
+ modalHeadline: {
+  borderBottomWidth: 1,
+ },
+ modalHeadlineText: {
+  fontSize: 30,
  }
 
 })
