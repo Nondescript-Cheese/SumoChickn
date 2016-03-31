@@ -86,7 +86,7 @@ class Leaderboard extends Component {
               />
             }>
             {this.props.allUserData.map((user) =>
-              <View key={user.id} style={this.userHiglighter(user.username, false)}>
+              <View key={user.id} style={[this.userHiglighter(user.username, false), styles.listItem]}>
                 <Text style={this.userHiglighter(user.username, true)}>{user.username}</Text>
                 <Text style={this.userHiglighter(user.username, true)}>{user.beastPoints}</Text>
               </View>
@@ -190,16 +190,20 @@ var styles = StyleSheet.create({
  userRow: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  borderColor: "purple",
-  borderWidth: 2,
-  margin: 3,
+  borderWidth: 1,
+  borderColor: 'grey',
+  padding: 7.5,
+  margin: 1,
+  backgroundColor: "#a9a9a9"
  },
  userRowHighlighted: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  borderColor: "purple",
-  borderWidth: 6,
-  margin: 3
+  borderColor: "grey",
+  borderWidth: 3,
+  padding: 7.5,
+  margin: 1,
+  backgroundColor: "#a9a9a9"
  },
  userRowText: {
   fontSize: 25,
@@ -257,7 +261,7 @@ var styles = StyleSheet.create({
  modalScoreText: {
   fontSize: 28,
   fontWeight: 'bold',
-}
+ }
 })
 
 export default Leaderboard
