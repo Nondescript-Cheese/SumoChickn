@@ -137,7 +137,9 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
   },
   thumbnail: {
-    borderColor: 'lightblue'
+    borderColor: 'lightblue',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
