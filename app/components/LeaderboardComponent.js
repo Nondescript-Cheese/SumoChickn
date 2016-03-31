@@ -70,7 +70,7 @@ const Leaderboard = ({allUserData, currentUser, updateLeaderboard, updatingLeade
         {allUserData.map((user) =>
           <View key={user.id} style={userHiglighter(user.username, false)}>
             <Text style={userHiglighter(user.username, true)}>{user.username}</Text>
-            <Text style={userHiglighter(user.username, true)}>{user.beastPoints}</Text>
+            <Text style={userHiglighter(user.username, true)}>{user.beastPoints - user.wussPoints}</Text>
           </View>
         )}
         </ScrollView>
