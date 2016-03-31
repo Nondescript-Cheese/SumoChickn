@@ -1,8 +1,8 @@
 export const GETTING_USER = 'GETTING_USER'
 export const GOT_USER = 'GOT_USER'
-import { getChallenges } from './index'
+import { getChallenges, getClosedChallenges } from './index'
 import { fetchAllUsers } from './fetchUsers'
-
+ 
 import { Actions } from 'react-native-router-flux'
 
 export const gettingUser = () => {
@@ -55,6 +55,7 @@ export const getUserDispatcher = (userToken, userId) => {
       .then((userInfo) => {
         dispatch(getChallenges(userInfo.id))
         dispatch(fetchAllUsers())
+        dispatch(getClosedChallenges(1,10))
       })
       .catch((error) => {
         console.warn(error)
