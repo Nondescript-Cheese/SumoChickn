@@ -104,8 +104,8 @@ class CreateChallenges extends Component {
           </View>
 
           <View style={styles.chooseHeader}>
-            <Text>Choose Points</Text>
-            <Text>Choose Person</Text>
+            <Text style={styles.selectTitle}>Points: </Text>
+            <Text style={styles.selectTitle}>Choose Person:</Text>
           </View>
           <View style={styles.choose}>
             <Select width={75}
@@ -170,6 +170,7 @@ var styles = StyleSheet.create({
   },
   body: {
     flex: 0.6,
+
   },
   sub: {
     flex: 0.1,
@@ -204,7 +205,11 @@ var styles = StyleSheet.create({
   choose: {
     flex: 0.3,
     flexDirection: "row",
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    // FontSize:  25
+  },
+  selectTitle: {
+    fontWeight: 'bold'
   },
   chooseHeader: {
     flexDirection: "row",
