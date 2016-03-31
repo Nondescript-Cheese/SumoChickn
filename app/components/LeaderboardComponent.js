@@ -103,15 +103,18 @@ class Leaderboard extends Component {
               transparent={this.state.transparent}
               visible={this.state.visible}>
                 <View style={[styles.container, modalBackgroundStyle]}>
-                  <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
+                  <View style={[styles.innerContainer, innerContainerTransparentStyle, styles.border]}>
+              <TouchableOpacity onPress={this.setModalVisible.bind(this, false)}>
+                <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(6).jpeg'}} style={{width:25, height:25, marginBottom: 20}} resizeMode={Image.resizeMode.contain} />
+              </TouchableOpacity>
                     <View style={styles.modalHeadline}>
                       <Text style={styles.modalHeadlineText}>Your Statistics</Text>
                     </View>
-                    <View style={styles.modalClosedChallengeNumbers}>
+                    <View style={[styles.modalClosedChallengeNumbers, styles.border]}>
                       <Text>Closed Challenges:</Text>
                       <Text>7</Text>
                     </View>
-                    <View style={styles.modalOpenChallengeNumbers}>
+                    <View style={[styles.modalOpenChallengeNumbers, styles.border]}>
                       <Text>Open Challenges:</Text>
                       <Text>3</Text>
                     </View>
@@ -206,13 +209,30 @@ var styles = StyleSheet.create({
   fontWeight: 'bold'
  },
  innerContainer: {
-  alignItems: 'center'
+  alignItems: 'center',
  },
  modalHeadline: {
   borderBottomWidth: 1,
  },
  modalHeadlineText: {
   fontSize: 30,
+ },
+ modalClosedChallengeNumbers: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  flex: 1,
+  width: 250
+ },
+ modalOpenChallengeNumbers: {
+  flexDirection: 'row',
+  justifyContent: 'space-around'
+ },
+
+
+
+
+ border: {
+  borderWidth: 2
  }
 
 })
