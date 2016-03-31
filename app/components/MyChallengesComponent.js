@@ -52,7 +52,7 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
        </View>
 
        <ScrollView
-        ref={(scrollView) => { _scrollView = scrollView; }}
+        // ref={(scrollView) => { _scrollView = scrollView; }}
         automaticallyAdjustContentInsets={false}
         scrollEventThrottle={200}
         // style={styles.scrollView}
