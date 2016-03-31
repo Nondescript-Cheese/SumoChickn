@@ -7,7 +7,8 @@ import React, {
  ScrollView,
  RefreshControl,
  TouchableOpacity,
- Image
+ Image,
+ Alert
 } from 'react-native'
 
 import Proof from './Proof'

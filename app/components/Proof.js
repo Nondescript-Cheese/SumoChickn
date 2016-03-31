@@ -2,8 +2,9 @@ import React, {
   Text,
   StyleSheet,
   View,
-  TouchableHighlight,
-  Image
+  TouchableOpacity,
+  Image,
+  TouchableHighlight
 } from 'react-native'
 
 //possible Error: bc voting is not updated in realtime, it could be that both yes and no are above 2.
@@ -25,12 +26,12 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       } else {
         return (
           <View style={styles.buttons}>
-            <TouchableHighlight disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
+            <TouchableOpacity disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
               <Text style={styles.smallText}>YES</Text>
-            </TouchableHighlight>
-            <TouchableHighlight disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
+            </TouchableOpacity>
+            <TouchableOpacity disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
               <Text style={styles.smallText}>NO</Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
           </View>
         )
       }
