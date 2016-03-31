@@ -26,11 +26,11 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       } else {
         return (
           <View style={styles.buttons}>
-            <TouchableOpacity disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
-              <Text style={styles.smallText}>YES</Text>
+            <TouchableOpacity style={{backgroundColor:'#faf0e6',borderWidth: 3, borderColor:"green", borderRadius: 50, padding:3, marginBottom:5, marginTop:10, marginRight:50, marginLeft: 50}} disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
+              <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/logo+(1).png'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
             </TouchableOpacity>
-            <TouchableOpacity disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
-              <Text style={styles.smallText}>NO</Text>
+            <TouchableOpacity style={{backgroundColor:'#faf0e6',borderWidth: 3, borderColor:"red", borderRadius: 50, padding:3, marginBottom:5, marginTop:10, marginRight:50}} disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
+              <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/logo+(2).png'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
             </TouchableOpacity>
           </View>
         )
@@ -85,13 +85,13 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       <View style={styles.itemBody}>
         <View style={styles.itemHeadBody}>
           <View style={styles.textWrap}>
-            <Text style={styles.smallText}>{challengeText}</Text>
+            <Text style={styles.smallChallengeText}>{challengeText}</Text>
           </View>
-          {voteSection()}
-        </View>
         <TouchableHighlight style={styles.thumbnail}>
           <Image source={{uri: proofUrl}} style = {{width: 350, height: 350}}  resizeMode={Image.resizeMode.contain} />
         </TouchableHighlight>
+          {voteSection()}
+        </View>
         {pointsInfoSection()}
       </View>
     </View>
@@ -107,7 +107,11 @@ var styles = StyleSheet.create({
     backgroundColor:"#a9a9a9"
   },
   textWrap: {
-    flex: 1
+    flex: 1,
+    borderRightWidth: 1,
+    borderColor: "grey",
+    marginTop: 5,
+    marginBottom: 5,
   },
   itemHeadline: {
     // borderColor: 'green',
@@ -115,7 +119,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#696969'
   },
   itemHeadBody: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
     justifyContent: 'space-between'
   },
   itemBody: {
@@ -126,15 +130,25 @@ var styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     fontWeight: '500',
-    padding: 5 
+    padding: 5
   },
   smallText: {
     color: 'white',
     fontWeight: '500',
-    padding: 10
+    fontSize: 16,
+    padding: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
+  },
+  smallChallengeText: {
+    color: 'white',
+    fontWeight: '500',
+    fontSize: 18,
+    padding: 7
   },
   buttons: {
     flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   thumbnail: {
     borderColor: 'lightblue',
