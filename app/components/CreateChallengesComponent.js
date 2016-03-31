@@ -24,7 +24,7 @@ const {
   updatePosition
 } = DropDown;
 
-var PickerItemIOS = PickerIOS.Item;
+// var PickerItemIOS = PickerIOS.Item;
 
 const Button = require('react-native-button');
 
