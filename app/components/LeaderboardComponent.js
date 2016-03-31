@@ -103,33 +103,33 @@ class Leaderboard extends Component {
               transparent={this.state.transparent}
               visible={this.state.visible}>
                 <View style={[styles.container, modalBackgroundStyle]}>
-                  <View style={[styles.innerContainer, innerContainerTransparentStyle, styles.border]}>
+                  <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
               <TouchableOpacity onPress={this.setModalVisible.bind(this, false)}>
                 <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(6).jpeg'}} style={{width:25, height:25, marginBottom: 20}} resizeMode={Image.resizeMode.contain} />
               </TouchableOpacity>
                     <View style={styles.modalHeadline}>
                       <Text style={styles.modalHeadlineText}>Your Statistics</Text>
                     </View>
-                    <View style={[styles.modalClosedChallengeNumbers, styles.border]}>
-                      <Text>Closed Challenges:</Text>
-                      <Text>7</Text>
+                    <View style={styles.modalClosedChallengeNumbers}>
+                      <Text style={styles.modalBodyText}>Closed Challenges:</Text>
+                      <Text style={styles.modalBodyText}>{this.props.closedChallenges.length}</Text>
                     </View>
-                    <View style={[styles.modalOpenChallengeNumbers, styles.border]}>
-                      <Text>Open Challenges:</Text>
-                      <Text>3</Text>
+                    <View style={styles.modalOpenChallengeNumbers}>
+                      <Text style={styles.modalBodyText}>Open Challenges:</Text>
+                      <Text style={styles.modalBodyText}>{this.props.openChallenges.length}</Text>
                     </View>
                     <View style={styles.modalPoints}>
                       <View style={styles.modalChickenpoints}>
-                        <Text>Chickenpoints</Text>
-                        <Text>12</Text>
+                        <Text style={styles.modalBodyText}>ChicknPoints</Text>
+                        <Text style={styles.modalBodyText}>{this.props.currentUserData[0].wussPoints}</Text>
                       </View>
                       <View style={styles.modalSumopoints}>
-                        <Text>Sumopoints</Text>
-                        <Text>17</Text>
+                        <Text style={styles.modalBodyText}>SumoPoints</Text>
+                        <Text style={styles.modalBodyText}>{this.props.currentUserData[0].beastPoints}</Text>
                       </View>
                     </View>
                     <View style={styles.modalScore}>
-                      <Text>YOUR SCORE: 5</Text>
+                      <Text style={[styles.modalBodyText, styles.modalScoreText]}>YOUR SCORE: {this.props.currentUserData[0].beastPoints - this.props.currentUserData[0].wussPoints}</Text>
                     </View>
                   </View>
                 </View>
@@ -213,28 +213,51 @@ var styles = StyleSheet.create({
  },
  modalHeadline: {
   borderBottomWidth: 1,
+  width: 300,
+  marginBottom: 10,
+  alignItems: 'center',
  },
  modalHeadlineText: {
-  fontSize: 30,
+  fontSize: 44,
  },
  modalClosedChallengeNumbers: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  flex: 1,
-  width: 250
+  width: 300
  },
  modalOpenChallengeNumbers: {
   flexDirection: 'row',
-  justifyContent: 'space-around'
+  justifyContent: 'space-between',
+  width: 300
  },
-
-
-
-
- border: {
-  borderWidth: 2
- }
-
+ modalBodyText: {
+  fontSize: 22,
+  color: '#ff005f',
+ },
+ modalPoints: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  width: 300,
+  borderTopWidth: 1,
+  marginTop: 10,
+  paddingTop: 10
+ },
+ modalChickenpoints: {
+  alignItems: 'center',
+  borderRightWidth: 1,
+  width: 150,
+ },
+ modalSumopoints: {
+  alignItems: 'center',
+  width: 150,
+ },
+ modalScore: {
+  marginTop: 10,
+ },
+ modalScoreText: {
+  fontSize: 28,
+  fontWeight: 'bold',
+}
 })
 
 export default Leaderboard
