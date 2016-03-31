@@ -62,9 +62,14 @@ class Challenge extends Component {
               console.log("Error in the promises", error)
             })
             }} style={styles.listItem}>
+            <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
             <Text style={styles.challengeText}>
               {this.props.title}
-            </Text>  
+              </Text>
+              <View style={styles.imageCircle}>
+                <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/logo+(1).png'}} style={{width:45, height:45}} resizeMode={Image.resizeMode.contain} />
+              </View>
+            </View>
           </TouchableOpacity> 
           <Modal
             animated={this.state.animated}
@@ -98,6 +103,11 @@ class Challenge extends Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  imageCircle:{
+    borderWidth: 2,
+    borderRadius: 50,
+    borderColor: "#ff005f"
   },
   listItem: {
     borderColor: 'grey',
