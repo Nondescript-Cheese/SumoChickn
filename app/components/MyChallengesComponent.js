@@ -52,6 +52,7 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
        </View>
 
        <ScrollView
+        contentContainerStyle={!visibleChallenges ? styles.scrollView : styles.unScrollView }
         ref={(scrollView) => { _scrollView = scrollView; }}
         automaticallyAdjustContentInsets={false}
         scrollEventThrottle={200}
@@ -66,7 +67,7 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
             progressBackgroundColor="#ffff00"
           />
       }>
-        {visibleChallenges ? visibleChallenges.map(createChallengeRow) : <Text>No challenges at the moment!</Text>}
+        {visibleChallenges ? visibleChallenges.map(createChallengeRow) : <Text style={styles.emptyChallengeText}>No challenges at the moment!</Text>}
         </ScrollView>
 
       </View>
@@ -84,6 +85,19 @@ const MyChallenges = ({visibleChallenges, changeView, cameraChallengeId, refresh
 var styles = StyleSheet.create({
  container: {
    flex: 1,
+ },
+ unScrollView:{
+ },
+ scrollView: {
+  justifyContent: 'center',
+  alignItems: 'center'
+ },
+ emptyChallengeText:{
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontWeight: '600',
+  fontSize: 20,
+  marginTop: 10
  },
  header: {
    flex: 0.1,
