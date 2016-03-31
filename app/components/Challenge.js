@@ -58,14 +58,14 @@ class Challenge extends Component {
       </Text>
     </TouchableOpacity> 
       <Modal
-        animate={this.state.animated}
+        animated={this.state.animated}
         transparent={this.state.transparent}
         visible={this.state.visible}>
           <View style={[styles.container, modalBackgroundStyle]}>
             <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-                <Text onPress={this.setModalVisible.bind(this, false)}>
-                    Back{'\n'}
-                </Text>
+                <TouchableOpacity onPress={this.setModalVisible.bind(this, false)}>
+                <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(6).jpeg'}} style={{width:25, height:25, marginBottom: 20}} resizeMode={Image.resizeMode.contain} />
+                </TouchableOpacity>
                 <Text>You completed this challenge sent by {this.props.createdBy.split(" ")[0]} and earned {this.props.points} points!</Text>
                 <Image source={{uri: this.state.photoUrl}} style = {{width: 350, height: 350}}  resizeMode={Image.resizeMode.contain} />
             </View>

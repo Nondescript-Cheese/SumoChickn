@@ -82,11 +82,11 @@ class CreateChallenges extends Component {
 
         <View style={styles.header}>
           <TouchableOpacity onPress={Actions.myChallenges} style={styles.backButton}>
-            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(4).jpeg'}} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
           </TouchableOpacity>
-          <Text style={styles.headerText}>
-            Create Challenge
-          </Text>
+            <Text style={styles.headerText}>
+              Create Challenge
+            </Text>
         </View>
 
         <View style={styles.body}>
@@ -95,12 +95,12 @@ class CreateChallenges extends Component {
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
-            <TextInput placeholder="enter your challenge here" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
-              // this.setState({description: text})
-              formValue.description = text
-              formValue.createdBy = this.props.currentUser 
-            }
-            } />
+              <TextInput placeholder="enter your challenge here" placeholderTextColor="#dcdcdc" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
+                // this.setState({description: text})
+                formValue.description = text
+                formValue.createdBy = this.props.currentUser 
+              }
+              } />
           </View>
 
           <View style={styles.chooseHeader}>
@@ -113,12 +113,12 @@ class CreateChallenges extends Component {
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Points"
             onSelect={this._points.bind(this)}>
-            <Option>1</Option>
-            <Option>2</Option>
-            <Option>3</Option>
-            <Option>4</Option>
-            <Option>5</Option>
-            <Option>6</Option>
+              <Option>1</Option>
+              <Option>2</Option>
+              <Option>3</Option>
+              <Option>4</Option>
+              <Option>5</Option>
+              <Option>6</Option>
             </Select>
             <OptionList ref="OPTIONLIST"/>
 
@@ -128,7 +128,7 @@ class CreateChallenges extends Component {
             defaultValue="Friends"
             onSelect={this._friend.bind(this)}>
             {this.props.friends.map((friend)=>(
-            <Option key = {friend}>{friend}</Option>))}
+              <Option key = {friend}>{friend}</Option>))}
             </Select>
             <OptionList ref="OPTIONLIST"/>
           </View>
@@ -205,10 +205,12 @@ var styles = StyleSheet.create({
     flex: 1,
     fontSize: 25,
     borderColor: "black",
-    borderTopWidth: 2,
     borderBottomWidth: 2,
     marginBottom: 10,
-    paddingLeft: 15
+    paddingLeft: 15,
+    backgroundColor: '#696969',
+    color: 'white',
+    marginTop: 2
   },
   choose: {
     flex: 0.3,
