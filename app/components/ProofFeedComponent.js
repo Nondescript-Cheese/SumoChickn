@@ -25,7 +25,7 @@ const ProofFeedComponent = ({currentUserId, allClosedChallenges, getClosedChalle
     <View style={styles.container}>
     <View style={styles.header}>
     <TouchableOpacity onPress={()=>Alert.alert("Check out all the completed challenges and vote on them! Pull down to get the latest challenges")}>
-      <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(3).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+      <Image source={require('../assets/proofLogo.jpeg')} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
     </TouchableOpacity>
     </View>
 

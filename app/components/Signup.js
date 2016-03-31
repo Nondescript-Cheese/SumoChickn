@@ -23,7 +23,7 @@ const Signup = ({ getCurrentUser }) => (
           height: 275,
           resizeMode: 'contain'
         }}
-        source={{uri:'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing+(4).png'}} />
+        source={require('../assets/landingPageLogo.png')} />
     </View>
     <View style = {styles.facebook}>
       <FBLogin

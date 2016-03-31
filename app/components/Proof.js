@@ -27,10 +27,10 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
         return (
           <View style={styles.buttons}>
             <TouchableOpacity style={{backgroundColor:'#faf0e6',borderWidth: 3, borderColor:"green", borderRadius: 50, padding:3, marginBottom:5, marginTop:10, marginRight:50, marginLeft: 50}} disabled={false} onPress={() => {voteOnChallenge(id, 1, 1, listLength)}}>
-              <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/logo+(1).png'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+              <Image source={require('../assets/sumo.png')} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
             </TouchableOpacity>
             <TouchableOpacity style={{backgroundColor:'#faf0e6',borderWidth: 3, borderColor:"red", borderRadius: 50, padding:3, marginBottom:5, marginTop:10, marginRight:50}} disabled={false} onPress={() => {voteOnChallenge(id, 0, 1, listLength)}}>
-              <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/logo+(2).png'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+              <Image source={require('../assets/chicken.png')} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
             </TouchableOpacity>
           </View>
         )

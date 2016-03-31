@@ -21,12 +21,16 @@ class CameraApp extends Component {
 
   constructor(props) {
       super(props);
-      this.state = { visible: false, transparent: true, animated: true, photoData: '' };
+      this.state = { visible: false, transparent: true, animated: true, photoData: '', canTakePhoto: true };
     }
 
     setModalVisible(visible) {
     this.setState({visible: visible});
   }
+    canTakeAPhoto() {
+    this.setState({canTakePhoto: false});
+  }
+
 
   render() {
 
@@ -49,7 +53,7 @@ class CameraApp extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={ Actions.myChallenges } style={styles.backButton}>
-            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(4).jpeg'}} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
+            <Image source={require('../assets/backArrow.jpeg')} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
           </TouchableOpacity>
           <Text style={styles.headerText}>
             Take a Proof Photo
@@ -60,13 +64,14 @@ class CameraApp extends Component {
             this.camera = cam;
           }}
           style={styles.preview}
-          captureQuality={Camera.constants.CaptureQuality.medium}
+          captureQuality={Camera.constants.CaptureQuality.high}
+          flashMode={Camera.constants.FlashMode.auto}
           aspect={Camera.constants.Aspect.fill}>
-          <TouchableHighlight activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
+          <TouchableHighlight disable={this.state.canTakePhoto} activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
             // this.setModalVisible(true)
             this.takePicture()
           }}>
-          <Image source={{uri: "https://s3-us-west-1.amazonaws.com/challengrproof/circle-outline-512.png"}} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
+          <Image source={require('../assets/captureCircle.png')} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
           </TouchableHighlight>
         </Camera>
       </View>
@@ -100,6 +105,7 @@ class CameraApp extends Component {
   takePicture() {
     this.camera.capture()
     .then((data) => {
+      this.canTakeAPhoto()
       console.log(data)
       console.log('THIS IS WORKED!!!!!', data)
       return this.setState({photoData: data})
