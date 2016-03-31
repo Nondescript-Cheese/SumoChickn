@@ -38,9 +38,11 @@ class Challenge extends Component {
           this.props.onClick(this.props.id)
           Actions.camera()
         }} style={styles.listItem}>
+        <View style={{flex:1}}>
         <Text style={styles.challengeText}>
           {this.props.title}{'\n'} <Text style={styles.minChallengeText}>sent from {this.props.createdBy.split(" ")[0]} worth {this.props.points} points</Text>
         </Text>
+        </View>
         </TouchableOpacity> 
 
     } else {
@@ -63,9 +65,11 @@ class Challenge extends Component {
             })
             }} style={styles.listItem}>
             <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
-            <Text style={styles.challengeText}>
+            <View style={{flex:1}}>
+              <Text style={styles.challengeText}>
               {this.props.title}
               </Text>
+            </View>
               <View style={styles.imageCircle}>
                 <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/logo+(1).png'}} style={{width:45, height:45}} resizeMode={Image.resizeMode.contain} />
               </View>
