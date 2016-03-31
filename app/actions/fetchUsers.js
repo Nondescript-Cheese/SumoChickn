@@ -23,7 +23,7 @@ export const fetchAllUsers = () => {
       return response.json();
     })
     .then((newUsersData) => {
-      newUsersData = newUsersData.sort((a,b)=>{return b.beastPoints - a.beastPoints})
+      newUsersData = newUsersData.sort((a,b)=>{return (b.beastPoints - b.wussPoints)  - (a.beastPoints - a.wussPoints)})
       dispatch(fetchedAllUsers(newUsersData));
     })
     .catch((error) => {
