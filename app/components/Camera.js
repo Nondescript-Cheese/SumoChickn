@@ -49,7 +49,7 @@ class CameraApp extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={ Actions.myChallenges } style={styles.backButton}>
-            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(4).jpeg'}} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
+            <Image source={require('../assets/backArrow.jpeg')} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
           </TouchableOpacity>
           <Text style={styles.headerText}>
             Take a Proof Photo
@@ -66,7 +66,7 @@ class CameraApp extends Component {
             // this.setModalVisible(true)
             this.takePicture()
           }}>
-          <Image source={{uri: "https://s3-us-west-1.amazonaws.com/challengrproof/circle-outline-512.png"}} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
+          <Image source={require('../assets/captureCircle.png')} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
           </TouchableHighlight>
         </Camera>
       </View>
