@@ -103,18 +103,22 @@ class CreateChallenges extends Component {
             } />
           </View>
 
+          <View style={styles.chooseHeader}>
+            <Text style={[styles.selectTitle, styles.positionPoints]}>Points</Text>
+            <Text style={[styles.selectTitle, styles.positionPerson]}>Choose Person</Text>
+          </View>
           <View style={styles.choose}>
             <Select width={75}
             ref="SELECT1"
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Points"
             onSelect={this._points.bind(this)}>
-            <Option style={styles.numberSize}>1</Option>
-            <Option style={styles.numberSize}>2</Option>
-            <Option style={styles.numberSize}>3</Option>
-            <Option style={styles.numberSize}>4</Option>
-            <Option style={styles.numberSize}>5</Option>
-            <Option style={styles.numberSize}>6</Option>
+            <Option>1</Option>
+            <Option>2</Option>
+            <Option>3</Option>
+            <Option>4</Option>
+            <Option>5</Option>
+            <Option>6</Option>
             </Select>
             <OptionList ref="OPTIONLIST"/>
 
@@ -166,6 +170,7 @@ var styles = StyleSheet.create({
   },
   body: {
     flex: 0.6,
+
   },
   sub: {
     flex: 0.1,
@@ -180,23 +185,41 @@ var styles = StyleSheet.create({
   bodyTitle: {
     fontSize: 20,
     backgroundColor: '#ff005f',
-    padding: 5
+    padding: 5,
+    color: 'white',
+    fontWeight: '600'
   },
   bodyInput: {
     flex: 1,
   },
   numberSize: {
-    fontSize: 25
+    fontSize: 20
+  },
+  positionPoints: {
+    marginRight: 50
+  },
+  positionPerson: {
+    paddingRight: 30
   },
   bodyDescription: {
     flex: 1,
     fontSize: 25,
     borderColor: "black",
     borderTopWidth: 2,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    marginBottom: 10,
+    paddingLeft: 15
   },
   choose: {
     flex: 0.3,
+    flexDirection: "row",
+    justifyContent: 'space-around',
+    // FontSize:  25
+  },
+  selectTitle: {
+    fontWeight: 'bold'
+  },
+  chooseHeader: {
     flexDirection: "row",
     justifyContent: 'space-around'
   },
