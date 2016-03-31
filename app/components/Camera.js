@@ -49,7 +49,7 @@ class CameraApp extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={ Actions.myChallenges } style={styles.backButton}>
-            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(1).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+            <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(4).jpeg'}} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
           </TouchableOpacity>
           <Text style={styles.headerText}>
             Take a Proof Photo
