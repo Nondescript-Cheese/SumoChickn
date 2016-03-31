@@ -58,7 +58,7 @@ class Leaderboard extends Component {
 
          <View style={styles.header}>
          <TouchableOpacity onPress={()=>Alert.alert('Compare where you stand on the leaderboard! Pull down to get the latest standings')}>
-           <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(2).jpeg'}} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
+           <Image source={require('../assets/leaderBoardLogo.jpeg')} style={{width:50, height:50}} resizeMode={Image.resizeMode.contain} />
          </TouchableOpacity>
          </View>
 
@@ -106,7 +106,7 @@ class Leaderboard extends Component {
                 <View style={[styles.container, modalBackgroundStyle]}>
                   <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
               <TouchableOpacity onPress={this.setModalVisible.bind(this, false)}>
-                <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(6).jpeg'}} style={{width:25, height:25, marginBottom: 20}} resizeMode={Image.resizeMode.contain} />
+                <Image source={require('../assets/upArrow.jpeg')} style={{width:25, height:25, marginBottom: 20}} resizeMode={Image.resizeMode.contain} />
               </TouchableOpacity>
                     <View style={styles.modalHeadline}>
                       <Text style={styles.modalHeadlineText}>Your Statistics</Text>
