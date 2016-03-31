@@ -205,12 +205,12 @@ var styles = StyleSheet.create({
     flex: 1,
     fontSize: 25,
     borderColor: "black",
-    borderTopWidth: 2,
     borderBottomWidth: 2,
     marginBottom: 10,
     paddingLeft: 15,
     backgroundColor: '#696969',
-    color: 'white'
+    color: 'white',
+    marginTop: 2
   },
   choose: {
     flex: 0.3,
