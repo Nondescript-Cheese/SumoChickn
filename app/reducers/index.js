@@ -2,7 +2,7 @@ import Immutable from 'immutable'
 import currentUser from './loginReducer.js'
 import { combineReducers } from 'redux'
 import { CAMERA_CHALLENGE_ID } from '../actions/cameraActions'
-import { GETTING_CLOSED_CHALLENGES, GOT_CLOSED_CHALLENGES, CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES } from '../actions'
+import { GETTING_CLOSED_CHALLENGES, GOT_CLOSED_CHALLENGES, CHALLENGE_POSTING, CHALLENGE_POSTED, CHANGE_CHALLENGES_VIEW, GETTING_CHALLENGES, GOT_CHALLENGES, GETTING_CLOSED_CHALLENGES_VOTE, GOT_CLOSED_CHALLENGES_VOTE } from '../actions'
 import { TOGGLING_CHALLENGE, TOGGLED_CHALLENGE } from '../actions/toggleChallengeStatus'
 import { FETCHING_USERS, FETCHED_USERS} from '../actions/fetchUsers'
 
@@ -31,7 +31,7 @@ const challenge = (state, action) => {
   }
 }
 
-const challenges = (state = {challengeList: [], postingChallenge: false, challengeStatusChanging: false, gettingUsersChallenges: false, gettingClosedChallenges: false, closedChallengesList: []} , action) => {
+const challenges = (state = {challengeList: [], postingChallenge: false, challengeStatusChanging: false, gettingUsersChallenges: false, gettingClosedChallenges: false, gettingClosedChallengesVote: false, closedChallengesList: []} , action) => {
   switch(action.type) {
     case CHALLENGE_POSTING:
       return Object.assign({}, state, {
@@ -71,6 +71,15 @@ const challenges = (state = {challengeList: [], postingChallenge: false, challen
     case GOT_CLOSED_CHALLENGES:
       return Object.assign({}, state, {
         gettingClosedChallenges: false,
+        closedChallengesList: action.challenges
+      })
+    case GETTING_CLOSED_CHALLENGES_VOTE:
+      return Object.assign({}, state, {
+        gettingClosedChallengesVote: true
+      })
+    case GOT_CLOSED_CHALLENGES_VOTE:
+      return Object.assign({}, state, {
+        gettingClosedChallengesVote: false,
         closedChallengesList: action.challenges
       })
     default:

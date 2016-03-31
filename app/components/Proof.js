@@ -83,7 +83,7 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       </View>
       <View style={styles.itemBody}>
         <View style={styles.itemHeadBody}>
-          <View>
+          <View style={styles.textWrap}>
             <Text style={styles.smallText}>{challengeText}</Text>
           </View>
           {voteSection()}
@@ -102,9 +102,11 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   listItem: {
-
     margin: 4,
     backgroundColor:"#a9a9a9"
+  },
+  textWrap: {
+    flex: 1
   },
   itemHeadline: {
     // borderColor: 'green',
