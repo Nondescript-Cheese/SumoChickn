@@ -60,6 +60,7 @@ class CameraApp extends Component {
             this.camera = cam;
           }}
           style={styles.preview}
+          captureQuality={Camera.constants.CaptureQuality.medium}
           aspect={Camera.constants.Aspect.fill}>
           <TouchableHighlight activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
             // this.setModalVisible(true)
