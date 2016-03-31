@@ -5,6 +5,8 @@ export const GETTING_CHALLENGES = 'GETTING_CHALLENGES'
 export const GOT_CHALLENGES = 'GOT_CHALLENGES'
 export const GETTING_CLOSED_CHALLENGES = 'GETTING_CLOSED_CHALLENGES'
 export const GOT_CLOSED_CHALLENGES = 'GOT_CLOSED_CHALLENGES'
+export const GETTING_CLOSED_CHALLENGES_VOTE = 'GETTING_CLOSED_CHALLENGES_VOTE'
+export const GOT_CLOSED_CHALLENGES_VOTE = 'GOT_CLOSED_CHALLENGES_VOTE'
 
 import { Actions } from 'react-native-router-flux';
 
@@ -43,6 +45,38 @@ export const getClosedChallenges = (fromNo, toNo) => {
   }
 }
 
+export const gettingClosedChallengesVote = (fromNo, toNo) => {
+  return {
+    type: GETTING_CLOSED_CHALLENGES_VOTE,
+    payload: [fromNo, toNo],
+  }
+}
+
+export const gotClosedChallengesVote = (challenges) => {
+  return {
+    type: GOT_CLOSED_CHALLENGES_VOTE,
+    challenges: challenges,
+  }
+}
+
+export const getClosedChallengesVote = (fromNo, toNo) => {
+  return dispatch => {
+    dispatch(gettingClosedChallengesVote(fromNo, toNo))
+    console.log('gettingClosedChallenges', fromNo, toNo);
+
+    return fetch('http://159.203.239.224:3000/getClosedChallenges/' +fromNo+ '/' +toNo)
+    .then((response)=>{
+      return response.json()
+    })
+    .then((closedChallengeList)=>{
+      console.log(closedChallengeList);
+      dispatch(gotClosedChallengesVote(closedChallengeList))
+    })
+    .catch((error)=>{
+      console.warn(error)
+    })
+  }
+}
 //--------------------------------------
 
 
@@ -139,7 +173,7 @@ export const voteOnChallenge = (challengeId, voteId, fromNo, toNo) => {
       return response.json()
     })
     .then((updatedChallenge) => {
-      return dispatch(getClosedChallenges(fromNo, toNo))
+      return dispatch(getClosedChallengesVote(fromNo, toNo))
     })
     .catch((err) => {
       console.log(err)
