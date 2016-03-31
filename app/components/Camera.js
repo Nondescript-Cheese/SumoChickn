@@ -21,12 +21,16 @@ class CameraApp extends Component {
 
   constructor(props) {
       super(props);
-      this.state = { visible: false, transparent: true, animated: true, photoData: '' };
+      this.state = { visible: false, transparent: true, animated: true, photoData: '', canTakePhoto: true };
     }
 
     setModalVisible(visible) {
     this.setState({visible: visible});
   }
+    canTakeAPhoto() {
+    this.setState({canTakePhoto: false});
+  }
+
 
   render() {
 
@@ -62,7 +66,7 @@ class CameraApp extends Component {
           style={styles.preview}
           captureQuality={Camera.constants.CaptureQuality.medium}
           aspect={Camera.constants.Aspect.fill}>
-          <TouchableHighlight activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
+          <TouchableHighlight disable={this.state.canTakePhoto} activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
             // this.setModalVisible(true)
             this.takePicture()
           }}>
@@ -100,6 +104,7 @@ class CameraApp extends Component {
   takePicture() {
     this.camera.capture()
     .then((data) => {
+      this.canTakeAPhoto()
       console.log(data)
       console.log('THIS IS WORKED!!!!!', data)
       return this.setState({photoData: data})
