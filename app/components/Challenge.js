@@ -6,7 +6,8 @@ import React, {
   TouchableOpacity,
   Modal,
   Component,
-  Image
+  Image,
+  ScrollView
 } from 'react-native'
 
 import { Actions } from 'react-native-router-flux'
@@ -63,21 +64,23 @@ class Challenge extends Component {
             }} style={styles.listItem}>
             <Text style={styles.challengeText}>
               {this.props.title}
-            </Text>
+            </Text>  
           </TouchableOpacity> 
           <Modal
-            animate={this.state.animated}
+            animated={this.state.animated}
             transparent={this.state.transparent}
             visible={this.state.visible}>
+            <ScrollView>
               <View style={[styles.container, modalBackgroundStyle]}>
                 <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-                    <Text onPress={this.setModalVisible.bind(this, false)}>
-                        Back{'\n'}
-                    </Text>
-                    <Text>You completed this challenge sent by {this.props.createdBy.split(" ")[0]} and earned {this.props.points} points!</Text>
+                  <TouchableOpacity onPress={this.setModalVisible.bind(this, false)}>
+                    <Image source={{uri: 'https://s3-us-west-1.amazonaws.com/challengrproof/Drawing-layerExport+(6).jpeg'}} style={{width:25, height:25, marginBottom: 20}} resizeMode={Image.resizeMode.contain} />
+                  </TouchableOpacity>
+                    <Text style={styles.modalHeadline}>{this.props.title}</Text>
                     <Image source={{uri: this.state.photoUrl}} style = {{width: 350, height: 350}}  resizeMode={Image.resizeMode.contain} />
                 </View>
               </View>
+            </ScrollView>
           </Modal>
         </View>
       }
@@ -111,6 +114,12 @@ var styles = StyleSheet.create({
   minChallengeText: {
     fontSize: 15,
     color: 'white' 
+  },
+  modalHeadline: {
+    fontSize: 44,
+  },
+  innerContainer: {
+    alignItems: 'center',
   }
 })
 

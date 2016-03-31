@@ -85,10 +85,11 @@ class Leaderboard extends Component {
                 progressBackgroundColor="#ffff00"
               />
             }>
-            {this.props.allUserData.map((user) =>
-              <View key={user.id} style={[this.userHiglighter(user.username, false), styles.listItem]}>
+            {this.props.allUserData.map((user, i) =>
+              <View key={user.id} style={this.userHiglighter(user.username, false)}>
+                <Text style={this.userHiglighter(user.username, true)}>{i + 1}.</Text>
                 <Text style={this.userHiglighter(user.username, true)}>{user.username}</Text>
-                <Text style={this.userHiglighter(user.username, true)}>{user.beastPoints}</Text>
+                <Text style={this.userHiglighter(user.username, true)}>{user.beastPoints - user.wussPoints}</Text>
               </View>
             )}
             </ScrollView>
@@ -111,12 +112,12 @@ class Leaderboard extends Component {
                       <Text style={styles.modalHeadlineText}>Your Statistics</Text>
                     </View>
                     <View style={styles.modalClosedChallengeNumbers}>
-                      <Text style={styles.modalBodyText}>Closed Challenges:</Text>
-                      <Text style={styles.modalBodyText}>{this.props.closedChallenges.length}</Text>
+                      <Text style={styles.modalBodyText}>Attempted Challenges:</Text>
+                      <Text style={styles.modalBodyText}>{this.props.closedChallenges.length || '0'}</Text>
                     </View>
                     <View style={styles.modalOpenChallengeNumbers}>
                       <Text style={styles.modalBodyText}>Open Challenges:</Text>
-                      <Text style={styles.modalBodyText}>{this.props.openChallenges.length}</Text>
+                      <Text style={styles.modalBodyText}>{this.props.openChallenges.length || '0'}</Text>
                     </View>
                     <View style={styles.modalPoints}>
                       <View style={styles.modalChickenpoints}>
@@ -190,27 +191,30 @@ var styles = StyleSheet.create({
  userRow: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  borderWidth: 1,
-  borderColor: 'grey',
+  borderWidth: 3,
+  borderColor: '#22181C',
   padding: 7.5,
   margin: 1,
-  backgroundColor: "#a9a9a9"
+  backgroundColor: "#696969"
  },
  userRowHighlighted: {
   flexDirection: 'row',
   justifyContent: 'space-between',
-  borderColor: "grey",
+  borderColor: "#ff005f",
   borderWidth: 3,
   padding: 7.5,
   margin: 1,
-  backgroundColor: "#a9a9a9"
+  backgroundColor: "#696969"
  },
  userRowText: {
   fontSize: 25,
+  color: 'white',
+  fontWeight: '600',
  },
  userRowTextHighlighted: {
   fontSize: 25,
-  fontWeight: 'bold'
+  fontWeight: '700',
+  color: 'white'
  },
  innerContainer: {
   alignItems: 'center',
