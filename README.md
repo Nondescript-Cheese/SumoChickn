@@ -15,7 +15,7 @@
 3. [Development](#development)
     i. [Installing Dependencies](#installing-dependencies)
     ii. [Project Details](#project-details)
-      a. [Authentication](#authentication)
+      a. [Authentication/Authorization](#authentication/authorization)
       b. [Server Design](#server-design)
       c. [Database Design](#database-design)
       d. [Client Design](#client-design)
@@ -66,3 +66,7 @@ npm install
 ```
 
 ### Project Details
+
+####Authentication
+
+
