@@ -67,14 +67,17 @@ authorized to use the application. The user's facebook name will be saved into a
 
 #### Client Design
 
-The Front-end was built with four(4) scenes using react-native-flux-router. The scenes are:
+The Front-end was built in React native with four(4) scenes using the react-native-flux-router module. The scenes are:
 
+ ------------------------------------------------------------------------
 | TYPE      | KEY                   | COMPONENT           | INITIAL      |
 |:---------:|:---------------------:|:-------------------:|:------------:|
 | replace   | signUp                | LoginAuth           | TRUE         | 
 | replace   | myChallenges          | myChallenges        | FALSE        | 
 | replace   | createChallenges      | SendChallenges      | FALSE        | 
 | replace   | camera                | CameraConnect       | FALSE        | 
+ ------------------------------------------------------------------------
+
 
 
 
