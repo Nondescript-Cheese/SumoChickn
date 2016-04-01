@@ -133,8 +133,10 @@ var styles = StyleSheet.create({
   challengeText: {
     fontSize: 20,
     color: 'white',
-    fontWeight: '500',
-    padding: 5
+    fontWeight: '700',
+    padding: 5,
+    fontFamily: 'Avenir-Medium'
+
   },
   smallText: {
     color: '#7f8c8d',
@@ -143,12 +145,16 @@ var styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 5,
     paddingRight: 5,
+    fontFamily: 'Avenir-Heavy'
+
   },
   smallChallengeText: {
     color: '#ff005f',
     fontWeight: '600',
     fontSize: 21,
-    padding: 7
+    padding: 7,
+    fontFamily: 'Avenir-Heavy'
+
   },
   buttons: {
     flexDirection: 'row',
