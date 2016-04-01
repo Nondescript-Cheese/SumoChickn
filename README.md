@@ -72,7 +72,9 @@ provides a React native component that wraps the Facebook SDK login button. When
 will ask for the user's facebook login information and when the user is authenticated, they will be
 authorized to use the application. The user's facebook name will be saved into a mySQL database as a user.
 
+#### Client Design
 
+The Front-end was built with 
 
 
 
