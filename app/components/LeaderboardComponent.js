@@ -122,15 +122,15 @@ class Leaderboard extends Component {
                     <View style={styles.modalPoints}>
                       <View style={styles.modalChickenpoints}>
                         <Text style={styles.modalBodyText}>ChicknPoints</Text>
-                        <Text style={styles.modalBodyText}>{this.props.currentUserData[0].wussPoints || 0}</Text>
+                        <Text style={styles.modalBodyText}>{this.props.currentUserData[0] ? this.props.currentUserData[0].wussPoints : 0}</Text>
                       </View>
                       <View style={styles.modalSumopoints}>
                         <Text style={styles.modalBodyText}>SumoPoints</Text>
-                        <Text style={styles.modalBodyText}>{this.props.currentUserData[0].beastPoints || 0}</Text>
+                        <Text style={styles.modalBodyText}>{this.props.currentUserData[0] ? this.props.currentUserData[0].beastPoints : 0}</Text>
                       </View>
                     </View>
                     <View style={styles.modalScore}>
-                      <Text style={[styles.modalBodyText, styles.modalScoreText]}>YOUR SCORE: {this.props.currentUserData[0].beastPoints - this.props.currentUserData[0].wussPoints}</Text>
+                      <Text style={[styles.modalBodyText, styles.modalScoreText]}>YOUR SCORE: {(this.props.currentUserData[0] ? this.props.currentUserData[0].beastPoints : 0) - (this.props.currentUserData[0] ? this.props.currentUserData[0].wussPoints : 0)}</Text>
                     </View>
                   </View>
                 </View>
