@@ -56,23 +56,23 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
     } else {
       userChallenged = userChallenged.split(" ")[0]
     }
-    let approach = (points === 1)? 'Sumo point' : 'Sumo points'
+    let approach = ((points === 1) ? 'point' : 'points')
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
         <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <Text style={styles.smallText}>{userChallenged} will get {points} {approach} if challenge accepted!</Text>
+          <Text style={styles.smallText}>{userChallenged} will get {points} Sumo {approach} if their challenge is accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
       return (
         <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <Text style={styles.smallText}>Challenge accepted! {userChallenged} got {points} {approach}!</Text>
+          <Text style={styles.smallText}>Challenge accepted! {userChallenged} got {points} Sumo {approach}!</Text>
         </View>
       )
     } else {
       return (
         <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <Text style={styles.smallText}>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} Chickn Point!</Text>
+          <Text style={styles.smallText}>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} Chickn {approach}!</Text>
         </View>
       )
     }
@@ -106,7 +106,7 @@ var styles = StyleSheet.create({
   },
   listItem: {
     margin: 4,
-    backgroundColor:"#a9a9a9"
+    backgroundColor:"#ecf0f1"
   },
   textWrap: {
     flex: 1,
@@ -114,6 +114,8 @@ var styles = StyleSheet.create({
     borderColor: "grey",
     marginTop: 5,
     marginBottom: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   itemHeadline: {
     // borderColor: 'green',
@@ -135,17 +137,17 @@ var styles = StyleSheet.create({
     padding: 5
   },
   smallText: {
-    color: 'white',
+    color: '#7f8c8d',
     fontWeight: '500',
-    fontSize: 16,
+    fontSize: 20,
     padding: 10,
     paddingLeft: 5,
     paddingRight: 5,
   },
   smallChallengeText: {
-    color: 'white',
-    fontWeight: '500',
-    fontSize: 18,
+    color: '#ff005f',
+    fontWeight: '600',
+    fontSize: 21,
     padding: 7
   },
   buttons: {
