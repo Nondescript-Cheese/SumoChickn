@@ -14,7 +14,7 @@
 2. [Dependencies](#dependencies)
 3. [Development](#development)
     i. [Installing Dependencies](#installing-dependencies)
-    ii. [Project Details](#project-details)
+    ii. [Project Information](#project-details)
       a. [Authentication/Authorization](#authentication/authorization)
       b. [Server Design](#server-design)
       c. [Database Design](#database-design)
@@ -65,8 +65,29 @@ Navigate to the root directory:
 npm install
 ```
 
-### Project Details
+### Project Information
 
-####Authentication
+#### Authentication/Authorization
+
+Authentication is implemented with an npm module for React Native called react-facebook-login. The module
+provides a React native component that wraps the Facebook SDK login button. When triggered, the component
+will ask for the user's facebook login information and when the user is authenticated, they will be
+authorized to use the application. The user's facebook name will be saved into a mySQL database as a user.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
