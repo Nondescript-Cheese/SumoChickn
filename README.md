@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: Hamzah Chaudhary
-  - __Scrum Master__: Michael Cheung
-  - __Development Team Member__: Steffen Baumgarten
+  - __Product Owner__: [Hamzah Chaudhary](https://github.com/hamzahc1)
+  - __Scrum Master__: [Michael Cheung](https://github.com/m6cheung)
+  - __Development Team Members__: [Steffen Baumgarten](https://github.com/SteffenBerlin)
 
 ## Table of Contents
 
@@ -98,18 +98,6 @@ To contribute to the project:
 1. Create a new branch for your feature
 1. Push changes to your own repo
 1. Submit a pull request to be reviewed.
-
-## Meet the Engineers
-
-#### [Hamzah Chaudhary](https://github.com/hamzahc1)
-
-
-#### [Steffen Baumgarten](https://github.com/SteffenBerlin)
-
-
-### [Michael Cheung](https://github.com/m6cheung)
-
-
 
 
 
