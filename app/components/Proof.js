@@ -133,9 +133,9 @@ var styles = StyleSheet.create({
   challengeText: {
     fontSize: 20,
     color: 'white',
-    fontWeight: '700',
+    // fontWeight: '700',
     padding: 5,
-    fontFamily: 'Avenir-Medium'
+    fontFamily: 'Avenir-Heavy'
 
   },
   smallText: {
