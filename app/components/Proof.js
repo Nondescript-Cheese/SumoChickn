@@ -38,7 +38,7 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
     } else if (voteCountYes >= 2) {
       return (
         <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <Image source={require('../assets/tick-logo.png')} style={{width:60, height:60, padding:0}} resizeMode={Image.resizeMode.contain} />
+          <Image source={require('../assets/tick-logo.png')} style={{width:60, height:60}} resizeMode={Image.resizeMode.contain} />
         </View>
       )
     } else {
@@ -53,23 +53,25 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
   const pointsInfoSection = () => {
     if(currentUserId === UserId) {
       userChallenged = 'you'
+    } else {
+      userChallenged = userChallenged.split(" ")[0]
     }
     let approach = (points === 1)? 'Sumo point' : 'Sumo points'
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
-        <View>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
           <Text style={styles.smallText}>{userChallenged} will get {points} {approach} if challenge accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
       return (
-        <View>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
           <Text style={styles.smallText}>Challenge accepted! {userChallenged} got {points} {approach}!</Text>
         </View>
       )
     } else {
       return (
-        <View>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
           <Text style={styles.smallText}>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} Chickn Point!</Text>
         </View>
       )
