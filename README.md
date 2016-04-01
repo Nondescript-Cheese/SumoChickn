@@ -11,7 +11,7 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-2. [Requirements](#requirements)
+2. [Dependencies](#dependencies)
 3. [Development](#development)
     i. [Installing Dependencies](#installing-dependencies)
     ii. [Project Details](#project-details)
@@ -30,3 +30,20 @@
 4. Take on challenges sent to you and take a picture of yourself attempting it.
 5. Vote on the validity of other people's challenge attempts on the Proof view.
 6. If the validity of your challenge has been decided by votes, check out the Leaderboard view to see your changes in points.
+
+##Dependencies
+
+###Client-Side
+- react-native 0.22.0
+- react-native-dropdown 0.0.6
+- react-native-router-flux 3.1.3
+- react-native-uploader 0.0.9
+- react-native-scrollable-tab-view 0.4.0
+- react-facebook-login 1.0.3
+- react-redux 3.3.1
+- redux 3.3.1
+- redux-thunk 2.0.1
+- immutable 3.7.6
+- isomorphic fetch 2.2.1
+- node-xml2json 1.0.0
+- react-native-camera git+https://github.com/lwansbrough/react-native-camera.git 
