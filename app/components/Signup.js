@@ -13,9 +13,7 @@ let FBLoginManager = require('NativeModules').FBLoginManager;
 
 const Signup = ({ getCurrentUser }) => (
   <View style={styles.container}>
-    <View style={styles.header}>
-      <Text style={{fontSize: 40}}>Login</Text>
-    </View>
+
     <View style={styles.logoHolder}>
       <Image
         style={{
@@ -42,10 +40,6 @@ const Signup = ({ getCurrentUser }) => (
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  header: {
-    marginTop: 20,
-    alignItems: 'center'
   },
   logoHolder: {
     flex: 0.9,
