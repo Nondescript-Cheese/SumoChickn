@@ -54,7 +54,7 @@ var styles = StyleSheet.create({
     flex: 0.1,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    paddingBottom: 10
+    paddingBottom: 90
   },
   subHeading: {
     paddingTop: 15,
