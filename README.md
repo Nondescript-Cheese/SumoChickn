@@ -45,7 +45,6 @@
 - node-xml2json 1.0.0
 - react-native-camera git+https://github.com/lwansbrough/react-native-camera.git
 
-## Development
 
 ##Installing Dependencies
 
@@ -86,6 +85,16 @@ To contribute to the project:
 1. Create a new branch for your feature
 1. Push changes to your own repo
 1. Submit a pull request to be reviewed.
+
+## Meet the Engineers
+
+### [Hamzah Chaudhary](https://github.com/hamzahc1)
+
+
+### [Steffen Baumgarten](https://github.com/SteffenBerlin)
+
+
+### [Michael Cheung](https://github.com/m6cheung)
 
 
 
