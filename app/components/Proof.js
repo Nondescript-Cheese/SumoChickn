@@ -37,14 +37,14 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       }
     } else if (voteCountYes >= 2) {
       return (
-        <View>
-          <Text style={styles.smallText}>This Challenge was accepted!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Image source={require('../assets/tick-logo.png')} style={{width:60, height:60, padding:0}} resizeMode={Image.resizeMode.contain} />
         </View>
       )
     } else {
       return (
-        <View>
-          <Text style={styles.smallText}>This Challenge was denied!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Image source={require('../assets/cross-logo.png')} style={{width:60, height:60}} resizeMode={Image.resizeMode.contain} />
         </View>
       )
     }
