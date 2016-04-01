@@ -60,7 +60,6 @@ Navigate to the root directory:
 
 ```sh
 npm install
-edit Keys inside app/env/configExample.js to your own
 ```
 
 ### Project Information
