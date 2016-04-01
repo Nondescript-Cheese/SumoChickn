@@ -176,6 +176,7 @@ var styles = StyleSheet.create({
     fontSize: 25,
     color: 'white',
     fontWeight: '600',
+    fontFamily: 'Avenir-Heavy'
 
   }
 })
