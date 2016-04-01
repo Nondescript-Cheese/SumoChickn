@@ -43,6 +43,7 @@
 - immutable 3.7.6
 - isomorphic fetch 2.2.1
 - node-xml2json 1.0.0
+- redux-logger 2.6.1
 - react-native-camera git+https://github.com/lwansbrough/react-native-camera.git
 
 
