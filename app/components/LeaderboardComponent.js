@@ -52,15 +52,6 @@ class Leaderboard extends Component {
       ? {backgroundColor: '#fff', padding: 20}
       : null;
 
-    let totalScore = (beastPoints, wussPoints) => {
-      if (beastPoints && wussPoints) {
-        return (beastPoints - wussPoints);
-      }
-      else {
-        return 0;
-      }
-    }
-
     return(
 
        <View style={styles.container}>
