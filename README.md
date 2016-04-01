@@ -54,3 +54,15 @@
 - mysql 2.10.2
 - sequelize 3.20.0
 - body-parser 1.15.0
+
+## Development
+
+##Installing Dependencies
+
+Navigate to the root directory:
+
+```sh
+npm install
+```
+
+### Project Details
