@@ -25,4 +25,8 @@
 ## Usage
 
 1. Log in with Facebook
-2. Create a challenge on the 
+2. Create and send a challenge on the Create Challenge view.
+3. View your own challenges on the My Challenges view.
+4. Take on challenges sent to you and take a picture of yourself attempting it.
+5. Vote on the validity of other people's challenge attempts on the Proof view.
+6. If the validity of your challenge has been decided by votes, check out the Leaderboard view to see your changes in points.
