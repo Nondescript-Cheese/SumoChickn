@@ -21,6 +21,7 @@
 
 ## Usage
 
+### General use
 1. Log in with Facebook
 2. Create and send a challenge on the Create Challenge view.
 3. View your own challenges on the My Challenges view.
