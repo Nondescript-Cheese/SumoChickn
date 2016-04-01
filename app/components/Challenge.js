@@ -123,7 +123,8 @@ var styles = StyleSheet.create({
   },
   challengeText: {
     fontSize: 25,
-    color: 'white' 
+    color: 'white',
+    fontFamily: 'Avenir-Heavy' 
   },
   minChallengeText: {
     fontSize: 15,

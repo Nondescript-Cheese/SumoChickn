@@ -37,14 +37,14 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       }
     } else if (voteCountYes >= 2) {
       return (
-        <View>
-          <Text style={styles.smallText}>This Challenge was accepted!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Image source={require('../assets/tick-logo.png')} style={{width:60, height:60}} resizeMode={Image.resizeMode.contain} />
         </View>
       )
     } else {
       return (
-        <View>
-          <Text style={styles.smallText}>This Challenge was denied!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Image source={require('../assets/cross-logo.png')} style={{width:60, height:60}} resizeMode={Image.resizeMode.contain} />
         </View>
       )
     }
@@ -53,24 +53,26 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
   const pointsInfoSection = () => {
     if(currentUserId === UserId) {
       userChallenged = 'you'
+    } else {
+      userChallenged = userChallenged.split(" ")[0]
     }
-    let approach = (points === 1)? 'Sumo point' : 'Sumo points'
+    let approach = ((points === 1) ? 'point' : 'points')
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
-        <View>
-          <Text style={styles.smallText}>{userChallenged} will get {points} {approach} if challenge accepted!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Text style={styles.smallText}>{userChallenged} will get {points} Sumo {approach} if their challenge is accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
       return (
-        <View>
-          <Text style={styles.smallText}>Challenge accepted! {userChallenged} got {points} {approach}!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Text style={styles.smallText}>Challenge accepted! {userChallenged} got {points} Sumo {approach}!</Text>
         </View>
       )
     } else {
       return (
-        <View>
-          <Text style={styles.smallText}>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} Chickn Point!</Text>
+        <View style={{justifyContent: 'center', alignItems:'center'}}>
+          <Text style={styles.smallText}>Challenge denied! {userChallenged} got {Math.ceil(points / 5)} Chickn {approach}!</Text>
         </View>
       )
     }
@@ -104,7 +106,7 @@ var styles = StyleSheet.create({
   },
   listItem: {
     margin: 4,
-    backgroundColor:"#a9a9a9"
+    backgroundColor:"#ecf0f1"
   },
   textWrap: {
     flex: 1,
@@ -112,6 +114,8 @@ var styles = StyleSheet.create({
     borderColor: "grey",
     marginTop: 5,
     marginBottom: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   itemHeadline: {
     // borderColor: 'green',
@@ -129,22 +133,28 @@ var styles = StyleSheet.create({
   challengeText: {
     fontSize: 20,
     color: 'white',
-    fontWeight: '500',
-    padding: 5
+    // fontWeight: '700',
+    padding: 5,
+    fontFamily: 'Avenir-Heavy'
+
   },
   smallText: {
-    color: 'white',
+    color: '#7f8c8d',
     fontWeight: '500',
-    fontSize: 16,
+    fontSize: 20,
     padding: 10,
     paddingLeft: 5,
     paddingRight: 5,
+    fontFamily: 'Avenir-Heavy'
+
   },
   smallChallengeText: {
-    color: 'white',
-    fontWeight: '500',
-    fontSize: 18,
-    padding: 7
+    color: '#ff005f',
+    fontWeight: '600',
+    fontSize: 21,
+    padding: 7,
+    fontFamily: 'Avenir-Heavy'
+
   },
   buttons: {
     flexDirection: 'row',

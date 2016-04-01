@@ -54,7 +54,11 @@ const ProofFeedComponent = ({currentUserId, allClosedChallenges, getClosedChalle
         dataSource={dataSource}
         renderRow={(row) => <Proof {...row} currentUserId={currentUserId} listLength={allClosedChallenges.length} voteOnChallenge={voteOnChallenge}/>}
       />
-      <TouchableOpacity style={styles.loadButton} onPress={()=>{getClosedChallenges(1,allClosedChallenges.length+10)}}><Text style={styles.loadText}>Load More Challenges</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.loadButton} onPress={()=>{getClosedChallenges(1,allClosedChallenges.length+10)}}>
+        <Text style={styles.loadText}>
+        Load More Challenges
+        </Text>
+      </TouchableOpacity>
     </ScrollView>
     </View>
     </View>
@@ -68,10 +72,11 @@ var styles = StyleSheet.create({
  },
  loadText:{
   fontSize: 20,
-  fontWeight: "600",
   color: '#ff005f',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
+  padding: 5,
+  fontFamily: 'Avenir-Black'
  },
  header: {
    flex: 0.1,
@@ -83,13 +88,15 @@ var styles = StyleSheet.create({
    backgroundColor: '#f5f5f5'
  },
  titleText:{
-  fontSize: 20,
-  fontWeight: "600",
-  color: 'white'
+  fontSize: 23,
+  color: 'white',
+  fontFamily: 'Avenir-Black'
+
  },
  loadButton:{
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  backgroundColor: '#bdc3c7'
  },
   titleBar: {
    flex: 0.1,

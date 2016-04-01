@@ -165,8 +165,8 @@ var styles = StyleSheet.create({
   backgroundColor: '#ff005f'
  },
  titleText:{
-  fontSize: 20,
-  fontWeight: "600",
+  fontSize: 23,
+  fontFamily: 'Avenir-Black',
   color: 'white'
  },
  textBox: {
@@ -174,7 +174,8 @@ var styles = StyleSheet.create({
    alignItems: 'center',
    fontSize: 25,
    fontWeight: '600',
-   color: 'white'
+   color: 'white',
+   fontFamily: 'Avenir-Heavy',
  },
  buttonWrap: {
     flex:1,
@@ -210,11 +211,13 @@ var styles = StyleSheet.create({
   fontSize: 25,
   color: 'white',
   fontWeight: '600',
+  fontFamily: 'Avenir-Heavy',
  },
  userRowTextHighlighted: {
   fontSize: 25,
   fontWeight: '700',
-  color: 'white'
+  color: 'white',
+  fontFamily: 'Avenir-Heavy'
  },
  innerContainer: {
   alignItems: 'center',

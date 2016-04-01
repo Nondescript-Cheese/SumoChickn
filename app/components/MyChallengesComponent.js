@@ -148,12 +148,14 @@ var styles = StyleSheet.create({
   backgroundColor: '#ff005f'
 },
  openCloseChoiceText: {
-  fontSize: 20,
+  fontSize: 23,
+  fontFamily: 'Avenir-Heavy',
+  fontWeight: '600'
  },
  selectedText: {
-  fontSize: 20,
+  fontSize: 23,
   color: 'white',
-  fontWeight: '600'
+  fontFamily: 'Avenir-Black'
  },
  challengesList: {
   flex: 0.5,
@@ -174,6 +176,7 @@ var styles = StyleSheet.create({
     fontSize: 25,
     color: 'white',
     fontWeight: '600',
+    fontFamily: 'Avenir-Heavy'
 
   }
 })
