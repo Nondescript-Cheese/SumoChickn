@@ -46,13 +46,6 @@
 - node-xml2json 1.0.0
 - react-native-camera git+https://github.com/lwansbrough/react-native-camera.git
 
-###Server-Side
-- express 4.13.4
-- morgan 1.7.0
-- mysql 2.10.2
-- sequelize 3.20.0
-- body-parser 1.15.0
-
 ## Development
 
 ##Installing Dependencies
@@ -74,7 +67,7 @@ authorized to use the application. The user's facebook name will be saved into a
 
 #### Client Design
 
-The Front-end was built with 
+The Front-end was built with four(4) scenes using 
 
 
 
