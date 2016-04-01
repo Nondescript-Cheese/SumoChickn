@@ -95,7 +95,7 @@ class CreateChallenges extends Component {
             <Text style={styles.bodyTitle}>
               Challenge Description
             </Text>
-              <TextInput placeholder="enter your challenge here" placeholderTextColor="#dcdcdc" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
+              <TextInput placeholder="Enter your challenge here" placeholderTextColor="#dcdcdc" keyboardAppearance = "dark" blurOnSubmit={true} returnKeyType="next" multiline={true} style={styles.bodyDescription} onChangeText = {(text) => {
                 // this.setState({description: text})
                 formValue.description = text
                 formValue.createdBy = this.props.currentUser 
@@ -108,7 +108,7 @@ class CreateChallenges extends Component {
             <Text style={[styles.selectTitle, styles.positionPerson]}>Choose Person</Text>
           </View>
           <View style={styles.choose}>
-            <Select width={75}
+            <Select width={160}
             ref="SELECT1"
             optionListRef={this._getOptionList.bind(this)}
             defaultValue="Points"
@@ -166,7 +166,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 0.1,
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   body: {
     flex: 0.6,
@@ -177,17 +177,18 @@ var styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 30,
-    color: '#ff005f'
+    color: '#ff005f',
   },
   backButton: {
-    marginRight: 40
+    marginRight: 20
   },
   bodyTitle: {
     fontSize: 20,
     backgroundColor: '#ff005f',
     padding: 5,
     color: 'white',
-    fontWeight: '600'
+    fontWeight: '600',
+    paddingLeft: 15
   },
   bodyInput: {
     flex: 1,
@@ -196,10 +197,10 @@ var styles = StyleSheet.create({
     fontSize: 20
   },
   positionPoints: {
-    marginRight: 50
+    marginRight: 134
   },
   positionPerson: {
-    paddingRight: 30
+    paddingRight: 72
   },
   bodyDescription: {
     flex: 1,
