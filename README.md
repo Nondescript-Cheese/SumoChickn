@@ -19,7 +19,5 @@
       b. [Server Design](#server-design)
       c. [Database Design](#database-design)
       d. [Client Design](#client-design)
-    ii. [Roadmap](#roadmap)
-      10. [Features To Be Added](#features-to-be-added)
 11. [Team](#team)
 12. [Contributing](#contributing)
