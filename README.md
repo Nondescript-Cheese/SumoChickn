@@ -11,16 +11,14 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-2. [Dependencies](#dependencies)
-3. [Development](#development)
-    i. [Installing Dependencies](#installing-dependencies)
-    ii. [Project Information](#project-details)
-      a. [Authentication/Authorization](#authentication/authorization)
-      b. [Server Design](#server-design)
-      c. [Database Design](#database-design)
-      d. [Client Design](#client-design)
-11. [Team](#team)
-12. [Contributing](#contributing)
+1. [Dependencies](#dependencies)
+1. [Development](#development)
+    1. [Installing Dependencies](#installing-dependencies)
+    1. [Project Information](#project-details)
+      1. [Authentication/Authorization](#authentication/authorization)
+      1. [Client Design](#client-design)
+1. [Team](#team)
+1. [Contributing](#contributing)
 
 ## Usage
 
