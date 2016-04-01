@@ -76,6 +76,11 @@ The Front-end was built in React native with four(4) scenes using the react-nati
 | replace   | camera                | CameraConnect       | FALSE        | 
  ------------------------------------------------------------------------
 
+#### Server Design
+
+SumoChickn uses a mySQL database paired with a Node/Express Server deployed through Digital Ocean. The back-end architecture files are available [here](https://github.com/Nondescript-Cheese/SumoChickn-Server).
+
+
 ## Contribute
 
 To contribute to the project:
@@ -88,10 +93,10 @@ To contribute to the project:
 
 ## Meet the Engineers
 
-### [Hamzah Chaudhary](https://github.com/hamzahc1)
+#### [Hamzah Chaudhary](https://github.com/hamzahc1)
 
 
-### [Steffen Baumgarten](https://github.com/SteffenBerlin)
+#### [Steffen Baumgarten](https://github.com/SteffenBerlin)
 
 
 ### [Michael Cheung](https://github.com/m6cheung)
