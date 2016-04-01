@@ -14,7 +14,7 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
   
   const voteSection = () => {
     if(currentUserId === UserId) {
-      userChallenged = 'you'
+      userChallenged = 'you';
     }
     if(voteCountYes < 2 && voteCountNo < 2) {
       if(currentUserId === UserId) {
@@ -60,7 +60,7 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
     if(voteCountYes < 2 && voteCountNo < 2) {
       return (
         <View style={{justifyContent: 'center', alignItems:'center'}}>
-          <Text style={styles.smallText}>{userChallenged} will get {points} Sumo {approach} if their challenge is accepted!</Text>
+          <Text style={styles.smallText}>{userChallenged} will get {points} Sumo {approach} if the challenge gets accepted!</Text>
         </View>
       )
     } else if (voteCountYes >= 2) {
@@ -145,7 +145,8 @@ var styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 5,
     paddingRight: 5,
-    fontFamily: 'Avenir-Heavy'
+    fontFamily: 'Avenir-Heavy',
+    textAlign: 'center',
 
   },
   smallChallengeText: {
@@ -158,7 +159,7 @@ var styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   thumbnail: {
     borderColor: 'lightblue',
