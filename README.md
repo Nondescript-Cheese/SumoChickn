@@ -28,6 +28,12 @@
 5. Vote on the validity of other people's challenge attempts on the Proof view.
 6. If the validity of your challenge has been decided by votes, check out the Leaderboard view to see your changes in points.
 
+### Description
+SumoChickn is a interactive social challenge app that allows your to send challenges to other users around the world. As the user, 
+you can accept a challenge and take a photo of yourself completing it. The photo will be uploaded to the application's newsfeed
+view where other users can vote on whether the challenge was a success(sumo) or if the challenge was a fail(chicken). Accumulate
+sumo points to increase your position on the leaderboard!
+
 ##Dependencies
 
 ###Client Dependencies
@@ -43,6 +49,7 @@
 - immutable 3.7.6
 - isomorphic fetch 2.2.1
 - node-xml2json 1.0.0
+- redux-logger 2.6.1
 - react-native-camera git+https://github.com/lwansbrough/react-native-camera.git
 
 
