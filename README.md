@@ -6,7 +6,7 @@
 
   - __Product Owner__: Hamzah Chaudhary
   - __Scrum Master__: Michael Cheung
-  - __Development Team Member (Minion)__: Steffen Baumgarten
+  - __Development Team Member__: Steffen Baumgarten
 
 ## Table of Contents
 
@@ -30,7 +30,7 @@
 
 ##Dependencies
 
-###Client-Side
+###Client Dependencies
 - react-native 0.22.0
 - react-native-dropdown 0.0.6
 - react-native-router-flux 3.1.3
@@ -52,6 +52,7 @@ Navigate to the root directory:
 
 ```sh
 npm install
+edit Keys in app/env/configExample.js to your own
 ```
 
 ### Project Information
