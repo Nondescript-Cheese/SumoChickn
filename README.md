@@ -4,7 +4,7 @@
 
 ## Team
 
-  - __Product Owner__: ##[Hamzah Chaudhary](https://github.com/hamzahc1)
+  - __Product Owner__: [Hamzah Chaudhary](https://github.com/hamzahc1)
   - __Scrum Master__: [Michael Cheung](https://github.com/m6cheung)
   - __Development Team Members__: [Steffen Baumgarten](https://github.com/SteffenBerlin)
 
