@@ -72,12 +72,11 @@ var styles = StyleSheet.create({
  },
  loadText:{
   fontSize: 20,
-  fontWeight: "600",
   color: '#ff005f',
   justifyContent: 'center',
   alignItems: 'center',
   padding: 5,
-  fontFamily: 'Avenir-Heavy'
+  fontFamily: 'Avenir-Black'
  },
  header: {
    flex: 0.1,
@@ -97,7 +96,7 @@ var styles = StyleSheet.create({
  loadButton:{
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: '#ecf0f1'
+  backgroundColor: '#bdc3c7'
  },
   titleBar: {
    flex: 0.1,
