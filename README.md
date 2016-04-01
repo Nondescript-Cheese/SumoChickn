@@ -21,3 +21,8 @@
       d. [Client Design](#client-design)
 11. [Team](#team)
 12. [Contributing](#contributing)
+
+## Usage
+
+1. Log in with Facebook
+2. Create a challenge on the 
