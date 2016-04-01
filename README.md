@@ -17,7 +17,7 @@
     1. [Project Information](#project-details)
       1. [Authentication/Authorization](#authentication/authorization)
       1. [Client Design](#client-design)
-1. [Contribute](#contribute)
+1. [Contributing](#contributing)
 
 ## Usage
 
@@ -89,6 +89,9 @@ The Front-end was built in React native with four(4) scenes using the react-nati
 SumoChickn uses a mySQL database paired with a Node/Express Server deployed through Digital Ocean. The back-end architecture files are available [here](https://github.com/Nondescript-Cheese/SumoChickn-Server).
 
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 ## Contribute
 
 To contribute to the project:
