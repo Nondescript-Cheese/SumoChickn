@@ -22,6 +22,9 @@ const Signup = ({ getCurrentUser }) => (
           resizeMode: 'contain'
         }}
         source={require('../assets/landingPageLogo.png')} />
+        <Text style={styles.subHeading}>
+          Challenge the world
+        </Text>
     </View>
     <View style = {styles.facebook}>
       <FBLogin
@@ -40,6 +43,7 @@ const Signup = ({ getCurrentUser }) => (
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'white'
   },
   logoHolder: {
     flex: 0.9,
@@ -51,6 +55,12 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
     paddingBottom: 10
+  },
+  subHeading: {
+    paddingTop: 15,
+    fontSize: 23,
+    fontFamily: 'Avenir-Black',
+    color: 'grey'
   }
 })
 
