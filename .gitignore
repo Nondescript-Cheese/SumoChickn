@@ -32,5 +32,4 @@ local.properties
 #
 node_modules/
 npm-debug.log
-/env.js
-
+app/utils/env.js
