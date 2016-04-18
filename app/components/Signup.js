@@ -64,6 +64,5 @@ var styles = StyleSheet.create({
   }
 })
 
-//https://graph.facebook.com/v2.3/${user.userId}?fields=name,email&access_token=${user.token}
 
 export default Signup

@@ -15,7 +15,6 @@ import Proof from './Proof'
 
 
 const ProofFeedComponent = ({currentUserId, allClosedChallenges, getClosedChallenges, voteOnChallenge, refreshingClosedChallenges}) => {
-  console.log('these are the challenges', allClosedChallenges)
 
   let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
