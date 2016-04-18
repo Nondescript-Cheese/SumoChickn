@@ -153,13 +153,9 @@ var styles = StyleSheet.create({
  body: {
    flex: 0.6,
    backgroundColor: '#f5f5f5'
-   // borderColor: "yellow",
-   // borderWidth: 4
  },
  sub: {
   flex: 0.1,
-  // borderColor: "#ff005f",
-  // borderWidth: 4,
   backgroundColor: '#ff005f'
  },
  titleText:{

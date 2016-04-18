@@ -35,7 +35,7 @@ const scenes = Actions.create(
     <Scene type="replace" key="camera" component={CameraConnect} />
   </Scene>
 );
-//the view should hold each container
+
 const App = () => (
  <View style={{ flex: 1 }}>
   <StatusBar
