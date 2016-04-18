@@ -1,6 +1,6 @@
 const keys = {
-  accessKey: 'AKIAIFRBKMUDRXG7HN3Q',
-  secretKey: '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',
+  accessKey: 'AKIAJEEPUBBYWZ7W25MA',
+  secretKey: '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',
   region: 'us-west-1',
   url: 'http://localhost:3000/',
 };
