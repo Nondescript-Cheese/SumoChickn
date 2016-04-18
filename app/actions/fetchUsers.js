@@ -1,6 +1,8 @@
 export const FETCHING_USERS = 'FETCHING_USERS'
 export const FETCHED_USERS = 'FETCHED_USERS'
 
+import keys from '../utils/envs'
+
 export const fetchingAllUsers = () => {
   return {
     type: FETCHING_USERS

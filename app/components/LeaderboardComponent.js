@@ -13,7 +13,6 @@ import React, {
 
 let _scrollView: ScrollView;
 
-//actual component:
 
 class Leaderboard extends Component {
   constructor(props) {
@@ -74,7 +73,6 @@ class Leaderboard extends Component {
             ref={(scrollView) => { _scrollView = scrollView; }}
             automaticallyAdjustContentInsets={false}
             scrollEventThrottle={200}
-            // style={styles.scrollView}
             refreshControl={
               <RefreshControl
                 refreshing={this.props.updatingLeaderboard}

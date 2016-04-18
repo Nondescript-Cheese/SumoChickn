@@ -31,7 +31,6 @@ const mapDispatchToProps = (dispatch) => {
       }
       const policy = s3Policy(config);
 
-      // const fileNameHash = CryptoJS.SHA1(picture, keys.accessKey).toString();
 
       const file = [{
         name: 'file',

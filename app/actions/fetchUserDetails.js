@@ -3,7 +3,7 @@ export const GOT_USER = 'GOT_USER'
 import { getChallenges, getClosedChallenges } from './index'
 import { fetchAllUsers } from './fetchUsers'
 import { Actions } from 'react-native-router-flux'
-import keys from '..utils/envs'
+import keys from '../utils/envs'
 
 export const gettingUser = () => {
   return {

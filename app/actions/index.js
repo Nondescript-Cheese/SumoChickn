@@ -8,7 +8,7 @@ export const GOT_CLOSED_CHALLENGES = 'GOT_CLOSED_CHALLENGES'
 export const GETTING_CLOSED_CHALLENGES_VOTE = 'GETTING_CLOSED_CHALLENGES_VOTE'
 export const GOT_CLOSED_CHALLENGES_VOTE = 'GOT_CLOSED_CHALLENGES_VOTE'
 
-import keys from'..utils/envs'
+import keys from '../utils/envs'
 import { Actions } from 'react-native-router-flux';
 
 //--------------------------------------

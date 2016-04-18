@@ -1,7 +1,6 @@
 export const TOGGLING_CHALLENGE = 'TOGGLING_CHALLENGE'
 export const TOGGLED_CHALLENGE = 'TOGGLED_CHALLENGE'
-
-import keys from '..utils/envs'
+import keys from '../utils/envs'
 
 export const challengeStatusChanging = (id) => {
   return {

@@ -84,7 +84,7 @@ const Proof = ({currentUserId, id, UserId, createdBy, userChallenged, challengeT
       <View style={styles.itemHeadline}>
         <Text style={styles.challengeText}>{createdBy} challenged {userChallenged}:</Text>
       </View>
-      <View style={styles.itemBody}>
+      <View>
         <View style={styles.itemHeadBody}>
           <View style={styles.textWrap}>
             <Text style={styles.smallChallengeText}>{challengeText}</Text>
@@ -118,22 +118,14 @@ var styles = StyleSheet.create({
     alignItems: 'center'
   },
   itemHeadline: {
-    // borderColor: 'green',
-    // borderWidth: 2,
     backgroundColor: '#696969'
   },
   itemHeadBody: {
-    // flexDirection: 'row',
     justifyContent: 'space-between'
-  },
-  itemBody: {
-    // borderColor: 'pink',
-    // borderWidth: 1
   },
   challengeText: {
     fontSize: 20,
     color: 'white',
-    // fontWeight: '700',
     padding: 5,
     fontFamily: 'Avenir-Heavy'
 
