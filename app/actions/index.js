@@ -69,7 +69,6 @@ export const getClosedChallengesVote = (fromNo, toNo) => {
       return response.json()
     })
     .then((closedChallengeList)=>{
-      console.log(closedChallengeList);
       dispatch(gotClosedChallengesVote(closedChallengeList))
     })
     .catch((error)=>{
