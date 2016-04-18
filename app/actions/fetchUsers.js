@@ -8,7 +8,6 @@ export const fetchingAllUsers = () => {
 }
 
 export const fetchedAllUsers = (users) => {
-  console.log('action fetchedAllUsers is fired with data: ', users);
   return {
     type: FETCHED_USERS,
     payload: users
@@ -18,7 +17,7 @@ export const fetchedAllUsers = (users) => {
 export const fetchAllUsers = () => {
   return dispatch => {
   	dispatch(fetchingAllUsers());
-  	return fetch('http://159.203.239.224:3000/getAllUsers/')
+  	return fetch(keys.url+'getAllUsers/')
     .then((response) => {
       return response.json();
     })
@@ -29,6 +28,5 @@ export const fetchAllUsers = () => {
     .catch((error) => {
       console.warn(error);
     })
-
   }
 }
