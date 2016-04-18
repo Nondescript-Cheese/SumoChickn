@@ -4,7 +4,7 @@ import { Actions } from 'react-native-router-flux'
 import { postPicture } from '../actions/cameraActions'
 import { toggleChallengeStatus } from '../actions/toggleChallengeStatus'
 import { postingPicture } from '../actions/cameraActions'
-import keys from '../utils/env'
+import keys from '../utils/envs'
 import { bindActionCreators } from 'redux'
 const s3Policy = require('../utils/s3Policies')
 
