@@ -33,22 +33,6 @@ class CameraApp extends Component {
 
 
   render() {
-
-    // var modalBackgroundStyle = {
-    //   backgroundColor: this.state.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
-    // };
-    // var innerContainerTransparentStyle = this.state.transparent
-    //   ? {backgroundColor: '#fff', padding: 20}
-    //   : null;
-
-    // let dataSource = new ListView.DataSource({
-    //   rowHasChanged: (row1, row2) => row1 !== row2,
-    // });
-
-    // dataSource = dataSource.cloneWithRows(this.props.allChallenges);
-
-
-
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -68,37 +52,12 @@ class CameraApp extends Component {
           flashMode={Camera.constants.FlashMode.auto}
           aspect={Camera.constants.Aspect.fill}>
           <TouchableHighlight disable={this.state.canTakePhoto} activeOpacity = {0.2} underlayColor="white" style={styles.clickerFrame} onPress={()=> {
-            // this.setModalVisible(true)
             this.takePicture()
           }}>
           <Image source={require('../assets/captureCircle.png')} style = {styles.clicker}  resizeMode={Image.resizeMode.contain} />
           </TouchableHighlight>
         </Camera>
       </View>
-          // [CAPTURE]</Text>
-
-        // <Modal
-        //   animated={this.state.animated}
-        //   transparent={this.state.transparent}
-        //   visible={this.state.visible}>
-        //   <View style={[styles.container, modalBackgroundStyle]}>
-        //     <View style={[styles.innerContainer, innerContainerTransparentStyle]}>
-        //       <Text onPress={this.setModalVisible.bind(this, false)}>
-        //         Back
-        //       </Text>
-        //       <ListView
-        //         dataSource={dataSource}
-        //         renderRow={(rowData) => <TouchableHighlight onPress={()=> {this.props.sendPhotoToAWS(this.state.photoData, rowData.id)}}><Text>{rowData.challengeText}</Text></TouchableHighlight>}
-        //         style={styles.listView} />
-        //     </View>
-        //   </View>
-        // </Modal>
-      // <StatusBar
-      //   hidden={true}
-      //   barStyle="light-content"
-      //   showHideTransition="slide"
-      //   animated={true}
-      // />
     );
   }
 
@@ -106,16 +65,12 @@ class CameraApp extends Component {
     this.camera.capture()
     .then((data) => {
       this.canTakeAPhoto()
-      console.log(data)
-      console.log('THIS IS WORKED!!!!!', data)
       return this.setState({photoData: data})
     })
     .then(()=>{
-      console.log("THE PROPS", this.props)
       return this.props.sendPhotoToAWS(this.state.photoData, this.props.currentId)
     })
     .then(()=>{
-      console.log("INSIDE THE TOGGLIGN")
       return this.props.toggleChallenge(this.props.currentId)
     })
     .then(()=>{
