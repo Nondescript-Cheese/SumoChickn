@@ -32,4 +32,8 @@ local.properties
 #
 node_modules/
 npm-debug.log
-app/utils/env.js
+
+
+# amazon s3 keys
+#
+env.js
