@@ -35,4 +35,4 @@ npm-debug.log
 
 
 # AWS S3 Credentials
-env.js
+envs.js
