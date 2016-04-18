@@ -34,6 +34,5 @@ node_modules/
 npm-debug.log
 
 
-# amazon s3 keys
-#
+# AWS S3 Credentials
 env.js
