@@ -13,7 +13,6 @@ import React, {
 
 let _scrollView: ScrollView;
 
-//actual component:
 
 class Leaderboard extends Component {
   constructor(props) {
@@ -74,7 +73,6 @@ class Leaderboard extends Component {
             ref={(scrollView) => { _scrollView = scrollView; }}
             automaticallyAdjustContentInsets={false}
             scrollEventThrottle={200}
-            // style={styles.scrollView}
             refreshControl={
               <RefreshControl
                 refreshing={this.props.updatingLeaderboard}
@@ -155,13 +153,9 @@ var styles = StyleSheet.create({
  body: {
    flex: 0.6,
    backgroundColor: '#f5f5f5'
-   // borderColor: "yellow",
-   // borderWidth: 4
  },
  sub: {
   flex: 0.1,
-  // borderColor: "#ff005f",
-  // borderWidth: 4,
   backgroundColor: '#ff005f'
  },
  titleText:{

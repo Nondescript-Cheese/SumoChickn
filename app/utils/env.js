@@ -1,8 +1,10 @@
+//REPLACE KEYS WITH YOUR OWN AND RENAME FILE TO envs.js
+
 const keys = {
-  accessKey: 'AKIAIFRBKMUDRXG7HN3Q',
-  secretKey: 'AfqWTwVgv01mYrK+3BXw6q9JQ2b+Q3XLmCLqN/Gz',
-  region: 'us-west-1',
-  url: 'http://localhost:3000/',
+  accessKey: 'REPLACE YOUR OWN ACCESS KEY',
+  secretKey: 'REPLACE WITH SECRET KEY',
+  region: 'REPLACE WITH REGION',
+  url: 'REPLACE WITH URL',
 };
 
 export default keys

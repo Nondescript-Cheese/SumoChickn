@@ -116,7 +116,6 @@ var styles = StyleSheet.create({
   listItem: {
     borderColor: 'grey',
     borderWidth: 0,
-    // borderRadius: 12.5,
     padding: 7.5,
     margin: 1,
     backgroundColor: "#a9a9a9"

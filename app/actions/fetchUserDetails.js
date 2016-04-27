@@ -2,8 +2,8 @@ export const GETTING_USER = 'GETTING_USER'
 export const GOT_USER = 'GOT_USER'
 import { getChallenges, getClosedChallenges } from './index'
 import { fetchAllUsers } from './fetchUsers'
- 
 import { Actions } from 'react-native-router-flux'
+import keys from '../utils/envs'
 
 export const gettingUser = () => {
   return {
@@ -27,11 +27,10 @@ export const getUserDispatcher = (userToken, userId) => {
       return data.json()
     })
     .then((response) => {
-      console.log('this is the response from facebook', response)
       let currentUser = {
         username: response.name
       }
-      return fetch('http://159.203.239.224:3000/login', {
+      return fetch(keys.url+'login', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

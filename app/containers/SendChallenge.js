@@ -33,5 +33,4 @@ const SendChallenges = connect(
 )(CreateChallenges)
 
 
-//TODO: UPDATE IN APP.JS
 export default SendChallenges

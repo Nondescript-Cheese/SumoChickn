@@ -40,7 +40,6 @@ const challenges = (state = {challengeList: [], postingChallenge: false, challen
     case CHALLENGE_POSTED:
       return Object.assign({}, state, {
         postingChallenge: false,
-        // challengeList: state.challengeList.concat([challenge(undefined, action)]) 
       })
     case TOGGLING_CHALLENGE:
       return Object.assign({}, state, {
@@ -117,7 +116,6 @@ const challengeApp = combineReducers({
   challengesViewStatus,
   currentUser,
   allUsers
-  // allUsers
 })
 
 export default challengeApp

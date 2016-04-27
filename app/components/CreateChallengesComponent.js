@@ -7,7 +7,6 @@ import React, {
   StyleSheet,
   ScrollView, 
   PropTypes,
-  PickerIOS,
   Alert,
   TouchableOpacity,
   Vibration,
@@ -24,7 +23,6 @@ const {
   updatePosition
 } = DropDown;
 
-// var PickerItemIOS = PickerIOS.Item;
 
 const Button = require('react-native-button');
 
@@ -46,11 +44,6 @@ const validate = () => {
 class CreateChallenges extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   description: "",
-    //   assignedTo: "",
-    //   points: 1,
-    // }
   }
 
   componentDidMount() {
@@ -64,22 +57,16 @@ class CreateChallenges extends Component {
     }
 
     _points(selectedPoints) {
-      // this.setState({
-      //   points: selectedPoints
-      // })
       formValue.points = selectedPoints;
     }
     _friend (selectedFriend) {
-      // this.setState({
-      //   assignedTo: selectedFriend
-      // })
       formValue.assignedTo = selectedFriend;
     }
 
   render () {
     return (
       <View style={styles.container}>
-
+      
         <View style={styles.header}>
           <TouchableOpacity onPress={Actions.myChallenges} style={styles.backButton}>
             <Image source={require('../assets/backArrow.jpeg')} style={{width:40, height:33}} resizeMode={Image.resizeMode.contain} />
@@ -166,7 +153,6 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 0.1,
     alignItems: 'center',
-    // justifyContent: 'center',
   },
   body: {
     flex: 0.6,
@@ -217,7 +203,6 @@ var styles = StyleSheet.create({
     flex: 0.3,
     flexDirection: "row",
     justifyContent: 'space-around',
-    // FontSize:  25
   },
   selectTitle: {
     fontWeight: 'bold'

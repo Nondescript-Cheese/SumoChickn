@@ -1,6 +1,6 @@
 export const TOGGLING_CHALLENGE = 'TOGGLING_CHALLENGE'
 export const TOGGLED_CHALLENGE = 'TOGGLED_CHALLENGE'
-
+import keys from '../utils/envs'
 
 export const challengeStatusChanging = (id) => {
   return {
@@ -19,7 +19,7 @@ export const challengeStatusChanged = (id) => {
 export const toggleChallengeStatus = (id) => {
   return dispatch => {
   	dispatch(challengeStatusChanging(id));
-  	return fetch('http://159.203.239.224:3000/toggleChallenge/'+id, {
+  	return fetch(keys.url+'toggleChallenge/'+id, {
   	  method: 'PUT',
       headers: {
         'Accept': 'application/json',

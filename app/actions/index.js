@@ -8,6 +8,7 @@ export const GOT_CLOSED_CHALLENGES = 'GOT_CLOSED_CHALLENGES'
 export const GETTING_CLOSED_CHALLENGES_VOTE = 'GETTING_CLOSED_CHALLENGES_VOTE'
 export const GOT_CLOSED_CHALLENGES_VOTE = 'GOT_CLOSED_CHALLENGES_VOTE'
 
+import keys from '../utils/envs'
 import { Actions } from 'react-native-router-flux';
 
 //--------------------------------------
@@ -31,12 +32,11 @@ export const getClosedChallenges = (fromNo, toNo) => {
     dispatch(gettingClosedChallenges(fromNo, toNo))
     console.log('gettingClosedChallenges', fromNo, toNo);
 
-    return fetch('http://159.203.239.224:3000/getClosedChallenges/' +fromNo+ '/' +toNo)
+    return fetch(keys.url+'getClosedChallenges/'+fromNo+'/'+toNo)
     .then((response)=>{
       return response.json()
     })
     .then((closedChallengeList)=>{
-      console.log(closedChallengeList);
       dispatch(gotClosedChallenges(closedChallengeList))
     })
     .catch((error)=>{
@@ -64,12 +64,11 @@ export const getClosedChallengesVote = (fromNo, toNo) => {
     dispatch(gettingClosedChallengesVote(fromNo, toNo))
     console.log('gettingClosedChallenges', fromNo, toNo);
 
-    return fetch('http://159.203.239.224:3000/getClosedChallenges/' +fromNo+ '/' +toNo)
+    return fetch(keys.url+'getClosedChallenges/'+fromNo+'/'+toNo)
     .then((response)=>{
       return response.json()
     })
     .then((closedChallengeList)=>{
-      console.log(closedChallengeList);
       dispatch(gotClosedChallengesVote(closedChallengeList))
     })
     .catch((error)=>{
@@ -99,7 +98,7 @@ export const getChallenges = (userId) => {
   return dispatch => {
     dispatch(gettingChallenges(userId))
 
-    return fetch('http://159.203.239.224:3000/getInitialData/'+ userId)
+    return fetch(keys.url+'getInitialData/'+userId)
     .then((response)=>{
       return response.json()
     })
@@ -138,7 +137,7 @@ export const SendChallenge = (challenge) => {
         completed: false
     }
 
-    return fetch('http://159.203.239.224:3000/submitChallenge', {
+    return fetch(keys.url+'submitChallenge', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -148,7 +147,7 @@ export const SendChallenge = (challenge) => {
     })
     .then((response) => {
       return response.json()
-      //We need to use reponse instead of newChallenge to get the unique challenge I.D which will be created by the database
+      //We need to use response instead of newChallenge to get the unique challenge I.D which will be created by the database
     })
     .then((postedChallenge) => {
       Actions.myChallenges();
@@ -162,7 +161,7 @@ export const SendChallenge = (challenge) => {
 
 export const voteOnChallenge = (challengeId, voteId, fromNo, toNo) => {
   return dispatch => {
-    return fetch('http://159.203.239.224:3000/voteOnProof/'+challengeId+'/'+voteId, {
+    return fetch(keys.url+'voteOnProof/'+challengeId+'/'+voteId, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
