@@ -2,6 +2,8 @@
 
 > Challenge the World.
 
+<img src = 'https://github.com/Nondescript-Cheese/SumoChickn/blob/master/sumochickn%20screenshot.png'>
+
 ## Team
 
   - __Product Owner__: [Hamzah Chaudhary](https://github.com/hamzahc1)
