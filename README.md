@@ -2,6 +2,8 @@
 
 > Challenge the World.
 
+<img src = 'https://github.com/Nondescript-Cheese/SumoChickn/blob/master/sumochickn.gif'>
+<hr>
 <img src = 'https://github.com/Nondescript-Cheese/SumoChickn/blob/master/sumochickn%20screenshot.png'>
 
 ## Team
